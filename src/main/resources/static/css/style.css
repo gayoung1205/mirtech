@@ -2189,41 +2189,42 @@ footer .copyright {
 /* 섹션1: 기술 소개 */
 .biz-intro {
   display: flex;
-  gap: 40px;
+  gap: 48px;
   align-items: flex-start;
-  margin-bottom: 60px;
+  margin-bottom: 48px;
 }
 
 .biz-intro-img {
-  width: 380px;
-  min-width: 380px;
-  height: 280px;
-  overflow: hidden;
-  flex-shrink: 0;
-  background: #f4f7fc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  flex: 0 0 360px;
+  width: 360px;
+  height: 270px;
+  border-radius: 8px;
+  overflow: hidden;       /* ← 이미지 밖으로 삐져나오는 것 차단 */
+  background: #f0f4fb;
+  position: relative;
 }
 
 .biz-intro-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;      /* ← 박스에 꽉 채워 잘라냄 (핵심!) */
+  object-position: center;
   display: block;
 }
 
 .biz-intro-img-placeholder {
+  display: none;
   width: 100%;
   height: 100%;
-  display: flex;
   align-items: center;
   justify-content: center;
-  color: #ccc;
   font-size: 3rem;
+  color: #aaa;
 }
 
-.biz-intro-text { flex: 1; }
+.biz-intro-text {
+  flex: 1;
+}
 
 .biz-intro-en {
   font-size: 0.82rem;
@@ -2289,19 +2290,20 @@ footer .copyright {
 .biz-prev-tech-img {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  padding-top: 75%;
   overflow: hidden;
   background: #f4f7fc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-bottom: 12px;
 }
 
 .biz-prev-tech-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .biz-prev-tech-name {
