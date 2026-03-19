@@ -2533,3 +2533,129 @@ footer .copyright {
   .biz-equip-wrap { flex-direction: column; }
   .biz-equip-spec { width: 100%; min-width: unset; }
 }
+
+/* ══════════════════════════════
+   생산주요제품 (prod)
+══════════════════════════════ */
+
+.prod-section {
+  margin-bottom: 60px;
+}
+
+.prod-section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #1a5fd1;
+  margin: 0 0 8px;
+}
+
+.prod-section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0d2a5e;
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e4e8ef;
+}
+
+/* 납품실적 테이블 */
+.prod-table-wrap {
+  overflow-x: auto;
+}
+
+.prod-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 2px solid #0d2a5e;
+  font-size: 0.88rem;
+}
+
+.prod-table th {
+  padding: 13px 16px;
+  background: #f4f7fc;
+  color: #0d2a5e;
+  font-weight: 700;
+  text-align: center;
+  border-bottom: 1px solid #e4e8ef;
+  white-space: nowrap;
+}
+
+.prod-table td {
+  padding: 13px 16px;
+  color: #444;
+  text-align: center;
+  border-bottom: 1px solid #e4e8ef;
+  line-height: 1.6;
+}
+
+.prod-table-highlight td {
+  background: #eef3fb;
+  font-weight: 600;
+  color: #0d2a5e;
+}
+
+/* 갤러리 카드 */
+.prod-case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.prod-case-card {
+  text-align: center;
+}
+
+.prod-case-img {
+  position: relative;
+  width: 100%;
+  padding-top: 75%;
+  overflow: hidden;
+  background: #f4f7fc;
+  margin-bottom: 12px;
+}
+
+.prod-case-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.prod-case-img-placeholder {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #aaa;
+}
+
+.prod-case-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0d2a5e;
+  margin: 0 0 4px;
+}
+
+.prod-case-desc {
+  font-size: 0.78rem;
+  color: #888;
+  margin: 0;
+}
+
+/* 반응형 */
+@media (max-width: 992px) {
+  .prod-case-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 576px) {
+  .prod-case-grid { grid-template-columns: 1fr; }
+}

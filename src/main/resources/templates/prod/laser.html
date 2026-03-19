@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('생산주요제품 - 레이저클래딩')}"></head>
+
+<body class="sub-page-body">
+
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<div class="page-header"
+     style="background-image: url('/images/biz/laser-bg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;">
+  <div class="container">
+    <h2>생산주요제품</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" style="color:rgba(255,255,255,0.65); text-decoration:none;">HOME</a>
+        </li>
+        <li class="breadcrumb-item">생산주요제품</li>
+        <li class="breadcrumb-item active">레이저클래딩</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sub-container">
+
+    <nav th:replace="~{layout/sidenav :: prod('laser')}"></nav>
+
+    <div class="sub-content">
+
+      <!-- 섹션 1: 납품 실적 개요 -->
+      <div class="prod-section fade-up">
+        <p class="prod-section-label">DELIVERY RECORD</p>
+        <h4 class="prod-section-title">납품 실적 개요</h4>
+        <div class="prod-table-wrap">
+          <table class="prod-table">
+            <thead>
+            <tr>
+              <th>No</th>
+              <th>납품처</th>
+              <th>제품명</th>
+              <th>수량</th>
+              <th>적용 내용</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>1</td><td>POSCO 열연</td><td>Roll 클래딩</td><td>12set</td><td>표면 경화 처리</td></tr>
+            <tr><td>2</td><td>POSCO 냉연</td><td>CGL Roll</td><td>8set</td><td>내식 코팅</td></tr>
+            <tr><td>3</td><td>현대제철</td><td>Segment Roll</td><td>20EA</td><td>레이저 육성 보수</td></tr>
+            <tr><td>4</td><td>한국남동발전</td><td>보일러 튜브</td><td>50EA</td><td>내열 클래딩</td></tr>
+            <tr><td>5</td><td>GS칼텍스</td><td>펌프 임펠러</td><td>6EA</td><td>내마모 코팅</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 섹션 2: 적용 개소별 상세 -->
+      <div class="prod-section fade-up">
+        <p class="prod-section-label">APPLICATION DETAIL</p>
+        <h4 class="prod-section-title">적용 개소별 상세</h4>
+        <div class="prod-table-wrap">
+          <table class="prod-table">
+            <thead>
+            <tr>
+              <th>적용 개소</th>
+              <th>제품명</th>
+              <th>적용 소재</th>
+              <th>적용 전 수명</th>
+              <th>적용 후 수명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>열연공장 사상압연기</td>
+              <td>FM Side Guide Liner</td>
+              <td>WC+Ni Laser Cladding</td>
+              <td>평균 1주</td>
+              <td>평균 3주 (최대 20주)</td>
+            </tr>
+            <tr>
+              <td>열연공장 권취기</td>
+              <td>DC Side Guide Liner (Down Coiler)</td>
+              <td>WC+Ni Laser Cladding</td>
+              <td>2~5일</td>
+              <td>1주~3주</td>
+            </tr>
+            <tr>
+              <td>원료공장</td>
+              <td>CSU Chute Liner</td>
+              <td>WC계 복합재</td>
+              <td>단기</td>
+              <td>장기 (대폭 향상)</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 섹션 3: 개선 전/후 비교 -->
+      <div class="prod-section fade-up">
+        <p class="prod-section-label">COMPARISON</p>
+        <h4 class="prod-section-title">개선 전/후 비교 (수명 비교)</h4>
+        <div class="prod-table-wrap">
+          <table class="prod-table">
+            <thead>
+            <tr>
+              <th>항목</th>
+              <th>기존 방식</th>
+              <th>레이저 클래딩 적용</th>
+              <th>개선 효과</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="prod-table-highlight">
+              <td><strong>FM Side Guide 수명</strong></td>
+              <td>평균 1주</td>
+              <td>평균 3주 / 최대 20주</td>
+              <td><strong>최대 20배 향상</strong></td>
+            </tr>
+            <tr>
+              <td>DC Side Guide 수명</td>
+              <td>2~5일</td>
+              <td>1주~3주</td>
+              <td>약 3~6배 향상</td>
+            </tr>
+            <tr>
+              <td>교체 주기</td>
+              <td>잦은 교체로 설비 가동 중단</td>
+              <td>교체 주기 대폭 증가</td>
+              <td>유지보수 비용 절감</td>
+            </tr>
+            <tr>
+              <td>코일 품질</td>
+              <td>마모로 인한 덧살 발생</td>
+              <td>덧살 발생 방지</td>
+              <td>열연코일 품질 향상</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 섹션 4: 현장 사진 갤러리 -->
+      <div class="prod-section fade-up">
+        <p class="prod-section-label">GALLERY</p>
+        <h4 class="prod-section-title">현장 사진 갤러리</h4>
+        <div class="prod-case-grid">
+
+          <div class="prod-case-card">
+            <div class="prod-case-img">
+              <img src="/images/prod/laser/gallery1.jpg" alt="POSCO 열연공장"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="prod-case-img-placeholder"><i class="bi bi-image"></i></div>
+            </div>
+            <p class="prod-case-name">POSCO 열연공장</p>
+            <p class="prod-case-desc">FM Side Guide Liner 클래딩</p>
+          </div>
+
+          <div class="prod-case-card">
+            <div class="prod-case-img">
+              <img src="/images/prod/laser/gallery2.jpg" alt="현대제철"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="prod-case-img-placeholder"><i class="bi bi-image"></i></div>
+            </div>
+            <p class="prod-case-name">현대제철</p>
+            <p class="prod-case-desc">Segment Roll 육성 보수</p>
+          </div>
+
+          <div class="prod-case-card">
+            <div class="prod-case-img">
+              <img src="/images/prod/laser/gallery3.jpg" alt="POSCO 원료공장"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="prod-case-img-placeholder"><i class="bi bi-image"></i></div>
+            </div>
+            <p class="prod-case-name">POSCO 원료공장</p>
+            <p class="prod-case-desc">CSU Chute Liner 클래딩</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div th:replace="~{layout/footer :: footer}"></div>
+
+<script>
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
