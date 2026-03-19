@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('회사소개 - 회사연혁')}"></head>
+
+<body class="sub-page-body">
+
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<!-- 페이지 헤더 -->
+<div class="page-header"
+     style="background-image: url('/images/about/history-bg.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;">
+  <div class="container">
+    <h2>회사소개</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" style="color:rgba(255,255,255,0.65); text-decoration:none;">HOME</a>
+        </li>
+        <li class="breadcrumb-item active">회사연혁</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<!-- 본문 -->
+<div class="container">
+  <div class="sub-container">
+
+    <nav th:replace="~{layout/sidenav :: about('history')}"></nav>
+
+    <div class="sub-content">
+      <h3 class="sub-content-title">회사연혁</h3>
+
+      <div class="timeline">
+
+        <!-- 2021 -->
+        <div class="timeline-item left">
+          <div class="timeline-card">
+            <div class="timeline-year">2021</div>
+            <ul class="timeline-list">
+              <li><span class="timeline-month">07월</span> 법인회사 설립</li>
+              <li><span class="timeline-month">10월</span> 공장부지 매입</li>
+            </ul>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 2022 -->
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-year">2022</div>
+            <ul class="timeline-list">
+              <li><span class="timeline-month">04월</span> 공장설계 계약</li>
+              <li><span class="timeline-month">10월</span> 공장 착공</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2023 -->
+        <div class="timeline-item left">
+          <div class="timeline-card">
+            <div class="timeline-year">2023</div>
+            <ul class="timeline-list">
+              <li><span class="timeline-month">02월</span> 레이저클래딩 기술 도입</li>
+              <li><span class="timeline-month">10월</span> 본사·공장 준공</li>
+              <li><span class="timeline-month">10월</span> 제조업 등록</li>
+              <li><span class="timeline-month">10월</span> 엔투비 공급사 등록</li>
+              <li><span class="timeline-month">12월</span> 전라남도지사 표창</li>
+            </ul>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 2024 -->
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-year">2024</div>
+            <ul class="timeline-list">
+              <li><span class="timeline-month">01월</span> 포스코 공급사 등록</li>
+              <li><span class="timeline-month">02월</span> 광양사무소 개소</li>
+              <li><span class="timeline-month">10월</span> 레이저클래딩 설비 도입</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2025 -->
+        <div class="timeline-item left">
+          <div class="timeline-card">
+            <div class="timeline-year">2025</div>
+            <ul class="timeline-list">
+              <li><span class="timeline-month">01월</span> 레이저클래딩 부품개발</li>
+              <li><span class="timeline-month">10월</span> 레이저클래딩 특허출원</li>
+              <li><span class="timeline-month">10월</span> 연삭기·가공기 설비 도입</li>
+              <li><span class="timeline-month">10월</span> ISO 인증 획득</li>
+              <li><span class="timeline-month">12월</span> 순천대 우수협력기업 포상</li>
+            </ul>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 2026 -->
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-year">2026</div>
+            <ul class="timeline-list">
+              <li><span class="timeline-month">01월</span> 레이저클래딩 설비 추가 도입</li>
+              <li><span class="timeline-month">02월</span> 레이저클래딩 특허 2건 출원</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div th:replace="~{layout/footer :: footer}"></div>
+
+</body>
+</html>

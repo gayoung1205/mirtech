@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('회사소개 - 비전 및 경영이념')}"></head>
+
+<body class="sub-page-body">
+
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<div class="page-header"
+     style="background-image: url('/images/about/vision-bg.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;">
+  <div class="container">
+    <h2>회사소개</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" style="color:rgba(255,255,255,0.65); text-decoration:none;">HOME</a>
+        </li>
+        <li class="breadcrumb-item active">비전 및 경영이념</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sub-container">
+
+    <nav th:replace="~{layout/sidenav :: about('vision')}"></nav>
+
+    <div class="sub-content">
+      <h3 class="sub-content-title">비전 및 경영이념</h3>
+
+      <div class="vm-wrap fade-up">
+
+        <div class="vm-vision">
+          <span class="vm-tag">VISION</span>
+          <h2 class="vm-vision-text">
+            철강, 에너지, 방산<br>
+            <strong>레이저클래딩 전문기업</strong>으로 <br>성장
+          </h2>
+        </div>
+
+        <div class="vm-divider"></div>
+
+        <div class="vm-mission">
+          <span class="vm-tag">MISSION</span>
+          <p class="vm-mission-text">
+            현장 맞춤형 소재 개발,<br>
+            끊임없는 기술 개발 연구 투자
+          </p>
+        </div>
+
+      </div>
+
+      <div class="strategy-label fade-up">STRATEGY</div>
+      <div class="strategy-grid">
+
+        <div class="strategy-card fade-up" style="--delay: 0.1s">
+          <div class="strategy-icon">
+            <i class="bi bi-graph-up-arrow"></i>
+          </div>
+          <h5 class="strategy-title">시장개척</h5>
+          <ul class="strategy-list">
+            <li>포스코, 광양, 포항</li>
+            <li>현대제철소, 기타</li>
+            <li>자동차, 조선</li>
+            <li>풍력발전, 에너지</li>
+            <li>항공, 우주, 방산</li>
+          </ul>
+        </div>
+
+        <div class="strategy-card fade-up" style="--delay: 0.2s">
+          <div class="strategy-icon">
+            <i class="bi bi-gear-wide-connected"></i>
+          </div>
+          <h5 class="strategy-title">설비 최적화</h5>
+          <ul class="strategy-list">
+            <li>생산 제품별 설비 구축</li>
+            <li>생산 자동화</li>
+          </ul>
+        </div>
+
+        <div class="strategy-card fade-up" style="--delay: 0.3s">
+          <div class="strategy-icon">
+            <i class="bi bi-cpu"></i>
+          </div>
+          <h5 class="strategy-title">공정개선</h5>
+          <ul class="strategy-list">
+            <li>AI 적용 동선 최적화</li>
+            <li>로보트 도입 품질 균일화</li>
+            <li>선입선출 최적화 동선구축</li>
+          </ul>
+        </div>
+
+        <div class="strategy-card fade-up" style="--delay: 0.4s">
+          <div class="strategy-icon">
+            <i class="bi bi-lightbulb"></i>
+          </div>
+          <h5 class="strategy-title">연구개발</h5>
+          <ul class="strategy-list">
+            <li>다양한 소재, 공정개발</li>
+            <li>R&amp;D 연구과제 진행</li>
+            <li>산학연 연계 연구활동</li>
+            <li>개발 제품 특허 진행</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="ideology-wrap fade-up">
+
+        <h4 class="ideology-main-title">PHILOSOPHY</h4>
+        <p class="ideology-intro">
+          (주)미르테크는 레이저클래딩 기술을 통해 산업설비의 내구성을 향상시켜
+          수명연장을 통한 고객의 생산 경쟁력을 높이는<br>
+          고부가가치 표면처리 솔루션 기업을 지향합니다.
+        </p>
+
+        <div class="ideology-grid">
+
+          <div class="ideology-card fade-up" style="--delay: 0.1s">
+            <div class="ideology-num">①</div>
+            <h5 class="ideology-title">기술 혁신</h5>
+            <p class="ideology-title-en">Technology Innovation</p>
+            <p class="ideology-desc">
+              지속적인 연구개발을 통해 고내마모 합금 및
+              레이저클래딩 기술을 발전시킨다.
+            </p>
+          </div>
+
+          <div class="ideology-card fade-up" style="--delay: 0.2s">
+            <div class="ideology-num">②</div>
+            <h5 class="ideology-title">고객 가치 창출</h5>
+            <p class="ideology-title-en">Customer Value</p>
+            <p class="ideology-desc">
+              설비 수명 연장과 유지보수 비용 절감을 통해
+              고객의 생산 경쟁력을 강화한다.
+            </p>
+          </div>
+
+          <div class="ideology-card fade-up" style="--delay: 0.3s">
+            <div class="ideology-num">③</div>
+            <h5 class="ideology-title">품질 경영</h5>
+            <p class="ideology-title-en">Quality Excellence</p>
+            <p class="ideology-desc">
+              국제 수준의 품질 기준과 공정 관리로
+              신뢰받는 기술기업이 된다.
+            </p>
+          </div>
+
+          <div class="ideology-card fade-up" style="--delay: 0.4s">
+            <div class="ideology-num">④</div>
+            <h5 class="ideology-title">지속 성장</h5>
+            <p class="ideology-title-en">Sustainable Growth</p>
+            <p class="ideology-desc">
+              친환경 공정과 기술 혁신을 통해
+              지속 가능한 산업 발전에 기여한다.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div th:replace="~{layout/footer :: footer}"></div>
+
+<script>
+  /* 스크롤 시 fade-up 애니메이션 */
+  const fadeEls = document.querySelectorAll('.fade-up');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

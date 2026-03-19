@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('경영철학 - ISO 인증현황')}"></head>
+
+<body class="sub-page-body">
+
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<div class="page-header"
+     style="background-image: url('/images/cert/cert-bg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;">
+  <div class="container">
+    <h2>경영철학</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" style="color:rgba(255,255,255,0.65); text-decoration:none;">HOME</a>
+        </li>
+        <li class="breadcrumb-item active">ISO 인증현황</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sub-container">
+
+    <nav th:replace="~{layout/sidenav :: cert('iso')}"></nav>
+
+    <div class="sub-content">
+      <h3 class="sub-content-title">ISO 인증현황</h3>
+
+      <!-- 한국어 -->
+      <p class="cert-section-label fade-up">한국어</p>
+      <div class="cert-grid fade-up">
+
+        <div class="cert-item" style="--delay:0.1s"
+             onclick="openLightbox('/images/cert/iso/iso-1.jpg')">
+          <div class="cert-img-wrap">
+            <img src="/images/cert/iso/iso-1.jpg" alt="ISO 9001"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="cert-img-placeholder"><i class="bi bi-file-earmark-text"></i></div>
+            <div class="cert-overlay"><i class="bi bi-zoom-in"></i></div>
+          </div>
+          <div class="cert-item-info">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+              <span class="cert-item-name">ISO 9001</span>
+              <span class="cert-badge valid">유효</span>
+            </div>
+            <p class="cert-item-desc">품질경영시스템</p>
+            <p class="cert-item-date">2025.11</p>
+          </div>
+        </div>
+
+        <div class="cert-item" style="--delay:0.2s"
+             onclick="openLightbox('/images/cert/iso/iso-3.jpg')">
+          <div class="cert-img-wrap">
+            <img src="/images/cert/iso/iso-3.jpg" alt="ISO 14001"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="cert-img-placeholder"><i class="bi bi-file-earmark-text"></i></div>
+            <div class="cert-overlay"><i class="bi bi-zoom-in"></i></div>
+          </div>
+          <div class="cert-item-info">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+              <span class="cert-item-name">ISO 14001</span>
+              <span class="cert-badge valid">유효</span>
+            </div>
+            <p class="cert-item-desc">환경경영시스템</p>
+            <p class="cert-item-date">2025.11</p>
+          </div>
+        </div>
+
+        <div class="cert-item" style="--delay:0.3s"
+             onclick="openLightbox('/images/cert/iso/iso-5.jpg')">
+          <div class="cert-img-wrap">
+            <img src="/images/cert/iso/iso-5.jpg" alt="ISO 45001"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="cert-img-placeholder"><i class="bi bi-file-earmark-text"></i></div>
+            <div class="cert-overlay"><i class="bi bi-zoom-in"></i></div>
+          </div>
+          <div class="cert-item-info">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+              <span class="cert-item-name">ISO 45001</span>
+              <span class="cert-badge valid">유효</span>
+            </div>
+            <p class="cert-item-desc">안전보건경영시스템</p>
+            <p class="cert-item-date">2025.11</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- English -->
+      <p class="cert-section-label fade-up" style="margin-top:40px;">English</p>
+      <div class="cert-grid fade-up">
+
+        <div class="cert-item" style="--delay:0.1s"
+             onclick="openLightbox('/images/cert/iso/iso-2.jpg')">
+          <div class="cert-img-wrap">
+            <img src="/images/cert/iso/iso-2.jpg" alt="ISO 9001 EN"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="cert-img-placeholder"><i class="bi bi-file-earmark-text"></i></div>
+            <div class="cert-overlay"><i class="bi bi-zoom-in"></i></div>
+          </div>
+          <div class="cert-item-info">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+              <span class="cert-item-name">ISO 9001</span>
+              <span class="cert-badge valid">유효</span>
+            </div>
+            <p class="cert-item-desc">Quality Management System</p>
+            <p class="cert-item-date">2025.11</p>
+          </div>
+        </div>
+
+        <div class="cert-item" style="--delay:0.2s"
+             onclick="openLightbox('/images/cert/iso/iso-4.jpg')">
+          <div class="cert-img-wrap">
+            <img src="/images/cert/iso/iso-4.jpg" alt="ISO 14001 EN"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="cert-img-placeholder"><i class="bi bi-file-earmark-text"></i></div>
+            <div class="cert-overlay"><i class="bi bi-zoom-in"></i></div>
+          </div>
+          <div class="cert-item-info">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+              <span class="cert-item-name">ISO 14001</span>
+              <span class="cert-badge valid">유효</span>
+            </div>
+            <p class="cert-item-desc">Environmental Management System</p>
+            <p class="cert-item-date">2025.11</p>
+          </div>
+        </div>
+
+        <div class="cert-item" style="--delay:0.3s"
+             onclick="openLightbox('/images/cert/iso/iso-6.jpg')">
+          <div class="cert-img-wrap">
+            <img src="/images/cert/iso/iso-6.jpg" alt="ISO 45001 EN"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="cert-img-placeholder"><i class="bi bi-file-earmark-text"></i></div>
+            <div class="cert-overlay"><i class="bi bi-zoom-in"></i></div>
+          </div>
+          <div class="cert-item-info">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+              <span class="cert-item-name">ISO 45001</span>
+              <span class="cert-badge valid">유효</span>
+            </div>
+            <p class="cert-item-desc">Occupational Health &amp; Safety</p>
+            <p class="cert-item-date">2025.11</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 라이트박스 -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-close" onclick="closeLightbox()">
+    <i class="bi bi-x-lg"></i>
+  </div>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+</div>
+
+<div th:replace="~{layout/footer :: footer}"></div>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

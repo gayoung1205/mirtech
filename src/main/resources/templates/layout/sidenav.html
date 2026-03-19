@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<!-- 회사소개 사이드 탭 -->
+<nav th:fragment="about(activeTab)" class="side-nav">
+  <div class="side-nav-title">회사소개</div>
+  <ul>
+    <li><a th:href="@{/about/greeting}"
+           th:class="${activeTab == 'greeting'} ? 'active'">회사 인사말</a></li>
+    <li><a th:href="@{/about/history}"
+           th:class="${activeTab == 'history'} ? 'active'">회사연혁</a></li>
+    <li><a th:href="@{/about/vision}"
+           th:class="${activeTab == 'vision'} ? 'active'">비전 및 경영이념</a></li>
+    <li><a th:href="@{/about/ci}"
+           th:class="${activeTab == 'ci'} ? 'active'">회사소개(CI)</a></li>
+    <li><a th:href="@{/about/org}"
+           th:class="${activeTab == 'org'} ? 'active'">조직도</a></li>
+    <li><a th:href="@{/about/facility}"
+           th:class="${activeTab == 'facility'} ? 'active'">주요설비현황</a></li>
+    <li><a th:href="@{/about/award}"
+           th:class="${activeTab == 'award'} ? 'active'">수상경력</a></li>
+    <li><a th:href="@{/about/client}"
+           th:class="${activeTab == 'client'} ? 'active'">주요고객사</a></li>
+    <li><a th:href="@{/about/map}"
+           th:class="${activeTab == 'map'} ? 'active'">찾아오시는 길</a></li>
+  </ul>
+</nav>
+
+<!-- 사업분야 사이드 탭 -->
+<th:block th:fragment="biz(activeTab)">
+  <nav class="side-nav">
+    <div class="side-nav-title">사업분야</div>
+    <ul>
+      <li>
+        <a th:href="@{/biz/laser}"
+           th:class="${activeTab == 'laser'} ? 'active'">
+          레이저 클래딩
+        </a>
+      </li>
+      <li>
+        <a th:href="@{/biz/pta}"
+           th:class="${activeTab == 'pta'} ? 'active'">
+          PTA
+        </a>
+      </li>
+      <li>
+        <a th:href="@{/biz/spray}"
+           th:class="${activeTab == 'spray'} ? 'active'">
+          용사코팅
+        </a>
+      </li>
+      <li>
+        <a th:href="@{/biz/hydraulic}"
+           th:class="${activeTab == 'hydraulic'} ? 'active'">
+          유·공압
+        </a>
+      </li>
+      <li>
+        <a th:href="@{/biz/magnesium}"
+           th:class="${activeTab == 'magnesium'} ? 'active'">
+          마그네슘
+        </a>
+      </li>
+      <li>
+        <a th:href="@{/biz/aluminum}"
+           th:class="${activeTab == 'aluminum'} ? 'active'">
+          알미늄 용융도금
+        </a>
+      </li>
+      <li>
+        <a th:href="@{/biz/plant}"
+           th:class="${activeTab == 'plant'} ? 'active'">
+          제철·화학·플랜트
+        </a>
+      </li>
+      <li>
+        <a th:href="@{/biz/robot}"
+           th:class="${activeTab == 'robot'} ? 'active'">
+          로보트·AI
+        </a>
+      </li>
+      <li>
+        <a th:href="@{/biz/auto}"
+           th:class="${activeTab == 'auto'} ? 'active'">
+          생산자동화
+        </a>
+      </li>
+    </ul>
+  </nav>
+</th:block>
+
+<!-- 생산주요제품 사이드 탭 -->
+<nav th:fragment="prod(activeTab)" class="side-nav">
+  <div class="side-nav-title">생산주요제품</div>
+  <ul>
+    <li><a th:href="@{/prod/laser}"
+           th:class="${activeTab == 'laser'} ? 'active'">레이저클래딩</a></li>
+    <li><a th:href="@{/prod/pta}"
+           th:class="${activeTab == 'pta'} ? 'active'">PTA</a></li>
+    <li><a th:href="@{/prod/spray}"
+           th:class="${activeTab == 'spray'} ? 'active'">용사코팅</a></li>
+    <li><a th:href="@{/prod/hydraulic}"
+           th:class="${activeTab == 'hydraulic'} ? 'active'">유,공압</a></li>
+    <li><a th:href="@{/prod/magnesium}"
+           th:class="${activeTab == 'magnesium'} ? 'active'">마그네슘</a></li>
+    <li><a th:href="@{/prod/aluminum}"
+           th:class="${activeTab == 'aluminum'} ? 'active'">알미늄 용융도금</a></li>
+    <li><a th:href="@{/prod/plant}"
+           th:class="${activeTab == 'plant'} ? 'active'">제철,화학,플랜트</a></li>
+    <li><a th:href="@{/prod/robot}"
+           th:class="${activeTab == 'robot'} ? 'active'">로보트,AI</a></li>
+    <li><a th:href="@{/prod/auto}"
+           th:class="${activeTab == 'auto'} ? 'active'">생산 자동화</a></li>
+  </ul>
+</nav>
+
+<!-- 경영철학 사이드 탭 -->
+<nav th:fragment="cert(activeTab)" class="side-nav">
+  <div class="side-nav-title">경영철학</div>
+  <ul>
+    <li><a th:href="@{/cert/iso}"
+           th:class="${activeTab == 'iso'} ? 'active'">ISO 인증 현황</a></li>
+    <li><a th:href="@{/cert/doc}"
+           th:class="${activeTab == 'doc'} ? 'active'">인증서 및 협약서</a></li>
+  </ul>
+</nav>
+
+<!-- 기술연구소 사이드 탭 -->
+<nav th:fragment="lab(activeTab)" class="side-nav">
+  <div class="side-nav-title">기술연구소</div>
+  <ul>
+    <li><a th:href="@{/lab/intro}"
+           th:class="${activeTab == 'intro'} ? 'active'">연구소 현황</a></li>
+    <li><a th:href="@{/lab/equipment}"
+           th:class="${activeTab == 'equipment'} ? 'active'">연구장비현황</a></li>
+    <li><a th:href="@{/lab/result}"
+           th:class="${activeTab == 'result'} ? 'active'">연구실적현황</a></li>
+    <li><a th:href="@{/lab/patent}"
+           th:class="${activeTab == 'patent'} ? 'active'">특허현황</a></li>
+  </ul>
+</nav>
+
+<!-- 고객센터 사이드 탭 -->
+<nav th:fragment="cs(activeTab)" class="side-nav">
+  <div class="side-nav-title">고객센터</div>
+  <ul>
+    <li><a th:href="@{/cs/reference}"
+           th:class="${activeTab == 'reference'} ? 'active'">기술자료실</a></li>
+    <li><a th:href="@{/cs/pr}"
+           th:class="${activeTab == 'pr'} ? 'active'">홍보자료</a></li>
+    <li><a th:href="@{/cs/notice}"
+           th:class="${activeTab == 'notice'} ? 'active'">공지사항</a></li>
+    <li><a th:href="@{/cs/inquiry}"
+           th:class="${activeTab == 'inquiry'} ? 'active'">견적문의</a></li>
+    <li><a th:href="@{/cs/gallery}"
+           th:class="${activeTab == 'gallery'} ? 'active'">갤러리</a></li>
+  </ul>
+</nav>
+
+</body>
+</html>

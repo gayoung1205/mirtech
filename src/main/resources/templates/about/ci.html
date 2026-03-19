@@ -9,7 +9,7 @@
 
 <!-- 페이지 헤더 -->
 <div class="page-header"
-     style="background-image: url('/images/about/ci-bg.jpg');
+     style="background-image: url('/images/about/ci-bg.png');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;">
@@ -37,61 +37,57 @@
 
       <div class="ci-wrap">
 
-        <!-- 상단: 이미지 + 회사명 -->
-        <div class="ci-row ci-top">
-          <div class="ci-image-box">
-            <img src="/images/about/greeting-bg.png"
-                 alt="미르테크 전경"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="ci-image-placeholder">
-              <i class="bi bi-building"></i>
-              <span>회사 이미지</span>
-            </div>
-          </div>
-          <div class="ci-name-box">
-            <p class="ci-label">COMPANY</p>
-            <h2 class="ci-company-name">(주)미르테크</h2>
-            <p class="ci-company-eng">MIRTECH CO., Ltd.</p>
-            <div class="ci-established">
-              <span class="ci-year">2014</span>
-              <span class="ci-year-desc">설립 · 법인전환 2021</span>
-            </div>
+        <!-- 이미지 -->
+        <div class="ci-image-box">
+          <img src="/images/about/ci-company.png"
+               alt="미르테크 전경"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="ci-image-placeholder">
+            <i class="bi bi-building"></i>
+            <span>회사 이미지</span>
           </div>
         </div>
 
-        <!-- 중단: 4개 정보 -->
-        <div class="ci-row ci-middle">
-          <div class="ci-cell">
-            <p class="ci-label">대표자</p>
-            <p class="ci-value">김 학 윤</p>
-          </div>
-          <div class="ci-cell">
-            <p class="ci-label">업태</p>
-            <p class="ci-value">제조업<br>도소매업</p>
-          </div>
-          <div class="ci-cell ci-cell-wide">
-            <p class="ci-label">종목</p>
-            <p class="ci-value">
-              레이저클래딩 · 금속탱크 및 저장용기 제조업 · 일반·특수기계 제조업
-            </p>
-          </div>
-        </div>
+        <!-- 정보 -->
+        <div class="ci-info">
+          <h2 class="ci-company-name">(주)미르테크</h2>
+          <p class="ci-company-eng">MIRTECH CO., Ltd.</p>
 
-        <!-- 하단: 주소 -->
-        <div class="ci-row ci-bottom">
-          <div class="ci-cell">
-            <p class="ci-label ci-label-blue">본사 · 공장</p>
-            <p class="ci-value">
-              전남 순천시 해룡면<br>
-              해룡산단1로 82-20
-            </p>
-          </div>
-          <div class="ci-cell">
-            <p class="ci-label ci-label-blue">광양사무소</p>
-            <p class="ci-value">
-              전남 광양시 익신산단3길 40<br>
-              지식산업센터 403호
-            </p>
+          <div class="ci-table">
+            <div class="ci-row">
+              <span class="ci-key">회사명</span>
+              <span class="ci-val">(주)미르테크 · MIRTECH CO., Ltd.</span>
+            </div>
+            <div class="ci-row">
+              <span class="ci-key">대표자</span>
+              <span class="ci-val">김 학 윤</span>
+            </div>
+            <div class="ci-row">
+              <span class="ci-key">설립일</span>
+              <span class="ci-val">
+                                2014년 05월 07일 미르테크 설립<br>
+                                2021년 07월 01일 신규법인 설립
+                            </span>
+            </div>
+            <div class="ci-row">
+              <span class="ci-key">업태</span>
+              <span class="ci-val">제조업, 도소매업</span>
+            </div>
+            <div class="ci-row">
+              <span class="ci-key">종목</span>
+              <span class="ci-val">
+                                레이저클래딩 · 금속탱크 및 저장용기 제조업<br>
+                                일반·특수기계 제조업
+                            </span>
+            </div>
+            <div class="ci-row">
+              <span class="ci-key">본사 · 공장</span>
+              <span class="ci-val">전남 순천시 해룡면 해룡산단1로 82-20</span>
+            </div>
+            <div class="ci-row">
+              <span class="ci-key">광양사무소</span>
+              <span class="ci-val">전남 광양시 익신산단3길 40 지식산업센터 403호</span>
+            </div>
           </div>
         </div>
 

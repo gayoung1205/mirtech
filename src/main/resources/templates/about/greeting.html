@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('회사소개 - 인사말')}"></head>
+
+<body class="sub-page-body">
+
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<!-- 페이지 헤더 -->
+<div class="page-header"
+     style="background-image: url('/images/about/greeting-bg.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;">
+  <div class="container">
+    <h2>회사소개</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" style="color:rgba(255,255,255,0.65); text-decoration:none;">HOME</a>
+        </li>
+        <li class="breadcrumb-item active">인사말</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<!-- 본문 -->
+<div class="container">
+  <div class="sub-container">
+
+    <!-- 사이드 탭 -->
+    <nav th:replace="~{layout/sidenav :: about('greeting')}"></nav>
+
+    <!-- 콘텐츠 -->
+    <div class="sub-content">
+      <h3 class="sub-content-title">회사 인사말</h3>
+
+      <div class="row align-items-start">
+
+        <!-- 좌측: 대표이사 사진 -->
+        <div class="col-md-4 mb-4">
+          <div class="greeting-photo">
+            <img src="/images/about/ceo.jpg" alt="대표이사 사진"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="greeting-photo-placeholder">
+              <i class="bi bi-person-fill"></i>
+              <span>대표이사 사진</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 우측: 인사말 텍스트 -->
+        <div class="col-md-8 ps-md-5">
+          <h4 class="greeting-headline">
+            미래를 위한 가치창조,<br>
+            <strong>신기술이 가득한 (주)미르테크입니다.</strong>
+          </h4>
+
+          <div class="greeting-body">
+            <p>
+              ㈜미르테크는 제철 설비 및 다양한 산업 설비, 기계의 외자설비 국산화 개발을 전문으로
+              <br>성장하여 왔으며 2021년도 법인 전환 시점부터 최첨단 표면처리 기술인
+              레이저클래딩<br>(Laser Cladding) 기술을 기반으로 산업설비의 수명 연장과 생산성 향상에
+              기여하는 <br>표면공학 전문기업으로 성장 중입니다.
+            </p>
+            <p>
+              현재 철강, 에너지, 발전, 항공우주, 방산, 조선, 시멘트산업 등 다양한 산업에서
+              설비의 마모로 인한 설비 손상, 부품의 파손으로 생산성과 유지비용에 큰 영향을
+              미치고 있습니다.
+            </p>
+            <p>
+              ㈜미르테크는 이러한 문제를 해결하기 위해 고경도 내마모 합금 소재를 이용하여
+              정밀 <br>레이저클래딩 기술을 융합한 고부가가치 솔루션을 제공하고 있습니다.
+            </p>
+            <p>
+              당사는 설비 부품의 단순한 보수 기술을 넘어 설비의 수명 연장(Life Extension),
+              유지보수 <br>비용 절감(Cost Saving), 생산 안정성 확보(Reliability)라는 세 가지
+              핵심 가치를 고객에게 <br>제공하는 것을 목표로 하고 있습니다.
+            </p>
+            <p>
+              ㈜미르테크는 앞으로도 끊임없는 기술 연구개발과 품질 혁신을 통해 세계 수준의
+              레이저클래딩 기술기업으로 성장하고, 고객과 함께 지속 가능한 산업 발전을
+              만들어 가겠습니다.
+            </p>
+            <p>고객 여러분의 신뢰와 성원에 깊이 감사드립니다.</p>
+          </div>
+
+          <div class="greeting-sign">
+            <span>미르테크 대표이사</span>
+            <strong>김 학 윤</strong>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div th:replace="~{layout/footer :: footer}"></div>
+
+</body>
+</html>

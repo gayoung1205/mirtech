@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('회사소개 - 조직도')}"></head>
+
+<body class="sub-page-body">
+
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<div class="page-header"
+     style="background-image: url('/images/about/org-bg.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;">
+  <div class="container">
+    <h2>회사소개</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" style="color:rgba(255,255,255,0.65); text-decoration:none;">HOME</a>
+        </li>
+        <li class="breadcrumb-item active">조직도</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sub-container">
+
+    <nav th:replace="~{layout/sidenav :: about('org')}"></nav>
+
+    <div class="sub-content">
+      <h3 class="sub-content-title">조직도</h3>
+
+      <div class="org-wrap">
+        <svg class="org-svg" viewBox="0 0 1000 380" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="card-shadow" x="-10%" y="-10%" width="120%" height="130%">
+              <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0d2a5e" flood-opacity="0.12"/>
+            </filter>
+          </defs>
+
+          <!-- ===== 연결선 ===== -->
+
+          <!-- 대표이사 → 수직 -->
+          <line x1="500" y1="72" x2="500" y2="108" stroke="#c5d5ee" stroke-width="1.5"/>
+          <!-- 2단계 수평 -->
+          <line x1="220" y1="108" x2="780" y2="108" stroke="#c5d5ee" stroke-width="1.5"/>
+          <!-- 기술연구소 수직 -->
+          <line x1="220" y1="108" x2="220" y2="118" stroke="#c5d5ee" stroke-width="1.5"/>
+          <!-- 경영지원실 수직 -->
+          <line x1="780" y1="108" x2="780" y2="118" stroke="#c5d5ee" stroke-width="1.5"/>
+          <!-- 중앙 → 3부서 수직 -->
+          <line x1="500" y1="108" x2="500" y2="185" stroke="#c5d5ee" stroke-width="1.5"/>
+          <!-- 3부서 수평 -->
+          <line x1="165" y1="185" x2="835" y2="185" stroke="#c5d5ee" stroke-width="1.5"/>
+          <!-- 영업부 수직 -->
+          <line x1="165" y1="185" x2="165" y2="195" stroke="#c5d5ee" stroke-width="1.5"/>
+          <!-- 품질관리부 수직 -->
+          <line x1="835" y1="185" x2="835" y2="195" stroke="#c5d5ee" stroke-width="1.5"/>
+
+          <!-- 영업부 → 팀 수직 -->
+          <line x1="165" y1="245" x2="165" y2="270" stroke="#c5d5ee" stroke-width="1.5"/>
+          <!-- 영업팀 수평 -->
+          <line x1="105" y1="270" x2="225" y2="270" stroke="#c5d5ee" stroke-width="1.5"/>
+          <line x1="105" y1="270" x2="105" y2="290" stroke="#c5d5ee" stroke-width="1.5"/>
+          <line x1="225" y1="270" x2="225" y2="290" stroke="#c5d5ee" stroke-width="1.5"/>
+
+          <!-- 생산부 → 팀 수직 -->
+          <line x1="500" y1="245" x2="500" y2="270" stroke="#c5d5ee" stroke-width="1.5"/>
+          <!-- 생산팀 수평 -->
+          <line x1="365" y1="270" x2="635" y2="270" stroke="#c5d5ee" stroke-width="1.5"/>
+          <line x1="365" y1="270" x2="365" y2="290" stroke="#c5d5ee" stroke-width="1.5"/>
+          <line x1="500" y1="270" x2="500" y2="290" stroke="#c5d5ee" stroke-width="1.5"/>
+          <line x1="635" y1="270" x2="635" y2="290" stroke="#c5d5ee" stroke-width="1.5"/>
+
+          <!-- 품질관리부 → 팀 수직 -->
+          <line x1="835" y1="245" x2="835" y2="270" stroke="#c5d5ee" stroke-width="1.5"/>
+          <!-- 품질팀 수평 -->
+          <line x1="760" y1="270" x2="905" y2="270" stroke="#c5d5ee" stroke-width="1.5"/>
+          <line x1="760" y1="270" x2="760" y2="290" stroke="#c5d5ee" stroke-width="1.5"/>
+          <line x1="905" y1="270" x2="905" y2="290" stroke="#c5d5ee" stroke-width="1.5"/>
+
+          <!-- ===== 박스 ===== -->
+
+          <!-- 대표이사 -->
+          <rect x="400" y="22" width="200" height="50" rx="6"
+                fill="#0d2a5e" filter="url(#card-shadow)"/>
+          <text x="500" y="53" text-anchor="middle" fill="white"
+                font-size="15" font-weight="600"
+                font-family="Noto Sans KR, sans-serif">대표이사</text>
+
+          <!-- 기술연구소 -->
+          <rect x="130" y="118" width="180" height="44" rx="5"
+                fill="white" stroke="#b8c8e8" stroke-width="1"
+                filter="url(#card-shadow)"/>
+          <text x="220" y="145" text-anchor="middle" fill="#0d2a5e"
+                font-size="13" font-family="Noto Sans KR, sans-serif">기술연구소</text>
+
+          <!-- 경영지원실 -->
+          <rect x="690" y="118" width="180" height="44" rx="5"
+                fill="white" stroke="#b8c8e8" stroke-width="1"
+                filter="url(#card-shadow)"/>
+          <text x="780" y="145" text-anchor="middle" fill="#0d2a5e"
+                font-size="13" font-family="Noto Sans KR, sans-serif">경영지원실</text>
+
+          <!-- 영업부 -->
+          <rect x="90" y="195" width="150" height="50" rx="5"
+                fill="#1a5fd1" filter="url(#card-shadow)"/>
+          <text x="165" y="226" text-anchor="middle" fill="white"
+                font-size="14" font-weight="600"
+                font-family="Noto Sans KR, sans-serif">영업부</text>
+
+          <!-- 생산부 -->
+          <rect x="425" y="195" width="150" height="50" rx="5"
+                fill="#1a5fd1" filter="url(#card-shadow)"/>
+          <text x="500" y="226" text-anchor="middle" fill="white"
+                font-size="14" font-weight="600"
+                font-family="Noto Sans KR, sans-serif">생산부</text>
+
+          <!-- 품질관리부 -->
+          <rect x="760" y="195" width="150" height="50" rx="5"
+                fill="#1a5fd1" filter="url(#card-shadow)"/>
+          <text x="835" y="226" text-anchor="middle" fill="white"
+                font-size="14" font-weight="600"
+                font-family="Noto Sans KR, sans-serif">품질관리부</text>
+
+          <!-- 영업팀 -->
+          <rect x="55" y="290" width="100" height="40" rx="4"
+                fill="#eef3fb" stroke="#c5d5ee" stroke-width="1"/>
+          <text x="105" y="315" text-anchor="middle" fill="#1a3a6e"
+                font-size="12" font-family="Noto Sans KR, sans-serif">영업팀</text>
+
+          <!-- 기술영업팀 -->
+          <rect x="170" y="290" width="110" height="40" rx="4"
+                fill="#eef3fb" stroke="#c5d5ee" stroke-width="1"/>
+          <text x="225" y="315" text-anchor="middle" fill="#1a3a6e"
+                font-size="12" font-family="Noto Sans KR, sans-serif">기술영업팀</text>
+
+          <!-- 가공팀 -->
+          <rect x="315" y="290" width="100" height="40" rx="4"
+                fill="#eef3fb" stroke="#c5d5ee" stroke-width="1"/>
+          <text x="365" y="315" text-anchor="middle" fill="#1a3a6e"
+                font-size="12" font-family="Noto Sans KR, sans-serif">가공팀</text>
+
+          <!-- 레이저클래딩팀 -->
+          <rect x="435" y="290" width="130" height="40" rx="4"
+                fill="#eef3fb" stroke="#c5d5ee" stroke-width="1"/>
+          <text x="500" y="315" text-anchor="middle" fill="#1a3a6e"
+                font-size="12" font-family="Noto Sans KR, sans-serif">레이저클래딩팀</text>
+
+          <!-- 제작팀 -->
+          <rect x="585" y="290" width="100" height="40" rx="4"
+                fill="#eef3fb" stroke="#c5d5ee" stroke-width="1"/>
+          <text x="635" y="315" text-anchor="middle" fill="#1a3a6e"
+                font-size="12" font-family="Noto Sans KR, sans-serif">제작팀</text>
+
+          <!-- 품질팀 -->
+          <rect x="710" y="290" width="100" height="40" rx="4"
+                fill="#eef3fb" stroke="#c5d5ee" stroke-width="1"/>
+          <text x="760" y="315" text-anchor="middle" fill="#1a3a6e"
+                font-size="12" font-family="Noto Sans KR, sans-serif">품질팀</text>
+
+          <!-- 안전보건팀 -->
+          <rect x="850" y="290" width="110" height="40" rx="4"
+                fill="#eef3fb" stroke="#c5d5ee" stroke-width="1"/>
+          <text x="905" y="315" text-anchor="middle" fill="#1a3a6e"
+                font-size="12" font-family="Noto Sans KR, sans-serif">안전보건팀</text>
+
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div th:replace="~{layout/footer :: footer}"></div>
+
+</body>
+</html>

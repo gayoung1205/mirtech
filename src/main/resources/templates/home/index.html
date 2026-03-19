@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('홈')}"></head>
+
+<body>
+
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<section class="hero-section snap-section">
+
+  <!-- 배경 영상 -->
+  <video class="hero-video"
+         autoplay muted loop playsinline
+         poster="/images/hero-poster.png">
+    <source src="/videos/hero-bg.mp4" type="video/mp4">
+  </video>
+
+  <!-- 어두운 오버레이 -->
+  <div class="hero-overlay"></div>
+
+  <!-- 텍스트 콘텐츠 -->
+  <div class="hero-content">
+    <div class="container">
+      <div class="col-lg-7">
+        <p class="badge-label">산업 현장의 핵심 파트너</p>
+        <h1>레이저 클래딩부터<br>생산자동화까지</h1>
+        <p>첨단 표면처리 기술로 설비 수명을 극대화합니다.<br>
+          POSCO, 현대제철 등 국내외 주요 산업현장에 납품 중입니다.</p>
+        <a th:href="@{/cs}" class="btn-primary-mirtech me-3">견적문의 →</a>
+        <a th:href="@{/about}" class="btn-outline-mirtech">회사소개</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="section-wrap snap-section">
+  <div class="h-100 d-flex flex-column justify-content-center px-0">
+    <div style="padding: 0 60px;">
+      <p class="section-label">BUSINESS</p>
+      <h2 class="section-title">9대 핵심 사업분야</h2>
+      <p class="section-subtitle">클릭 시 각 사업분야 상세페이지로 이동합니다</p>
+    </div>
+
+    <!-- 슬라이드 래퍼 -->
+    <div class="biz-slider-wrap">
+      <div class="biz-slider-track">
+
+        <!-- 원본 9개 -->
+        <a th:href="@{/biz/laser}" class="biz-slide-item">
+          <div class="biz-slide-img">
+            <img src="/images/biz/laser.png" alt="레이저클래딩"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="biz-slide-placeholder"></div>
+          </div>
+          <div class="biz-slide-label">레이저 클래딩</div>
+        </a>
+
+        <a th:href="@{/biz/pta}" class="biz-slide-item">
+          <div class="biz-slide-img">
+            <img src="/images/biz/pta.jpg" alt="PTA"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="biz-slide-placeholder"></div>
+          </div>
+          <div class="biz-slide-label">PTA</div>
+        </a>
+
+        <a th:href="@{/biz/spray}" class="biz-slide-item">
+          <div class="biz-slide-img">
+            <img src="/images/biz/spray.jpg" alt="용사코팅"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="biz-slide-placeholder"></div>
+          </div>
+          <div class="biz-slide-label">용사코팅</div>
+        </a>
+
+        <a th:href="@{/biz/hydraulic}" class="biz-slide-item">
+          <div class="biz-slide-img">
+            <img src="/images/biz/hydraulic.jpg" alt="유공압"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="biz-slide-placeholder"></div>
+          </div>
+          <div class="biz-slide-label">유·공압</div>
+        </a>
+
+        <a th:href="@{/biz/magnesium}" class="biz-slide-item">
+          <div class="biz-slide-img">
+            <img src="/images/biz/magnesium.jpg" alt="마그네슘"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="biz-slide-placeholder"></div>
+          </div>
+          <div class="biz-slide-label">마그네슘</div>
+        </a>
+
+        <a th:href="@{/biz/aluminum}" class="biz-slide-item">
+          <div class="biz-slide-img">
+            <img src="/images/biz/aluminum.jpg" alt="알미늄용융도금"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="biz-slide-placeholder"></div>
+          </div>
+          <div class="biz-slide-label">알미늄 용융도금</div>
+        </a>
+
+        <a th:href="@{/biz/plant}" class="biz-slide-item">
+          <div class="biz-slide-img">
+            <img src="/images/biz/plant.jpg" alt="제철화학플랜트"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="biz-slide-placeholder"></div>
+          </div>
+          <div class="biz-slide-label">제철·화학·플랜트</div>
+        </a>
+
+        <a th:href="@{/biz/robot}" class="biz-slide-item">
+          <div class="biz-slide-img">
+            <img src="/images/biz/robot.jpg" alt="로보트AI"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="biz-slide-placeholder"></div>
+          </div>
+          <div class="biz-slide-label">로보트·AI</div>
+        </a>
+
+        <a th:href="@{/biz/auto}" class="biz-slide-item">
+          <div class="biz-slide-img">
+            <img src="/images/biz/auto.jpg" alt="생산자동화"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="biz-slide-placeholder"></div>
+          </div>
+          <div class="biz-slide-label">생산 자동화</div>
+        </a>
+
+        <!-- 무한 루프용 복제 9개 -->
+        <a th:href="@{/biz/laser}" class="biz-slide-item">
+          <div class="biz-slide-img">
+            <img src="/images/biz/laser.png" alt="레이저클래딩"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="biz-slide-placeholder"></div>
+          </div>
+          <div class="biz-slide-label">레이저 클래딩</div>
+        </a>
+
+        <a th:href="@{/biz/pta}" class="biz-slide-item">
+          <div class="biz-slide-img">
+            <img src="/images/biz/pta.jpg" alt="PTA"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="biz-slide-placeholder"></div>
+          </div>
+          <div class="biz-slide-label">PTA</div>
+        </a>
+
+        <a th:href="@{/biz/spray}" class="biz-slide-item">
+          <div class="biz-slide-img">
+            <img src="/images/biz/spray.jpg" alt="용사코팅"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="biz-slide-placeholder"></div>
+          </div>
+          <div class="biz-slide-label">용사코팅</div>
+        </a>
+
+        <a th:href="@{/biz/hydraulic}" class="biz-slide-item">
+          <div class="biz-slide-img">
+            <img src="/images/biz/hydraulic.jpg" alt="유공압"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="biz-slide-placeholder"></div>
+          </div>
+          <div class="biz-slide-label">유·공압</div>
+        </a>
+
+        <a th:href="@{/biz/magnesium}" class="biz-slide-item">
+          <div class="biz-slide-img">
+            <img src="/images/biz/magnesium.jpg" alt="마그네슘"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="biz-slide-placeholder"></div>
+          </div>
+          <div class="biz-slide-label">마그네슘</div>
+        </a>
+
+        <a th:href="@{/biz/aluminum}" class="biz-slide-item">
+          <div class="biz-slide-img">
+            <img src="/images/biz/aluminum.jpg" alt="알미늄용융도금"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="biz-slide-placeholder"></div>
+          </div>
+          <div class="biz-slide-label">알미늄 용융도금</div>
+        </a>
+
+        <a th:href="@{/biz/plant}" class="biz-slide-item">
+          <div class="biz-slide-img">
+            <img src="/images/biz/plant.jpg" alt="제철화학플랜트"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="biz-slide-placeholder"></div>
+          </div>
+          <div class="biz-slide-label">제철·화학·플랜트</div>
+        </a>
+
+        <a th:href="@{/biz/robot}" class="biz-slide-item">
+          <div class="biz-slide-img">
+            <img src="/images/biz/robot.jpg" alt="로보트AI"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="biz-slide-placeholder"></div>
+          </div>
+          <div class="biz-slide-label">로보트·AI</div>
+        </a>
+
+        <a th:href="@{/biz/auto}" class="biz-slide-item">
+          <div class="biz-slide-img">
+            <img src="/images/biz/auto.jpg" alt="생산자동화"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="biz-slide-placeholder"></div>
+          </div>
+          <div class="biz-slide-label">생산 자동화</div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats-section snap-section d-flex align-items-center">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-6 col-md-3 stat-item">
+        <div class="stat-number" data-target="500">0</div>
+        <div class="stat-label">납품 건수</div>
+      </div>
+      <div class="col-6 col-md-3 stat-item">
+        <div class="stat-number" data-target="30">0</div>
+        <div class="stat-label">보유 특허</div>
+      </div>
+      <div class="col-6 col-md-3 stat-item">
+        <div class="stat-number" data-target="9">0</div>
+        <div class="stat-label">사업 분야</div>
+      </div>
+      <div class="col-6 col-md-3 stat-item">
+        <div class="stat-number" data-target="20">0</div>
+        <div class="stat-label">주요 고객사</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section snap-section">
+  <div class="cta-overlay"></div>
+  <div class="cta-content">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="cta-glass-card">
+            <h2>견적문의</h2>
+            <p>궁금한 사항이나 견적 요청을 남겨주세요.</p>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">이름 *</label>
+                <input type="text" class="form-control" placeholder="이름을 입력하세요">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">이메일 *</label>
+                <input type="email" class="form-control" placeholder="이메일을 입력하세요">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">연락처 *</label>
+                <input type="tel" class="form-control" placeholder="연락처를 입력하세요">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">문의 사업분야 *</label>
+                <select class="form-select">
+                  <option value="">선택하세요</option>
+                  <option>레이저 클래딩</option>
+                  <option>PTA</option>
+                  <option>용사코팅</option>
+                  <option>유·공압</option>
+                  <option>마그네슘</option>
+                  <option>알미늄 용융도금</option>
+                  <option>제철·화학·플랜트</option>
+                  <option>로보트·AI</option>
+                  <option>생산자동화</option>
+                  <option>기타</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label">문의 내용 *</label>
+                <textarea class="form-control" placeholder="문의 내용을 입력하세요"></textarea>
+              </div>
+              <div class="col-12">
+                <button class="btn-cta-submit">문의하기</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div th:replace="~{layout/footer :: footer}"></div>
+
+<script>
+  document.documentElement.style.cssText = `
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100%;
+`;
+  document.body.style.cssText = `
+    height: 100%;
+`;
+
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  let current = 0;
+  let timer;
+
+  const heroTexts = [
+    {
+      title: '레이저 클래딩부터<br>생산자동화까지',
+      desc: '첨단 표면처리 기술로 설비 수명을 극대화합니다.<br>POSCO, 현대제철 등 국내외 주요 산업현장에 납품 중입니다.'
+    },
+    {
+      title: '신뢰와 기술력으로<br>함께하는 미르테크',
+      desc: '2014년 설립 이래 끊임없는 연구개발과 혁신으로<br>산업 현장의 문제를 해결하고 있습니다.'
+    }
+  ];
+
+  function goSlide(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    document.getElementById('hero-title').innerHTML = heroTexts[current].title;
+    document.getElementById('hero-desc').innerHTML = heroTexts[current].desc;
+    clearInterval(timer);
+    timer = setInterval(nextSlide, 5000);
+  }
+
+  function nextSlide() {
+    goSlide((current + 1) % slides.length);
+  }
+
+  timer = setInterval(nextSlide, 5000);
+
+  /* --- 카운트업 애니메이션 --- */
+  function countUp(el) {
+    const target = parseInt(el.dataset.target);
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+
+    const interval = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        el.textContent = target + '+';
+        clearInterval(interval);
+      } else {
+        el.textContent = Math.floor(current) + '+';
+      }
+    }, 16);
+  }
+
+  const statsSection = document.querySelector('.stats-section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        document.querySelectorAll('.stat-number').forEach(countUp);
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(statsSection);
+
+  /* --- 스크롤 시 navbar 배경 전환 --- */
+  window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  /* 슬라이더 이미지 강제 프리로드 */
+  const sliderImgs = document.querySelectorAll('.biz-slider-track img');
+  sliderImgs.forEach(img => {
+    const src = img.getAttribute('src');
+    if (src) {
+      const preload = new Image();
+      preload.src = src;
+      preload.onload = () => {
+        img.src = src;
+      };
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('사업분야 - 레이저 클래딩')}"></head>
+
+<body class="sub-page-body">
+
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<div class="page-header"
+     style="background-image: url('/images/biz/laser-bg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;">
+  <div class="container">
+    <h2>사업분야</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" style="color:rgba(255,255,255,0.65); text-decoration:none;">HOME</a>
+        </li>
+        <li class="breadcrumb-item">사업분야</li>
+        <li class="breadcrumb-item active">레이저 클래딩</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sub-container">
+
+    <nav th:replace="~{layout/sidenav :: biz('laser')}"></nav>
+
+    <div class="sub-content">
+
+      <!-- =====================
+           섹션 1: 기술 소개
+      ===================== -->
+      <div class="biz-intro fade-up">
+        <div class="biz-intro-img">
+          <img src="/images/biz/laser.png" alt="레이저 클래딩"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="biz-intro-img-placeholder">
+            <i class="bi bi-image"></i>
+          </div>
+        </div>
+        <div class="biz-intro-text">
+          <p class="biz-intro-en">Laser Cladding Technology</p>
+          <h3 class="biz-intro-title">레이저 클래딩</h3>
+          <p class="biz-intro-desc">
+            레이저 클래딩(Laser Cladding) 기술은 DED(Directed Energy Deposition)
+            공정의 대표 기술로서 고출력 레이저 빔을 금속 분말 또는 와이어를
+            모재(기판) 표면에 국부적으로 용융시켜 내마모성, 내식성, 내열성 등의
+            기능성 합금층을 형성하여 고가의 설비, 부품의 품질 향상 및 수명을
+            연장하여 원가를 줄일 수 있는 첨단 정밀 표면 개질 기술입니다.
+          </p>
+          <div class="biz-badges">
+            <span class="biz-badge">내마모성</span>
+            <span class="biz-badge">내식성</span>
+            <span class="biz-badge">내열성</span>
+            <span class="biz-badge">수명연장</span>
+            <span class="biz-badge">원가절감</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- =====================
+           섹션 2: 기술 발전 배경
+      ===================== -->
+      <div class="biz-section fade-up">
+        <p class="biz-section-label">BACKGROUND</p>
+        <h4 class="biz-section-title">기술 발전 배경</h4>
+
+        <p class="biz-bg-desc">
+          산업현장의 기계 부품 및 설비 보호 및 품질, 수명연장을 위하여 용사코팅, 하드페이싱,
+          서브머지드 아크용접, PTA 등의 표면처리 기술 공정을 사용하고 있으며 고부하 환경
+          사용 시 열 변형, 균열, 표면조직의 변화, 기계적 접착부의 박리, 코팅층의 품질
+          불균일성 등 문제가 지속적으로 발생하여 이를 보완하는 지속적인 소재 개발이
+          이루어지고 있으며 최근에 Laser Cladding 기술이 개발되어 이들 공정의 문제점을
+          해결하여 지속적인 기술개발 및 표면처리 기술로 각광을 받고 있습니다.
+        </p>
+
+        <!-- 기존 기술 3개 카드 -->
+        <div class="biz-prev-tech-grid">
+          <div class="biz-prev-tech-card">
+            <div class="biz-prev-tech-img">
+              <img src="/images/biz/laser/prev-spray.jpg" alt="용사코팅"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="biz-gallery-placeholder"><i class="bi bi-image"></i></div>
+            </div>
+            <p class="biz-prev-tech-name">용사코팅</p>
+            <p class="biz-prev-tech-en">Thermal Spray Coating</p>
+          </div>
+          <div class="biz-prev-tech-card">
+            <div class="biz-prev-tech-img">
+              <img src="/images/biz/laser/prev-pta.jpg" alt="PTA"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="biz-gallery-placeholder"><i class="bi bi-image"></i></div>
+            </div>
+            <p class="biz-prev-tech-name">PTA</p>
+            <p class="biz-prev-tech-en">Plasma Transferred Arc Welding</p>
+          </div>
+          <div class="biz-prev-tech-card">
+            <div class="biz-prev-tech-img">
+              <img src="/images/biz/laser/prev-swa.jpg" alt="서브머지드아크용접"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="biz-gallery-placeholder"><i class="bi bi-image"></i></div>
+            </div>
+            <p class="biz-prev-tech-name">서브머지드 아크용접</p>
+            <p class="biz-prev-tech-en">Submerged Arc Welding</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- =====================
+           섹션 3: 타 기술 대비 비교표
+      ===================== -->
+      <div class="biz-section fade-up">
+        <p class="biz-section-label">COMPARISON</p>
+        <h4 class="biz-section-title">표면처리 기술 종류별 비교</h4>
+
+        <p class="biz-bg-desc">
+          표면처리(Surface Treatment)는 부품의 내마모, 내식, 내열, 진동, 충격,
+          피로수명 등을 향상시켜 금속표면의 성질을 변화시키는 기술입니다.
+        </p>
+
+        <div class="biz-compare-table-wrap">
+          <table class="biz-compare-table">
+            <thead>
+            <tr>
+              <th>공정</th>
+              <th>내마모성능</th>
+              <th>코팅 두께</th>
+              <th>수명</th>
+              <th>접착력</th>
+              <th>비용</th>
+              <th>적용 분야</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="biz-compare-highlight">
+              <td><strong>레이저 클래딩</strong></td>
+              <td>매우높음</td>
+              <td>조절가능<br>(0.1~10mm)</td>
+              <td>2~10</td>
+              <td>매우높음</td>
+              <td>높음</td>
+              <td>고가정밀부품, 회전체</td>
+            </tr>
+            <tr>
+              <td>PTA</td>
+              <td>높음</td>
+              <td>두꺼움<br>(1~10mm)</td>
+              <td>2~4</td>
+              <td>높음</td>
+              <td>중간</td>
+              <td>롤러, 밸브, 내열부품</td>
+            </tr>
+            <tr>
+              <td>하드페이싱</td>
+              <td>높음</td>
+              <td>두꺼움<br>(5~20mm)</td>
+              <td>2~4</td>
+              <td>높음</td>
+              <td>낮음</td>
+              <td>대형 구조물</td>
+            </tr>
+            <tr>
+              <td>HVOF/HVAF</td>
+              <td>보통</td>
+              <td>얇음<br>(50~300μm)</td>
+              <td>1</td>
+              <td>낮음</td>
+              <td>중간~높음</td>
+              <td>회전체, 내마모 코팅</td>
+            </tr>
+            <tr>
+              <td>Arc Spray</td>
+              <td>보통</td>
+              <td>얇음<br>(50~1,000μm)</td>
+              <td>1</td>
+              <td>낮음</td>
+              <td>가장 낮음</td>
+              <td>대면적·비정밀 코팅</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- =====================
+           섹션 4: 기술 필요성
+      ===================== -->
+      <div class="biz-section fade-up">
+        <p class="biz-section-label">FEATURES</p>
+        <h4 class="biz-section-title">기술 필요성</h4>
+
+        <div class="biz-feature-grid">
+          <div class="biz-feature-card">
+            <div class="biz-feature-icon">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <h5 class="biz-feature-name">마모·부식에 강한<br>고기능 표면 형성</h5>
+            <p class="biz-feature-desc">
+              내마모성 합금, 세라믹 복합재 등 국부적
+              용접육성을 통한 핵심 부위의 수명 향상.
+              전체 소재를 고가의 재료로 만들지 않고
+              비용 효율적인 성능 개선 가능
+            </p>
+          </div>
+          <div class="biz-feature-card">
+            <div class="biz-feature-icon">
+              <i class="bi bi-thermometer-low"></i>
+            </div>
+            <h5 class="biz-feature-name">열변형이 적고<br>정밀한 제어 가능</h5>
+            <p class="biz-feature-desc">
+              고에너지 레이저빔의 국소 열원으로
+              주변부 손상 없이 정밀한 제어 가능.
+              기존 용접 대비 열 영향부(HAZ)가 작아
+              뒤틀림이나 크랙 발생이 적음
+            </p>
+          </div>
+          <div class="biz-feature-card">
+            <div class="biz-feature-icon">
+              <i class="bi bi-layers"></i>
+            </div>
+            <h5 class="biz-feature-name">다양한 소재<br>조합 가능</h5>
+            <p class="biz-feature-desc">
+              탄소강의 일반소재에 스테인리스,
+              코발트계 합금, 세라믹 강화재(WC) 등 적용 가능.
+              분말, 와이어 등 다양한 형태의 클래딩
+              재료를 사용할 수 있어 공정 유연성이 뛰어남
+            </p>
+          </div>
+        </div>
+
+        <!-- 세부 특징 테이블 -->
+        <div class="biz-compare-table-wrap" style="margin-top:24px;">
+          <table class="biz-compare-table">
+            <thead>
+            <tr>
+              <th>항목</th>
+              <th>설명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>정밀 제어 가능</td>
+              <td>레이저 파워, 스캔 속도, 클래딩 두께를 μm 단위로 제어 가능</td>
+            </tr>
+            <tr>
+              <td>열영향부(HAZ)가 작음</td>
+              <td>빠른 가열/냉각 덕분에 기재 소재 손상이 최소화됨</td>
+            </tr>
+            <tr>
+              <td>강한 계면 접착력</td>
+              <td>용융에 의한 메탈-메탈 본딩으로 접착 강도가 매우 우수</td>
+            </tr>
+            <tr>
+              <td>균일한 층 형성</td>
+              <td>고속 스캔 및 자동화로 두께와 조성의 일관성 확보</td>
+            </tr>
+            <tr>
+              <td>다양한 재료 적용</td>
+              <td>Ni, Co, Fe 기반 분말 외에도 세라믹 혼합, WC 등도 적용 가능</td>
+            </tr>
+            <tr>
+              <td>기존 부품 수명 연장</td>
+              <td>마모, 부식, 열화된 부품을 재생 가능 → 유지보수 비용 절감</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- =====================
+           섹션 5: 설비 현황
+      ===================== -->
+      <div class="biz-section fade-up">
+        <p class="biz-section-label">EQUIPMENT</p>
+        <h4 class="biz-section-title">미르테크 레이저 클래딩 설비 현황</h4>
+
+        <div class="biz-equip-wrap">
+          <!-- 좌: 설비 사진 -->
+          <div class="biz-equip-imgs">
+            <div class="biz-equip-img-main">
+              <img src="/images/biz/laser/equip-main.jpg" alt="레이저클래딩 설비"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="biz-intro-img-placeholder"><i class="bi bi-image"></i></div>
+            </div>
+            <div class="biz-equip-img-sub-row">
+              <div class="biz-equip-img-sub">
+                <img src="/images/biz/laser/equip-sub1.jpg" alt="설비 상세"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="biz-intro-img-placeholder"><i class="bi bi-image"></i></div>
+              </div>
+              <div class="biz-equip-img-sub">
+                <img src="/images/biz/laser/equip-sub2.jpg" alt="설비 상세"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="biz-intro-img-placeholder"><i class="bi bi-image"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 우: 장비 사양 -->
+          <div class="biz-equip-spec">
+            <h5 class="biz-equip-spec-title">장비 사양</h5>
+            <ul class="biz-equip-spec-list">
+              <li>
+                <span class="biz-spec-key">Laser Source</span>
+                <span class="biz-spec-val">Fiber Laser 12kw (Max)</span>
+              </li>
+              <li>
+                <span class="biz-spec-key">Powder Feeder</span>
+                <span class="biz-spec-val">Continuous Feeder</span>
+              </li>
+              <li>
+                <span class="biz-spec-key">Cladding Head</span>
+                <span class="biz-spec-val">Round Spot, Wide Spot</span>
+              </li>
+              <li>
+                <span class="biz-spec-key">Robot Control</span>
+                <span class="biz-spec-val">KUKA (KR 20)</span>
+              </li>
+              <li>
+                <span class="biz-spec-key">Cylinder Rotary</span>
+                <span class="biz-spec-val">Ø630 x 6,000mm 15Ton</span>
+              </li>
+              <li>
+                <span class="biz-spec-key">Rotary Table</span>
+                <span class="biz-spec-val">Ø1500mm, 1ton</span>
+              </li>
+              <li>
+                <span class="biz-spec-key">Working Power</span>
+                <span class="biz-spec-val">380V/60Hz</span>
+              </li>
+              <li>
+                <span class="biz-spec-key">Water Chiller</span>
+                <span class="biz-spec-val">120L/min, 4bar</span>
+              </li>
+              <li>
+                <span class="biz-spec-key">Protective Gas</span>
+                <span class="biz-spec-val">STS 304 Pipe (Ar, N2)</span>
+              </li>
+              <li>
+                <span class="biz-spec-key">Preheating</span>
+                <span class="biz-spec-val">700x1,200x250H (Max 700℃)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- =====================
+           섹션 6: 적용 분야
+      ===================== -->
+      <div class="biz-section fade-up">
+        <p class="biz-section-label">APPLICATION</p>
+        <h4 class="biz-section-title">적용 분야</h4>
+
+        <div class="biz-app-grid">
+          <div class="biz-app-item">
+            <i class="bi bi-building-fill"></i>
+            <span>철강·제철</span>
+          </div>
+          <div class="biz-app-item">
+            <i class="bi bi-lightning-fill"></i>
+            <span>발전소</span>
+          </div>
+          <div class="biz-app-item">
+            <i class="bi bi-airplane-fill"></i>
+            <span>항공우주</span>
+          </div>
+          <div class="biz-app-item">
+            <i class="bi bi-shield-fill"></i>
+            <span>방산</span>
+          </div>
+          <div class="biz-app-item">
+            <i class="bi bi-water"></i>
+            <span>조선</span>
+          </div>
+          <div class="biz-app-item">
+            <i class="bi bi-buildings-fill"></i>
+            <span>시멘트</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div th:replace="~{layout/footer :: footer}"></div>
+
+<script>
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

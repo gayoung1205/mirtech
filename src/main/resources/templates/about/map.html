@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('회사소개 - 찾아오시는 길')}"></head>
+
+<body class="sub-page-body">
+
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<!-- 카카오맵 SDK -->
+
+<div class="page-header"
+     style="background-image: url('/images/about/map-bg.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;">
+  <div class="container">
+    <h2>회사소개</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" style="color:rgba(255,255,255,0.65); text-decoration:none;">HOME</a>
+        </li>
+        <li class="breadcrumb-item active">찾아오시는 길</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sub-container">
+
+    <nav th:replace="~{layout/sidenav :: about('map')}"></nav>
+
+    <div class="sub-content">
+      <h3 class="sub-content-title">찾아오시는 길</h3>
+
+      <!-- 지점 탭 -->
+      <div class="map-tabs">
+        <button class="map-tab active" onclick="switchMap('main', this)">
+          본사 · 공장
+        </button>
+        <button class="map-tab" onclick="switchMap('gwangyang', this)">
+          광양사무소
+        </button>
+      </div>
+
+      <!-- 지도 영역 -->
+      <!-- 지도 영역 -->
+      <div class="map-wrap">
+        <!-- 본사 지도 -->
+        <!-- 본사 지도 -->
+        <div id="map-main" class="map-container">
+          <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271.9807906507654!2d127.562557612107!3d34.906931572004815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356e0bf76ddb988d%3A0x8ee107a269131f6!2z7KCE652864Ko64-EIOyInOyynOyLnCDtlbTro6HrqbQg7ZW066Oh7IKw64uoMeuhnCA4Mi01OQ!5e0!3m2!1sko!2skr!4v1773811554213!5m2!1sko!2skr"
+              width="100%" height="100%"
+              style="border:none;"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <!-- 광양사무소 지도 -->
+        <div id="map-gwangyang" class="map-container" style="display:none;">
+          <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3270.2027025402062!2d127.60282327565442!3d34.95152784945776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356e0d6d4ca935df%3A0x437f578ea147fe1f!2z7KCE652864Ko64-EIOq0keyWkeyLnCDqtJHslpHsnY0g7J217Iug7IKw64uoM-q4uA!5e0!3m2!1sko!2skr!4v1773811677210!5m2!1sko!2skr"
+              width="100%" height="100%"
+              style="border:none;"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 본사 정보 카드 -->
+      <div id="info-main" class="map-info-grid">
+
+        <div class="map-info-card">
+          <div class="map-info-icon">
+            <i class="bi bi-geo-alt-fill"></i>
+          </div>
+          <div class="map-info-content">
+            <p class="map-info-label">주소</p>
+            <p class="map-info-value">
+              전남 순천시 해룡면<br>
+              해룡산단1로 82-20
+            </p>
+            <a href="https://map.kakao.com/link/to/(주)미르테크,34.9184,127.6387"
+               target="_blank" class="map-info-link">
+              길찾기 <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="map-info-card">
+          <div class="map-info-icon">
+            <i class="bi bi-telephone-fill"></i>
+          </div>
+          <div class="map-info-content">
+            <p class="map-info-label">연락처</p>
+            <p class="map-info-value">
+              TEL 061-723-4994<br>
+              FAX 061-723-4995
+            </p>
+          </div>
+        </div>
+
+        <div class="map-info-card">
+          <div class="map-info-icon">
+            <i class="bi bi-envelope-fill"></i>
+          </div>
+          <div class="map-info-content">
+            <p class="map-info-label">이메일</p>
+            <p class="map-info-value">
+              mirtech@mirtech-korea.com
+            </p>
+            <a href="mailto:mirtech@mirtech-korea.com" class="map-info-link">
+              메일 보내기 <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 광양사무소 정보 카드 -->
+      <div id="info-gwangyang" class="map-info-grid" style="display:none;">
+
+        <div class="map-info-card">
+          <div class="map-info-icon">
+            <i class="bi bi-geo-alt-fill"></i>
+          </div>
+          <div class="map-info-content">
+            <p class="map-info-label">주소</p>
+            <p class="map-info-value">
+              전남 광양시 익신산단3길 40<br>
+              지식산업센터 403호
+            </p>
+            <a href="https://map.kakao.com/link/to/(주)미르테크광양사무소,34.9408,127.6961"
+               target="_blank" class="map-info-link">
+              길찾기 <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="map-info-card">
+          <div class="map-info-icon">
+            <i class="bi bi-telephone-fill"></i>
+          </div>
+          <div class="map-info-content">
+            <p class="map-info-label">연락처</p>
+            <p class="map-info-value">
+              TEL 061-723-4994<br>
+              FAX 061-723-4995
+            </p>
+          </div>
+        </div>
+
+        <div class="map-info-card">
+          <div class="map-info-icon">
+            <i class="bi bi-envelope-fill"></i>
+          </div>
+          <div class="map-info-content">
+            <p class="map-info-label">이메일</p>
+            <p class="map-info-value">
+              mirtech@mirtech-korea.com
+            </p>
+            <a href="mailto:mirtech@mirtech-korea.com" class="map-info-link">
+              메일 보내기 <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div th:replace="~{layout/footer :: footer}"></div>
+
+<script>
+  let gwangyangInitialized = false;
+
+  function switchMap(type, btn) {
+    document.querySelectorAll('.map-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('map-main').style.display = type === 'main' ? 'block' : 'none';
+    document.getElementById('map-gwangyang').style.display = type === 'gwangyang' ? 'block' : 'none';
+    document.getElementById('info-main').style.display = type === 'main' ? 'grid' : 'none';
+    document.getElementById('info-gwangyang').style.display = type === 'gwangyang' ? 'grid' : 'none';
+  }
+
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

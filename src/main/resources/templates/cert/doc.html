@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('경영철학 - 인증서 및 협약서')}"></head>
+
+<body class="sub-page-body">
+
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<div class="page-header"
+     style="background-image: url('/images/cert/cert-bg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;">
+  <div class="container">
+    <h2>경영철학</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" style="color:rgba(255,255,255,0.65); text-decoration:none;">HOME</a>
+        </li>
+        <li class="breadcrumb-item active">인증서 및 협약서</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sub-container">
+
+    <nav th:replace="~{layout/sidenav :: cert('doc')}"></nav>
+
+    <div class="sub-content">
+      <h3 class="sub-content-title">인증서 및 협약서</h3>
+
+      <div class="cert-grid">
+
+        <div class="cert-item fade-up" style="--delay:0.1s"
+             onclick="openLightbox('/images/cert/doc/business.jpg')">
+          <div class="cert-img-wrap">
+            <img src="/images/cert/doc/business.jpg" alt="사업자등록증"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="cert-img-placeholder">
+              <i class="bi bi-file-earmark-text"></i>
+            </div>
+            <div class="cert-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </div>
+          <div class="cert-item-info">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+              <span class="cert-item-name">사업자등록증_순천</span>
+            </div>
+            <p class="cert-item-desc">(주)미르테크</p>
+          </div>
+        </div>
+
+        <div class="cert-item fade-up" style="--delay:0.2s"
+             onclick="openLightbox('/images/cert/doc/business_2.jpg')">
+          <div class="cert-img-wrap">
+            <img src="/images/cert/doc/business.jpg" alt="사업자등록증"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="cert-img-placeholder">
+              <i class="bi bi-file-earmark-text"></i>
+            </div>
+            <div class="cert-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </div>
+          <div class="cert-item-info">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+              <span class="cert-item-name">사업자등록증_광양</span>
+            </div>
+            <p class="cert-item-desc">(주)미르테크</p>
+          </div>
+        </div>
+
+        <div class="cert-item fade-up" style="--delay:0.3s"
+             onclick="openLightbox('/images/cert/doc/factory.jpg')">
+          <div class="cert-img-wrap">
+            <img src="/images/cert/doc/factory.jpg" alt="공장등록증"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="cert-img-placeholder">
+              <i class="bi bi-file-earmark-text"></i>
+            </div>
+            <div class="cert-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </div>
+          <div class="cert-item-info">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+              <span class="cert-item-name">공장등록증</span>
+            </div>
+            <p class="cert-item-desc">(주)미르테크</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 라이트박스 -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-close" onclick="closeLightbox()">
+    <i class="bi bi-x-lg"></i>
+  </div>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+</div>
+
+<div th:replace="~{layout/footer :: footer}"></div>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

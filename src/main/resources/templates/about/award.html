@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('회사소개 - 수상경력')}"></head>
+
+<body class="sub-page-body">
+
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<div class="page-header"
+     style="background-image: url('/images/about/award-bg.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;">
+  <div class="container">
+    <h2>회사소개</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" style="color:rgba(255,255,255,0.65); text-decoration:none;">HOME</a>
+        </li>
+        <li class="breadcrumb-item active">수상경력</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sub-container">
+
+    <nav th:replace="~{layout/sidenav :: about('award')}"></nav>
+
+    <div class="sub-content">
+      <h3 class="sub-content-title">수상경력</h3>
+
+      <div class="award-grid">
+
+        <div class="award-card fade-up" style="--delay:0.1s" onclick="openLightbox('/images/about/award/award-01.png')">
+          <div class="award-img-wrap">
+            <img src="/images/about/award/award-01.png" alt="강소지역기업 지정증서">
+            <div class="award-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </div>
+          <div class="award-info">
+            <p class="award-year">G-SCNU</p>
+            <h5 class="award-title">강소지역기업 지정증서</h5>
+            <p class="award-org">순천대학교</p>
+          </div>
+        </div>
+
+        <div class="award-card fade-up" style="--delay:0.2s" onclick="openLightbox('/images/about/award/award-02.png')">
+          <div class="award-img-wrap">
+            <img src="/images/about/award/award-02.png" alt="뿌리기업 확인서">
+            <div class="award-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </div>
+          <div class="award-info">
+            <p class="award-year">뿌리기업</p>
+            <h5 class="award-title">뿌리기업 확인서</h5>
+            <p class="award-org">한국뿌리산업진흥센터</p>
+          </div>
+        </div>
+
+        <div class="award-card fade-up" style="--delay:0.3s" onclick="openLightbox('/images/about/award/award-03.png')">
+          <div class="award-img-wrap">
+            <img src="/images/about/award/award-03.png" alt="소재부품장비 전문기업 확인서">
+            <div class="award-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </div>
+          <div class="award-info">
+            <p class="award-year">소부장</p>
+            <h5 class="award-title">소재부품장비 전문기업 확인서</h5>
+            <p class="award-org">산업통상자원부</p>
+          </div>
+        </div>
+
+        <div class="award-card fade-up" style="--delay:0.4s" onclick="openLightbox('/images/about/award/award-04.png')">
+          <div class="award-img-wrap">
+            <img src="/images/about/award/award-04.png" alt="순천대 가족회사 인증서">
+            <div class="award-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </div>
+          <div class="award-info">
+            <p class="award-year">가족회사</p>
+            <h5 class="award-title">순천대 가족회사 인증서</h5>
+            <p class="award-org">순천대학교</p>
+          </div>
+        </div>
+
+        <div class="award-card fade-up" style="--delay:0.5s" onclick="openLightbox('/images/about/award/award-05.png')">
+          <div class="award-img-wrap">
+            <img src="/images/about/award/award-05.png" alt="중소기업 확인서">
+            <div class="award-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </div>
+          <div class="award-info">
+            <p class="award-year">중소기업</p>
+            <h5 class="award-title">중소기업 확인서</h5>
+            <p class="award-org">중소벤처기업부</p>
+          </div>
+        </div>
+
+        <div class="award-card fade-up" style="--delay:0.6s" onclick="openLightbox('/images/about/award/award-06.png')">
+          <div class="award-img-wrap">
+            <img src="/images/about/award/award-06.png" alt="창업기업 확인서">
+            <div class="award-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </div>
+          <div class="award-info">
+            <p class="award-year">창업기업</p>
+            <h5 class="award-title">창업기업 확인서</h5>
+            <p class="award-org">순천시</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 라이트박스 -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-close" onclick="closeLightbox()">
+    <i class="bi bi-x-lg"></i>
+  </div>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+</div>
+
+<div th:replace="~{layout/footer :: footer}"></div>
+
+<script>
+  /* 라이트박스 */
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  /* 페이드업 */
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

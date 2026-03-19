@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('회사소개 - 주요고객사')}"></head>
+
+<body class="sub-page-body">
+
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<div class="page-header"
+     style="background-image: url('/images/about/client-bg.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;">
+  <div class="container">
+    <h2>회사소개</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" style="color:rgba(255,255,255,0.65); text-decoration:none;">HOME</a>
+        </li>
+        <li class="breadcrumb-item active">주요고객사</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sub-container">
+
+    <nav th:replace="~{layout/sidenav :: about('client')}"></nav>
+
+    <div class="sub-content">
+      <h3 class="sub-content-title">주요고객사</h3>
+
+      <div class="client-intro fade-up">
+        <p class="client-intro-label">OUR CLIENTS</p>
+        <h4 class="client-intro-title">미르테크와 함께하는 파트너사</h4>
+        <p class="client-intro-desc">
+          고객의 신뢰를 받는 기업 미르테크(MIRTECH)가 되도록 늘 노력하겠습니다.
+        </p>
+      </div>
+
+      <!-- 섹션 1: POSCO -->
+      <div class="client-section fade-up" style="--delay:0.1s">
+        <div class="client-section-head">
+          <span class="client-section-num">01</span>
+          <div>
+            <p class="client-section-en">STEEL</p>
+            <h5 class="client-section-title">POSCO</h5>
+          </div>
+        </div>
+        <div class="client-tags">
+          <span class="client-tag">POSCO Mg공장</span>
+          <span class="client-tag">냉연공장</span>
+          <span class="client-tag">열연공장</span>
+          <span class="client-tag">전공장</span>
+          <span class="client-tag">포스코 해외법인</span>
+        </div>
+      </div>
+
+      <div class="client-divider"></div>
+
+      <!-- 섹션 2: 발전소 -->
+      <div class="client-section fade-up" style="--delay:0.2s">
+        <div class="client-section-head">
+          <span class="client-section-num">02</span>
+          <div>
+            <p class="client-section-en">POWER PLANT</p>
+            <h5 class="client-section-title">발전소</h5>
+          </div>
+        </div>
+        <div class="client-tags">
+          <span class="client-tag">하동화력</span>
+          <span class="client-tag">삼천포화력</span>
+          <span class="client-tag">남제주화력</span>
+          <span class="client-tag">당진화력</span>
+          <span class="client-tag">보령화력</span>
+        </div>
+      </div>
+
+      <div class="client-divider"></div>
+
+      <!-- 섹션 3: 화학단지 -->
+      <div class="client-section fade-up" style="--delay:0.3s">
+        <div class="client-section-head">
+          <span class="client-section-num">03</span>
+          <div>
+            <p class="client-section-en">CHEMICAL</p>
+            <h5 class="client-section-title">여수 화학단지</h5>
+          </div>
+        </div>
+        <div class="client-tags">
+          <span class="client-tag">금호폴리켐</span>
+          <span class="client-tag">제일모직</span>
+          <span class="client-tag">삼남석유화학</span>
+          <span class="client-tag">YNCC</span>
+        </div>
+      </div>
+
+      <div class="client-divider"></div>
+
+      <!-- 섹션 4: 기타 -->
+      <div class="client-section fade-up" style="--delay:0.4s">
+        <div class="client-section-head">
+          <span class="client-section-num">04</span>
+          <div>
+            <p class="client-section-en">OTHERS</p>
+            <h5 class="client-section-title">기 타</h5>
+          </div>
+        </div>
+        <div class="client-tags">
+          <span class="client-tag">포스코 계열사</span>
+          <span class="client-tag">농어촌연구원</span>
+          <span class="client-tag">한국공항공사</span>
+          <span class="client-tag">현대제철</span>
+          <span class="client-tag">조선내화</span>
+          <span class="client-tag">OCI</span>
+          <span class="client-tag">삼성플렉스</span>
+          <span class="client-tag">유니테크</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div th:replace="~{layout/footer :: footer}"></div>
+
+<script>
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
