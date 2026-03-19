@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('회사소개 - 회사소개(CI)')}"></head>
+
+<body class="sub-page-body">
+
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<!-- 페이지 헤더 -->
+<div class="page-header"
+     style="background-image: url('/images/about/ci-bg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;">
+  <div class="container">
+    <h2>회사소개</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" style="color:rgba(255,255,255,0.65); text-decoration:none;">HOME</a>
+        </li>
+        <li class="breadcrumb-item active">회사소개(CI)</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<!-- 본문 -->
+<div class="container">
+  <div class="sub-container">
+
+    <nav th:replace="~{layout/sidenav :: about('ci')}"></nav>
+
+    <div class="sub-content">
+      <h3 class="sub-content-title">회사소개(CI)</h3>
+
+      <div class="ci-wrap">
+
+        <!-- 상단: 이미지 + 회사명 -->
+        <div class="ci-row ci-top">
+          <div class="ci-image-box">
+            <img src="/images/about/greeting-bg.png"
+                 alt="미르테크 전경"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="ci-image-placeholder">
+              <i class="bi bi-building"></i>
+              <span>회사 이미지</span>
+            </div>
+          </div>
+          <div class="ci-name-box">
+            <p class="ci-label">COMPANY</p>
+            <h2 class="ci-company-name">(주)미르테크</h2>
+            <p class="ci-company-eng">MIRTECH CO., Ltd.</p>
+            <div class="ci-established">
+              <span class="ci-year">2014</span>
+              <span class="ci-year-desc">설립 · 법인전환 2021</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 중단: 4개 정보 -->
+        <div class="ci-row ci-middle">
+          <div class="ci-cell">
+            <p class="ci-label">대표자</p>
+            <p class="ci-value">김 학 윤</p>
+          </div>
+          <div class="ci-cell">
+            <p class="ci-label">업태</p>
+            <p class="ci-value">제조업<br>도소매업</p>
+          </div>
+          <div class="ci-cell ci-cell-wide">
+            <p class="ci-label">종목</p>
+            <p class="ci-value">
+              레이저클래딩 · 금속탱크 및 저장용기 제조업 · 일반·특수기계 제조업
+            </p>
+          </div>
+        </div>
+
+        <!-- 하단: 주소 -->
+        <div class="ci-row ci-bottom">
+          <div class="ci-cell">
+            <p class="ci-label ci-label-blue">본사 · 공장</p>
+            <p class="ci-value">
+              전남 순천시 해룡면<br>
+              해룡산단1로 82-20
+            </p>
+          </div>
+          <div class="ci-cell">
+            <p class="ci-label ci-label-blue">광양사무소</p>
+            <p class="ci-value">
+              전남 광양시 익신산단3길 40<br>
+              지식산업센터 403호
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div th:replace="~{layout/footer :: footer}"></div>
+
+</body>
+</html>
