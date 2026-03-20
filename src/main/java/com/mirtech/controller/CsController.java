@@ -1,9 +1,12 @@
 package com.mirtech.controller;
 
 import com.mirtech.entity.Board;
+import com.mirtech.entity.Gallery;
 import com.mirtech.entity.Inquiry;
 import com.mirtech.service.BoardService;
+import com.mirtech.service.GalleryService;
 import com.mirtech.service.InquiryService;
+import com.mirtech.service.PrMaterialService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -23,6 +26,8 @@ public class CsController {
 
     private final InquiryService inquiryService;
     private final BoardService boardService;
+    private final PrMaterialService prMaterialService;
+    private final GalleryService galleryService;
 
     @GetMapping("/notice")
     public String notice(Model model,
@@ -57,6 +62,21 @@ public class CsController {
     public String referenceDetail(@PathVariable Long id, Model model) {
         model.addAttribute("board", boardService.getDetail(id));
         return "cs/reference-detail";
+    }
+
+    @GetMapping("/pr")
+    public String pr(Model model){
+        model.addAttribute("materials", prMaterialService.getAll());
+        return "cs/pr";
+    }
+
+    @GetMapping("/gallery")
+    public String gallery(Model model,
+                        @RequestParam(defaultValue = "0") int page){
+        Page<Gallery> galleries = galleryService.getList(page);
+        model.addAttribute("galleries", galleries);
+        model.addAttribute("currentPage", page);
+        return "cs/gallery";
     }
 
     @GetMapping("/inquiry")

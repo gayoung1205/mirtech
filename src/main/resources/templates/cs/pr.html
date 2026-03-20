@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('고객센터 - 홍보자료')}"></head>
+
+<body class="sub-page-body">
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<div class="page-header"
+     style="background-image: url('/images/cs/pr-bg.jpg');
+            background-size: cover; background-position: center;">
+  <div class="container">
+    <h2>고객센터</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" style="color:rgba(255,255,255,0.65); text-decoration:none;">HOME</a>
+        </li>
+        <li class="breadcrumb-item">고객센터</li>
+        <li class="breadcrumb-item active">홍보자료</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sub-container">
+    <nav th:replace="~{layout/sidenav :: cs('pr')}"></nav>
+
+    <div class="sub-content">
+
+      <h3 class="sub-content-title">홍보자료</h3>
+
+      <!-- 카드 그리드 -->
+      <div class="cs-pr-grid fade-up">
+
+        <!-- 데이터 없을 때 -->
+        <div th:if="${#lists.isEmpty(materials)}"
+             style="grid-column:1/-1; text-align:center; padding:60px; color:#999;">
+          등록된 자료가 없습니다.
+        </div>
+
+        <!-- 카드 -->
+        <div th:each="mat : ${materials}" class="cs-pr-card">
+          <div class="cs-pr-thumb">
+            <img th:if="${mat.thumbnail}"
+                 th:src="${mat.thumbnail}" alt="썸네일"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="cs-pr-thumb-placeholder"
+                 th:style="${mat.thumbnail} ? 'display:none' : 'display:flex'">
+              <i class="bi bi-file-earmark-pdf-fill"></i>
+              <span>PDF</span>
+            </div>
+          </div>
+          <div class="cs-pr-info">
+            <p class="cs-pr-title" th:text="${mat.title}"></p>
+            <p class="cs-pr-meta">
+              PDF
+              <span th:if="${mat.fileSize}"
+                    th:text="${T(String).format('%.1f', mat.fileSize / 1048576.0) + 'MB'}"></span>
+            </p>
+            <a th:href="@{/cs/pr/download/{id}(id=${mat.id})}"
+               class="cs-pr-btn" download>
+              <i class="bi bi-download"></i> 다운로드
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /cs-pr-grid -->
+    </div>
+  </div>
+</div>
+
+<div th:replace="~{layout/footer :: footer}"></div>
+<script>
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
