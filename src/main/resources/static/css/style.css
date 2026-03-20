@@ -353,7 +353,12 @@ body {
 }
 
 .stats-section {
-  background: #f0f5ff;
+  background: url('/images/stats-bg.jpg') center/cover no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 80px 0;
+  /*background: #f0f5ff;*/
   padding: 70px 0;
 }
 
@@ -379,7 +384,7 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: url('/images/cta-bg.png') center/cover no-repeat;
+  background: url('/images/cta-bg2.png') center/cover no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-attachment: fixed;

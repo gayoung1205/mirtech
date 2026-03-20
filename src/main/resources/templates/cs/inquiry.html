@@ -8,7 +8,7 @@
 <nav th:replace="~{layout/header :: navbar}"></nav>
 
 <div class="page-header"
-     style="background-image: url('/images/cs/inquiry-bg.jpg');
+     style="background-image: url('/images/cta-bg2.png');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;">
@@ -60,7 +60,11 @@
             <div class="col-md-6">
               <label class="form-label">이름 <span style="color:#1a5fd1;">*</span></label>
               <input type="text" th:field="*{name}" class="form-control"
-                     placeholder="이름을 입력하세요" required maxlength="50">
+                     placeholder="이름 또는 회사명을 입력하세요" required maxlength="50"
+                     pattern="^[가-힣a-zA-Z\s]+$"
+                     oninvalid="this.setCustomValidity('한글 또는 영문만 입력 가능합니다.')"
+                     oninput="this.setCustomValidity('')">
+              <div class="form-text" style="font-size:0.78rem; color:#999;">개인 또는 회사명 모두 입력 가능합니다.</div>
             </div>
 
             <div class="col-md-6">
@@ -72,7 +76,10 @@
             <div class="col-md-6">
               <label class="form-label">연락처 <span style="color:#1a5fd1;">*</span></label>
               <input type="tel" th:field="*{phone}" class="form-control"
-                     placeholder="010-0000-0000" required maxlength="20">
+                     placeholder="010-0000-0000" required maxlength="20"
+                     pattern="^01[016789]-?\d{3,4}-?\d{4}$"
+                     oninvalid="this.setCustomValidity('올바른 연락처를 입력해주세요. (예: 010-1234-5678)')"
+                     oninput="this.setCustomValidity('')">
             </div>
 
             <div class="col-md-6">
