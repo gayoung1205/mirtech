@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('고객센터 - 견적문의')}"></head>
+
+<body class="sub-page-body">
+
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<div class="page-header">
+  <div class="container">
+    <h2>고객센터</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" style="color:rgba(255,255,255,0.65); text-decoration:none;">HOME</a>
+        </li>
+        <li class="breadcrumb-item">고객센터</li>
+        <li class="breadcrumb-item active">견적문의</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sub-container">
+
+    <nav th:replace="~{layout/sidenav :: cs('inquiry')}"></nav>
+
+    <div class="sub-content">
+
+      <div th:if="${successMsg}" class="cs-alert cs-alert-success fade-up">
+        <i class="bi bi-check-circle-fill"></i>
+        <span th:text="${successMsg}"></span>
+      </div>
+      <div th:if="${errorMsg}" class="cs-alert cs-alert-error fade-up">
+        <i class="bi bi-exclamation-circle-fill"></i>
+        <span th:text="${errorMsg}"></span>
+      </div>
+
+      <div class="cs-inquiry-wrap fade-up">
+        <div class="cs-inquiry-header">
+          <p class="cs-inquiry-label">CONTACT US</p>
+          <h3 class="cs-inquiry-title">견적문의</h3>
+          <p class="cs-inquiry-desc">궁금한 사항이나 견적 요청을 남겨주세요. 빠른 시일 내에 답변드리겠습니다.</p>
+        </div>
+
+        <form th:action="@{/cs/inquiry}" method="post" th:object="${inquiry}">
+
+          <div class="cs-form-grid">
+
+            <div class="cs-form-group">
+              <label class="cs-form-label">사업분야 <span class="cs-required">*</span></label>
+              <select th:field="*{bizType}" class="cs-form-select" required>
+                <option value="">선택하세요</option>
+                <option value="레이저클래딩">레이저클래딩</option>
+                <option value="PTA">PTA</option>
+                <option value="용사코팅">용사코팅</option>
+                <option value="유·공압">유·공압</option>
+                <option value="마그네슘">마그네슘</option>
+                <option value="알미늄 용융도금">알미늄 용융도금</option>
+                <option value="제철·플랜트">제철·플랜트</option>
+                <option value="로보트·AI">로보트·AI</option>
+                <option value="생산자동화">생산자동화</option>
+                <option value="기타">기타</option>
+              </select>
+            </div>
+
+            <div class="cs-form-group">
+              <label class="cs-form-label">이름 <span class="cs-required">*</span></label>
+              <input type="text" th:field="*{name}" class="cs-form-input"
+                     placeholder="이름을 입력하세요" required maxlength="50">
+            </div>
+
+            <div class="cs-form-group">
+              <label class="cs-form-label">이메일 <span class="cs-required">*</span></label>
+              <input type="email" th:field="*{email}" class="cs-form-input"
+                     placeholder="이메일을 입력하세요" required maxlength="100">
+            </div>
+
+            <div class="cs-form-group">
+              <label class="cs-form-label">연락처 <span class="cs-required">*</span></label>
+              <input type="tel" th:field="*{phone}" class="cs-form-input"
+                     placeholder="010-0000-0000" required maxlength="20">
+            </div>
+
+          </div><!-- /cs-form-grid -->
+
+          <div class="cs-form-group cs-form-group-full">
+            <label class="cs-form-label">문의 내용 <span class="cs-required">*</span></label>
+            <textarea th:field="*{content}" class="cs-form-textarea"
+                      placeholder="문의하실 내용을 입력해 주세요." required rows="7"></textarea>
+          </div>
+
+          <div class="cs-form-submit">
+            <button type="submit" class="cs-btn-submit">
+              <i class="bi bi-send"></i> 문의하기
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div th:replace="~{layout/footer :: footer}"></div>
+
+<script>
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

@@ -2659,3 +2659,152 @@ footer .copyright {
 @media (max-width: 576px) {
   .prod-case-grid { grid-template-columns: 1fr; }
 }
+
+/* ══════════════════════════════
+   고객센터 (cs)
+══════════════════════════════ */
+
+/* 알림 메시지 */
+.cs-alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.cs-alert-success {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.cs-alert-error {
+  background: #fce4ec;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+/* 견적문의 폼 */
+.cs-inquiry-wrap {
+  max-width: 760px;
+}
+
+.cs-inquiry-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #1a5fd1;
+  margin: 0 0 8px;
+}
+
+.cs-inquiry-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0d2a5e;
+  margin: 0 0 8px;
+}
+
+.cs-inquiry-desc {
+  font-size: 0.88rem;
+  color: #666;
+  margin: 0 0 32px;
+}
+
+.cs-inquiry-header {
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e4e8ef;
+  margin-bottom: 28px;
+}
+
+/* 폼 그리드 (2열) */
+.cs-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.cs-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cs-form-group-full {
+  margin-bottom: 20px;
+}
+
+.cs-form-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.cs-required {
+  color: #1a5fd1;
+  margin-left: 2px;
+}
+
+.cs-form-input,
+.cs-form-select,
+.cs-form-textarea {
+  padding: 11px 14px;
+  border: 1px solid #d8dee8;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #222;
+  font-family: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  background: #fff;
+}
+
+.cs-form-input:focus,
+.cs-form-select:focus,
+.cs-form-textarea:focus {
+  outline: none;
+  border-color: #1a5fd1;
+  box-shadow: 0 0 0 3px rgba(26, 95, 209, 0.1);
+}
+
+.cs-form-textarea {
+  resize: vertical;
+  min-height: 150px;
+  width: 100%;
+}
+
+/* 제출 버튼 */
+.cs-form-submit {
+  text-align: right;
+}
+
+.cs-btn-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 36px;
+  background: #1a5fd1;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+  font-family: inherit;
+}
+
+.cs-btn-submit:hover {
+  background: #0d2a5e;
+  transform: translateY(-1px);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .cs-form-grid { grid-template-columns: 1fr; }
+  .cs-form-submit { text-align: center; }
+  .cs-btn-submit { width: 100%; justify-content: center; }
+}
