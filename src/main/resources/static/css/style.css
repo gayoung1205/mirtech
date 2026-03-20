@@ -2751,3 +2751,187 @@ footer .copyright {
 @media (max-width: 768px) {
   .cs-btn-submit { width: 100%; justify-content: center; }
 }
+
+/* ══════════════════════════════
+   게시판 공통 (cs-board)
+══════════════════════════════ */
+
+.cs-board-wrap { }
+
+.cs-board-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 2px solid #0d2a5e;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.cs-board-table th {
+  padding: 13px 16px;
+  background: #f4f7fc;
+  color: #0d2a5e;
+  font-weight: 700;
+  text-align: center;
+  border-bottom: 1px solid #e4e8ef;
+}
+
+.cs-board-table td {
+  padding: 13px 16px;
+  text-align: center;
+  border-bottom: 1px solid #e4e8ef;
+  color: #444;
+}
+
+.cs-board-title { text-align: left !important; }
+
+.cs-board-title a {
+  color: #222;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cs-board-title a:hover { color: #1a5fd1; }
+
+.cs-board-tag {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #1a5fd1;
+  white-space: nowrap;
+}
+
+/* 페이지네이션 */
+.cs-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 20px 0;
+}
+
+.cs-page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #dde3ee;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  color: #555;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.cs-page-btn:hover,
+.cs-page-btn.active {
+  background: #1a5fd1;
+  color: #fff;
+  border-color: #1a5fd1;
+}
+
+/* 검색 */
+.cs-search-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.cs-search-wrap form {
+  display: flex;
+  gap: 8px;
+}
+
+.cs-search-input {
+  padding: 10px 14px;
+  border: 1px solid #d8dee8;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  width: 260px;
+  font-family: inherit;
+}
+
+.cs-search-input:focus {
+  outline: none;
+  border-color: #1a5fd1;
+}
+
+.cs-search-btn {
+  padding: 10px 24px;
+  background: #1a5fd1;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.cs-search-btn:hover { background: #0d2a5e; }
+
+/* 상세 페이지 */
+.cs-detail-header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e4e8ef;
+  margin-bottom: 28px;
+}
+
+.cs-detail-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0d2a5e;
+  margin: 8px 0 12px;
+}
+
+.cs-detail-meta {
+  display: flex;
+  gap: 20px;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.cs-detail-body {
+  min-height: 200px;
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: #333;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #e4e8ef;
+}
+
+.cs-detail-file {
+  padding: 14px 0;
+  border-bottom: 1px solid #e4e8ef;
+  font-size: 0.88rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cs-detail-file a { color: #1a5fd1; text-decoration: none; }
+.cs-detail-file a:hover { text-decoration: underline; }
+
+.cs-detail-footer {
+  margin-top: 24px;
+}
+
+.cs-btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 24px;
+  border: 1px solid #dde3ee;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  color: #555;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.cs-btn-back:hover {
+  background: #f4f7fc;
+  color: #1a5fd1;
+  border-color: #1a5fd1;
+}

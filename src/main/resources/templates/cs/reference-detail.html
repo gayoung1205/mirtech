@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('고객센터 - 기술자료실')}"></head>
+
+<body class="sub-page-body">
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<div class="page-header"
+     style="background-image: url('/images/cs/reference-bg.jpg');
+            background-size: cover; background-position: center;">
+  <div class="container">
+    <h2>고객센터</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" style="color:rgba(255,255,255,0.65); text-decoration:none;">HOME</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a th:href="@{/cs/reference}" style="color:rgba(255,255,255,0.65); text-decoration:none;">기술자료실</a>
+        </li>
+        <li class="breadcrumb-item active">상세보기</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sub-container">
+    <nav th:replace="~{layout/sidenav :: cs('reference')}"></nav>
+
+    <div class="sub-content">
+      <div class="cs-detail-wrap fade-up">
+
+        <!-- 제목 -->
+        <div class="cs-detail-header">
+          <span th:if="${board.category}"
+                class="cs-board-tag"
+                th:text="${'[' + board.category + ']'}"></span>
+          <h4 class="cs-detail-title" th:text="${board.title}"></h4>
+          <div class="cs-detail-meta">
+            <span th:text="${board.author}"></span>
+            <span th:text="${#temporals.format(board.createdAt, 'yyyy.MM.dd')}"></span>
+            <span>조회 <strong th:text="${board.views}"></strong></span>
+          </div>
+        </div>
+
+        <!-- 본문 -->
+        <div class="cs-detail-body" th:utext="${board.content}"></div>
+
+        <!-- 첨부파일 -->
+        <div th:if="${board.fileName}" class="cs-detail-file">
+          <i class="bi bi-paperclip"></i>
+          <a th:href="@{/cs/download/{id}(id=${board.id})}"
+             th:text="${board.fileName}"></a>
+        </div>
+
+        <!-- 목록으로 -->
+        <div class="cs-detail-footer">
+          <a th:href="@{/cs/reference}" class="cs-btn-back">
+            <i class="bi bi-list-ul"></i> 목록으로
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div th:replace="~{layout/footer :: footer}"></div>
+<script>
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

@@ -23,7 +23,7 @@ public class Board {
     private Long id;
 
     @Column(nullable = false, length = 20)
-    private String BoardType;
+    private String boardType;
 
     @Column(length = 20)
     private String category;

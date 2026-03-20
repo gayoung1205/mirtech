@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('고객센터 - 공지사항')}"></head>
+
+<body class="sub-page-body">
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<div class="page-header"
+     style="background-image: url('/images/cs/notice-bg.jpg');
+            background-size: cover; background-position: center;">
+  <div class="container">
+    <h2>고객센터</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" style="color:rgba(255,255,255,0.65); text-decoration:none;">HOME</a>
+        </li>
+        <li class="breadcrumb-item">고객센터</li>
+        <li class="breadcrumb-item active">공지사항</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sub-container">
+    <nav th:replace="~{layout/sidenav :: cs('notice')}"></nav>
+
+    <div class="sub-content">
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <h3 class="sub-content-title" style="margin:0; border:none; padding:0;">공지사항</h3>
+        <form th:action="@{/cs/notice}" method="get" style="display:flex; gap:8px;">
+          <input type="text" name="keyword" th:value="${keyword}"
+                 class="cs-search-input" placeholder="검색어를 입력하세요">
+          <button type="submit" class="cs-search-btn">검색</button>
+        </form>
+      </div>
+
+      <!-- 게시판 테이블 -->
+      <div class="cs-board-wrap fade-up">
+        <table class="cs-board-table">
+          <thead>
+          <tr>
+            <th style="width:80px;">No</th>
+            <th>제목</th>
+            <th style="width:100px;">작성자</th>
+            <th style="width:80px;">조회</th>
+            <th style="width:120px;">등록일</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:if="${boards.isEmpty()}">
+            <td colspan="5" style="text-align:center; padding:40px; color:#999;">
+              등록된 게시글이 없습니다.
+            </td>
+          </tr>
+          <tr th:each="board : ${boards}">
+            <td th:text="${board.id}"></td>
+            <td class="cs-board-title">
+              <a th:href="@{/cs/notice/{id}(id=${board.id})}">
+                  <span th:if="${board.category}"
+                        class="cs-board-tag"
+                        th:text="${'[' + board.category + ']'}"></span>
+                <span th:text="${board.title}"></span>
+              </a>
+            </td>
+            <td th:text="${board.author}"></td>
+            <td th:text="${board.views}"></td>
+            <td th:text="${#temporals.format(board.createdAt, 'yyyy.MM.dd')}"></td>
+          </tr>
+          </tbody>
+        </table>
+
+        <!-- 페이지네이션 -->
+        <div class="cs-pagination" th:if="${boards.totalPages > 1}">
+
+          <a th:if="${currentPage > 0}"
+             th:href="@{/cs/notice(page=${currentPage-1}, keyword=${keyword})}"
+             class="cs-page-btn">◁</a>
+
+          <a th:each="i : ${#numbers.sequence(0, boards.totalPages - 1)}"
+             th:href="@{/cs/notice(page=${i}, keyword=${keyword})}"
+             th:text="${i + 1}"
+             th:class="${i == currentPage} ? 'cs-page-btn active' : 'cs-page-btn'"></a>
+
+          <a th:if="${currentPage < boards.totalPages - 1}"
+             th:href="@{/cs/notice(page=${currentPage+1}, keyword=${keyword})}"
+             class="cs-page-btn">▷</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div th:replace="~{layout/footer :: footer}"></div>
+<script>
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
