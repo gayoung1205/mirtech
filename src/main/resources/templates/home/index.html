@@ -249,43 +249,51 @@
             <h2>견적문의</h2>
             <p>궁금한 사항이나 견적 요청을 남겨주세요.</p>
 
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label">이름 *</label>
-                <input type="text" class="form-control" placeholder="이름을 입력하세요">
+            <form th:action="@{/cs/inquiry}" method="post" th:object="${inquiry}">
+
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">이름 *</label>
+                  <input type="text" th:field="*{name}" class="form-control"
+                         placeholder="이름을 입력하세요" required maxlength="50">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">이메일 *</label>
+                  <input type="email" th:field="*{email}" class="form-control"
+                         placeholder="이메일을 입력하세요" required maxlength="100">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">연락처 *</label>
+                  <input type="tel" th:field="*{phone}" class="form-control"
+                         placeholder="연락처를 입력하세요" required maxlength="20">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">문의 사업분야 *</label>
+                  <select th:field="*{bizType}" class="form-select" required>
+                    <option value="">선택하세요</option>
+                    <option value="레이저클래딩">레이저 클래딩</option>
+                    <option value="PTA">PTA</option>
+                    <option value="용사코팅">용사코팅</option>
+                    <option value="유·공압">유·공압</option>
+                    <option value="마그네슘">마그네슘</option>
+                    <option value="알미늄 용융도금">알미늄 용융도금</option>
+                    <option value="제철·플랜트">제철·플랜트</option>
+                    <option value="로보트·AI">로보트·AI</option>
+                    <option value="생산자동화">생산자동화</option>
+                    <option value="기타">기타</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">문의 내용 *</label>
+                  <textarea th:field="*{content}" class="form-control"
+                            placeholder="문의 내용을 입력하세요" required rows="4"></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn-cta-submit">문의하기</button>
+                </div>
               </div>
-              <div class="col-md-6">
-                <label class="form-label">이메일 *</label>
-                <input type="email" class="form-control" placeholder="이메일을 입력하세요">
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">연락처 *</label>
-                <input type="tel" class="form-control" placeholder="연락처를 입력하세요">
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">문의 사업분야 *</label>
-                <select class="form-select">
-                  <option value="">선택하세요</option>
-                  <option>레이저 클래딩</option>
-                  <option>PTA</option>
-                  <option>용사코팅</option>
-                  <option>유·공압</option>
-                  <option>마그네슘</option>
-                  <option>알미늄 용융도금</option>
-                  <option>제철·화학·플랜트</option>
-                  <option>로보트·AI</option>
-                  <option>생산자동화</option>
-                  <option>기타</option>
-                </select>
-              </div>
-              <div class="col-12">
-                <label class="form-label">문의 내용 *</label>
-                <textarea class="form-control" placeholder="문의 내용을 입력하세요"></textarea>
-              </div>
-              <div class="col-12">
-                <button class="btn-cta-submit">문의하기</button>
-              </div>
-            </div>
+
+            </form>
           </div>
         </div>
       </div>

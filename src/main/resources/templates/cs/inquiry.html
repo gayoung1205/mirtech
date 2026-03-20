@@ -7,7 +7,11 @@
 
 <nav th:replace="~{layout/header :: navbar}"></nav>
 
-<div class="page-header">
+<div class="page-header"
+     style="background-image: url('/images/cs/inquiry-bg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;">
   <div class="container">
     <h2>고객센터</h2>
     <nav aria-label="breadcrumb">
@@ -29,6 +33,7 @@
 
     <div class="sub-content">
 
+      <!-- 성공/실패 메시지 -->
       <div th:if="${successMsg}" class="cs-alert cs-alert-success fade-up">
         <i class="bi bi-check-circle-fill"></i>
         <span th:text="${successMsg}"></span>
@@ -39,19 +44,40 @@
       </div>
 
       <div class="cs-inquiry-wrap fade-up">
+
+        <!-- 헤더 -->
         <div class="cs-inquiry-header">
           <p class="cs-inquiry-label">CONTACT US</p>
           <h3 class="cs-inquiry-title">견적문의</h3>
           <p class="cs-inquiry-desc">궁금한 사항이나 견적 요청을 남겨주세요. 빠른 시일 내에 답변드리겠습니다.</p>
         </div>
 
+        <!-- 폼 — index.html과 동일한 Bootstrap 클래스 사용 -->
         <form th:action="@{/cs/inquiry}" method="post" th:object="${inquiry}">
 
-          <div class="cs-form-grid">
+          <div class="row g-3">
 
-            <div class="cs-form-group">
-              <label class="cs-form-label">사업분야 <span class="cs-required">*</span></label>
-              <select th:field="*{bizType}" class="cs-form-select" required>
+            <div class="col-md-6">
+              <label class="form-label">이름 <span style="color:#1a5fd1;">*</span></label>
+              <input type="text" th:field="*{name}" class="form-control"
+                     placeholder="이름을 입력하세요" required maxlength="50">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">이메일 <span style="color:#1a5fd1;">*</span></label>
+              <input type="email" th:field="*{email}" class="form-control"
+                     placeholder="이메일을 입력하세요" required maxlength="100">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">연락처 <span style="color:#1a5fd1;">*</span></label>
+              <input type="tel" th:field="*{phone}" class="form-control"
+                     placeholder="010-0000-0000" required maxlength="20">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">문의 사업분야 <span style="color:#1a5fd1;">*</span></label>
+              <select th:field="*{bizType}" class="form-select" required>
                 <option value="">선택하세요</option>
                 <option value="레이저클래딩">레이저클래딩</option>
                 <option value="PTA">PTA</option>
@@ -66,36 +92,18 @@
               </select>
             </div>
 
-            <div class="cs-form-group">
-              <label class="cs-form-label">이름 <span class="cs-required">*</span></label>
-              <input type="text" th:field="*{name}" class="cs-form-input"
-                     placeholder="이름을 입력하세요" required maxlength="50">
+            <div class="col-12">
+              <label class="form-label">문의 내용 <span style="color:#1a5fd1;">*</span></label>
+              <textarea th:field="*{content}" class="form-control"
+                        placeholder="문의하실 내용을 입력해 주세요." required rows="7"></textarea>
             </div>
 
-            <div class="cs-form-group">
-              <label class="cs-form-label">이메일 <span class="cs-required">*</span></label>
-              <input type="email" th:field="*{email}" class="cs-form-input"
-                     placeholder="이메일을 입력하세요" required maxlength="100">
+            <div class="col-12 text-end mt-2">
+              <button type="submit" class="cs-btn-submit">
+                <i class="bi bi-send"></i> 문의하기
+              </button>
             </div>
 
-            <div class="cs-form-group">
-              <label class="cs-form-label">연락처 <span class="cs-required">*</span></label>
-              <input type="tel" th:field="*{phone}" class="cs-form-input"
-                     placeholder="010-0000-0000" required maxlength="20">
-            </div>
-
-          </div><!-- /cs-form-grid -->
-
-          <div class="cs-form-group cs-form-group-full">
-            <label class="cs-form-label">문의 내용 <span class="cs-required">*</span></label>
-            <textarea th:field="*{content}" class="cs-form-textarea"
-                      placeholder="문의하실 내용을 입력해 주세요." required rows="7"></textarea>
-          </div>
-
-          <div class="cs-form-submit">
-            <button type="submit" class="cs-btn-submit">
-              <i class="bi bi-send"></i> 문의하기
-            </button>
           </div>
 
         </form>

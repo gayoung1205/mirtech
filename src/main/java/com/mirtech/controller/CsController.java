@@ -4,8 +4,10 @@ import com.mirtech.entity.Inquiry;
 import com.mirtech.service.InquiryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -17,6 +19,12 @@ public class CsController {
     private final InquiryService inquiryService;
 
     @GetMapping("/inquiry")
+    public String inquiry(Model model){
+        model.addAttribute("inquiry", new Inquiry());
+        return "cs/inquiry";
+    }
+
+    @PostMapping("/inquiry")
     public String submitInquiry(@ModelAttribute Inquiry inquiry, RedirectAttributes redirectAttributes){
 
         try{

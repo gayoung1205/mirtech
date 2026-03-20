@@ -2688,9 +2688,9 @@ footer .copyright {
   border: 1px solid #ef9a9a;
 }
 
-/* 견적문의 폼 */
+/* 견적문의 헤더 */
 .cs-inquiry-wrap {
-  max-width: 760px;
+  max-width: 800px;
 }
 
 .cs-inquiry-label {
@@ -2711,81 +2711,21 @@ footer .copyright {
 .cs-inquiry-desc {
   font-size: 0.88rem;
   color: #666;
-  margin: 0 0 32px;
+  margin: 0;
 }
 
 .cs-inquiry-header {
   padding-bottom: 24px;
   border-bottom: 1px solid #e4e8ef;
-  margin-bottom: 28px;
-}
-
-/* 폼 그리드 (2열) */
-.cs-form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-.cs-form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.cs-form-group-full {
-  margin-bottom: 20px;
-}
-
-.cs-form-label {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: #333;
-}
-
-.cs-required {
-  color: #1a5fd1;
-  margin-left: 2px;
-}
-
-.cs-form-input,
-.cs-form-select,
-.cs-form-textarea {
-  padding: 11px 14px;
-  border: 1px solid #d8dee8;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  color: #222;
-  font-family: inherit;
-  transition: border-color 0.15s, box-shadow 0.15s;
-  background: #fff;
-}
-
-.cs-form-input:focus,
-.cs-form-select:focus,
-.cs-form-textarea:focus {
-  outline: none;
-  border-color: #1a5fd1;
-  box-shadow: 0 0 0 3px rgba(26, 95, 209, 0.1);
-}
-
-.cs-form-textarea {
-  resize: vertical;
-  min-height: 150px;
-  width: 100%;
+  margin-bottom: 32px;
 }
 
 /* 제출 버튼 */
-.cs-form-submit {
-  text-align: right;
-}
-
 .cs-btn-submit {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 13px 36px;
+  padding: 13px 40px;
   background: #1a5fd1;
   color: #fff;
   border: none;
@@ -2804,7 +2744,5 @@ footer .copyright {
 
 /* 반응형 */
 @media (max-width: 768px) {
-  .cs-form-grid { grid-template-columns: 1fr; }
-  .cs-form-submit { text-align: center; }
   .cs-btn-submit { width: 100%; justify-content: center; }
 }
