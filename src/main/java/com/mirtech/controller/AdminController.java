@@ -27,6 +27,7 @@ public class AdminController {
 
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
+        model.addAttribute("activeMenu", "dashboard");
         model.addAttribute("inquiryCount", inquiryService.countAll());
         model.addAttribute("noticeCount", boardService.countByType("NOTICE"));
         model.addAttribute("referenceCount", boardService.countByType("REFERENCE"));

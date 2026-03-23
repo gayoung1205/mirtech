@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${title} + ' | MIRTECH ADMIN'">MIRTECH ADMIN</title>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+
+<body>
+<!-- 사이드바 fragment -->
+<aside th:fragment="sidebar(activeMenu)" class="admin-sidebar">
+  <div class="admin-sidebar-logo">
+    <span>MIRTECH</span>
+    <small>ADMIN</small>
+  </div>
+
+  <nav class="admin-nav">
+    <a th:href="@{/admin/dashboard}"
+       th:class="${activeMenu == 'dashboard'} ? 'active'">
+      <i class="bi bi-speedometer2"></i> 대시보드
+    </a>
+    <a th:href="@{/admin/gallery}"
+       th:class="${activeMenu == 'gallery'} ? 'active'">
+      <i class="bi bi-images"></i> 갤러리관리
+    </a>
+    <a th:href="@{/admin/board}"
+       th:class="${activeMenu == 'board'} ? 'active'">
+      <i class="bi bi-clipboard-data"></i> 게시판관리
+    </a>
+    <a th:href="@{/admin/pr}"
+       th:class="${activeMenu == 'pr'} ? 'active'">
+      <i class="bi bi-file-earmark-pdf"></i> 홍보자료
+    </a>
+    <a th:href="@{/admin/delivery}"
+       th:class="${activeMenu == 'delivery'} ? 'active'">
+      <i class="bi bi-truck"></i> 납품실적·설비
+    </a>
+    <a th:href="@{/admin/inquiry}"
+       th:class="${activeMenu == 'inquiry'} ? 'active'">
+      <i class="bi bi-envelope-open"></i> 견적수신함
+    </a>
+  </nav>
+
+  <div class="admin-sidebar-logout">
+    <a th:href="@{/admin/logout}">
+      <i class="bi bi-box-arrow-left"></i> 로그아웃
+    </a>
+  </div>
+</aside>
+</body>
+</html>
