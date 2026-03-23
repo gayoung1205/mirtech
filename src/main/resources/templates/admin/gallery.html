@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{admin/admin-layout :: head('갤러리 관리')}"></head>
+
+<body>
+<div class="admin-wrap">
+
+  <aside th:replace="~{admin/admin-layout :: sidebar('gallery')}"></aside>
+
+  <main class="admin-main">
+
+    <h2 class="admin-page-title">갤러리·이미지 관리</h2>
+    <p class="admin-breadcrumb">HOME &gt; 관리자 &gt; 갤러리관리</p>
+
+    <!-- 알림 메시지 -->
+    <div th:if="${successMsg}"
+         style="background:#f0fff4;border:1px solid #b7ebc9;border-radius:8px;
+                padding:12px 20px;margin-bottom:16px;color:#1d7a45;font-size:0.88rem;">
+      <i class="bi bi-check-circle-fill me-2"></i>
+      <span th:text="${successMsg}"></span>
+    </div>
+
+    <!-- 업로드 바 -->
+    <div class="admin-upload-bar">
+      <span>JPG, PNG, WEBP 지원 &middot; 최대 10MB &middot; 다중 업로드 가능</span>
+      <button class="btn-admin-upload" onclick="openUploadModal()">
+        <i class="bi bi-plus-lg"></i> 이미지 업로드
+      </button>
+    </div>
+
+    <!-- 이미지 그리드 -->
+    <div class="admin-gallery-grid">
+
+      <div th:if="${galleries.isEmpty()}"
+           style="grid-column:1/-1;text-align:center;padding:60px;color:#aaa;">
+        등록된 이미지가 없습니다.
+      </div>
+
+      <div th:each="item : ${galleries.content}" class="admin-gallery-card">
+
+        <!-- 썸네일 (클릭 시 원본 새 탭) -->
+        <div class="admin-gallery-thumb"
+             th:data-src="${item.imagePath}"
+             onclick="window.open(this.dataset.src,'_blank')">
+          <img th:src="${item.imagePath}"
+               th:alt="${item.title}"
+               onerror="this.style.display='none';
+                        this.nextElementSibling.style.display='flex';">
+          <div class="admin-gallery-thumb-placeholder" style="display:none;">
+            <i class="bi bi-image"></i>
+          </div>
+        </div>
+
+        <!-- 파일명 + 삭제 -->
+        <div class="admin-gallery-info">
+          <span class="admin-gallery-name" th:text="${item.title}">이미지명</span>
+          <form th:action="@{/admin/gallery/delete/{id}(id=${item.id})}"
+                method="post"
+                onsubmit="return confirm('이미지를 삭제하시겠습니까?')">
+            <button type="submit" class="btn-admin-delete">삭제</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 페이지네이션 -->
+    <div class="admin-pagination" th:if="${galleries.totalPages > 1}">
+      <a th:if="${currentPage > 0}"
+         th:href="@{/admin/gallery(page=${currentPage - 1})}"
+         class="admin-page-btn">◁</a>
+
+      <a th:each="i : ${#numbers.sequence(0, galleries.totalPages - 1)}"
+         th:href="@{/admin/gallery(page=${i})}"
+         th:text="${i + 1}"
+         th:class="${i == currentPage} ? 'admin-page-btn active' : 'admin-page-btn'"></a>
+
+      <a th:if="${currentPage < galleries.totalPages - 1}"
+         th:href="@{/admin/gallery(page=${currentPage + 1})}"
+         class="admin-page-btn">▷</a>
+    </div>
+
+  </main>
+</div>
+
+<!-- 업로드 모달 -->
+<div class="admin-modal-backdrop" id="uploadModal">
+  <div class="admin-modal">
+    <h5><i class="bi bi-cloud-upload me-2"></i>이미지 업로드</h5>
+
+    <form th:action="@{/admin/gallery/upload}" method="post"
+          enctype="multipart/form-data">
+
+      <div class="mb-3">
+        <label class="form-label">이미지 제목 (선택)</label>
+        <input type="text" name="title" class="form-control"
+               placeholder="비워두면 파일명으로 저장됩니다">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">이미지 파일 *</label>
+        <input type="file" name="files" class="form-control"
+               accept="image/jpeg,image/png,image/webp" multiple required>
+        <div style="font-size:0.75rem;color:#aaa;margin-top:4px;">
+          JPG / PNG / WEBP · 최대 10MB · 다중 선택 가능
+        </div>
+      </div>
+
+      <div class="admin-modal-footer">
+        <button type="button" class="btn-modal-cancel"
+                onclick="closeUploadModal()">취소</button>
+        <button type="submit" class="btn-modal-submit">
+          <i class="bi bi-upload me-1"></i>업로드
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  function openUploadModal()  { document.getElementById('uploadModal').classList.add('active'); }
+  function closeUploadModal() { document.getElementById('uploadModal').classList.remove('active'); }
+  // 배경 클릭 시 닫기
+  document.getElementById('uploadModal').addEventListener('click', function(e) {
+    if (e.target === this) closeUploadModal();
+  });
+</script>
+
+</body>
+</html>

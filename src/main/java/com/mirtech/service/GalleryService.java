@@ -21,4 +21,16 @@ public class GalleryService {
         return galleryRepository.count();
     }
 
+    public Page<Gallery> getAdminList(int page) {
+        return galleryRepository.findAllByOrderByCreatedAtDesc(PageRequest.of(page, 16));
+    }
+
+    public void save(Gallery gallery) {
+        galleryRepository.save(gallery);
+    }
+
+    public void delete(Long id){
+        galleryRepository.deleteById(id);
+    }
+
 }
