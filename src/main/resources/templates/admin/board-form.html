@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{admin/admin-layout :: head('게시글 작성/수정')}"></head>
+
+<body>
+<div class="admin-wrap">
+
+  <aside th:replace="~{admin/admin-layout :: sidebar('board')}"></aside>
+
+  <main class="admin-main">
+
+    <h2 class="admin-page-title"
+        th:text="${board.id != null} ? '게시글 수정' : '새 글 작성'">게시글 작성</h2>
+    <p class="admin-breadcrumb">
+      HOME &gt; 관리자 &gt; 게시판관리 &gt;
+      <span th:text="${board.id != null} ? '수정' : '작성'"></span>
+    </p>
+
+    <div class="admin-form-card">
+      <form th:action="@{/admin/board/save}" method="post"
+            enctype="multipart/form-data">
+
+        <!-- 수정 시 id 전달 -->
+        <input type="hidden" name="id" th:value="${board.id}">
+
+        <!-- 게시판 구분 -->
+        <div class="mb-3">
+          <label class="form-label">게시판 구분</label>
+          <select name="boardType" class="form-select">
+            <option value="NOTICE"
+                    th:selected="${type == 'NOTICE'}">공지사항</option>
+            <option value="REFERENCE"
+                    th:selected="${type == 'REFERENCE'}">기술자료실</option>
+          </select>
+        </div>
+
+        <!-- 카테고리 -->
+        <div class="mb-3">
+          <label class="form-label">카테고리 (선택)</label>
+          <input type="text" name="category" class="form-control"
+                 th:value="${board.category}"
+                 placeholder="예: 공지, 채용, 안내">
+        </div>
+
+        <!-- 제목 -->
+        <div class="mb-3">
+          <label class="form-label">제목 *</label>
+          <input type="text" name="title" class="form-control"
+                 th:value="${board.title}"
+                 placeholder="제목을 입력하세요" required>
+        </div>
+
+        <!-- 내용 -->
+        <div class="mb-3">
+          <label class="form-label">내용</label>
+          <textarea name="content" class="form-control"
+                    th:text="${board.content}"
+                    placeholder="내용을 입력하세요"></textarea>
+        </div>
+
+        <!-- 파일 첨부 -->
+        <div class="mb-3">
+          <label class="form-label">첨부파일</label>
+          <div th:if="${board.fileName}"
+               style="font-size:0.85rem;color:#666;margin-bottom:8px;">
+            <i class="bi bi-paperclip me-1"></i>
+            <span th:text="${board.fileName}"></span>
+            <span style="color:#aaa;"> (새 파일 선택 시 교체됩니다)</span>
+          </div>
+          <input type="file" name="attachFile" class="form-control">
+          <div style="font-size:0.75rem;color:#aaa;margin-top:4px;">
+            PDF / 이미지 등 · 최대 50MB
+          </div>
+        </div>
+
+        <!-- 버튼 -->
+        <div class="admin-form-footer">
+          <a th:href="@{/admin/board(type=${type})}"
+             class="btn-admin-cancel">
+            <i class="bi bi-x-lg"></i> 취소
+          </a>
+          <button type="submit" class="btn-admin-primary">
+            <i class="bi bi-save"></i> 저장
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>

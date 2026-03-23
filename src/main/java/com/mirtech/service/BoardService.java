@@ -35,4 +35,26 @@ public class BoardService {
         return boardRepository.countByBoardType(boardType);
     }
 
+    public Page<Board> getAdminList(String boardType, String keyword, int page) {
+        Pageable pageable = PageRequest.of(page, 10);
+        if (keyword != null && !keyword.isBlank()) {
+            return boardRepository
+                .findByBoardTypeAndTitleContainingOrderByCreatedAtDesc(boardType, keyword, pageable);
+        }
+        return boardRepository.findByBoardTypeOrderByCreatedAtDesc(boardType, pageable);
+    }
+
+    public void save(Board board) {
+        boardRepository.save(board);
+    }
+
+    public void delete(Long id) {
+        boardRepository.deleteById(id);
+    }
+
+    public Board getById(Long id) {
+        return boardRepository.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("게시글을 찾을 수 없습니다."));
+    }
+
 }

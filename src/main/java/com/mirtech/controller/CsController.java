@@ -7,8 +7,19 @@ import com.mirtech.service.BoardService;
 import com.mirtech.service.GalleryService;
 import com.mirtech.service.InquiryService;
 import com.mirtech.service.PrMaterialService;
+import java.io.File;
+import java.io.FileInputStream;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,7 +57,6 @@ public class CsController {
         return "cs/notice-detail";
     }
 
-    // ── 기술자료실 ──
     @GetMapping("/reference")
     public String reference(Model model,
         @RequestParam(defaultValue = "") String keyword,
@@ -97,4 +107,44 @@ public class CsController {
         return "redirect:/cs/inquiry";
     }
 
+    @Value("${app.upload.dir}")
+    private String uploadDir;
+
+    @GetMapping("/download/{id}")
+    public ResponseEntity<InputStreamResource> download(@PathVariable Long id) {
+        try {
+            Board board = boardService.getById(id);
+
+            if (board.getFilePath() == null) {
+                return ResponseEntity.notFound().build();
+            }
+
+            // /uploads/board/파일명 → 실제 절대경로로 변환
+            // filePath 예: "/uploads/board/uuid.pdf"
+            String relativePath = board.getFilePath()
+                .replaceFirst("^/uploads/", "");
+            File file = Paths.get(uploadDir, relativePath)
+                .toAbsolutePath().toFile();
+
+            if (!file.exists()) {
+                return ResponseEntity.notFound().build();
+            }
+
+            // 한글 파일명 인코딩
+            String encodedName = URLEncoder.encode(board.getFileName(),
+                    StandardCharsets.UTF_8)
+                .replace("+", "%20");
+
+            return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION,
+                    "attachment; filename*=UTF-8''" + encodedName)
+                .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                .contentLength(file.length())
+                .body(new InputStreamResource(new FileInputStream(file)));
+
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+
+    }
 }

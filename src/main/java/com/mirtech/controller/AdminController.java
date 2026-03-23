@@ -1,5 +1,6 @@
 package com.mirtech.controller;
 
+import com.mirtech.entity.Board;
 import com.mirtech.entity.Gallery;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,6 +15,7 @@ import com.mirtech.service.PrMaterialService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -69,7 +71,8 @@ public class AdminController {
 
             int count = 0;
             for (MultipartFile file : files) {
-                if (file.isEmpty()) continue;
+                if (file.isEmpty())
+                    continue;
 
                 String originalName = file.getOriginalFilename();
                 String ext = originalName.substring(originalName.lastIndexOf("."));
@@ -104,4 +107,78 @@ public class AdminController {
 
     }
 
+    // ── 게시판 목록 ──
+    @GetMapping("/board")
+    public String board(Model model,
+        @RequestParam(defaultValue = "NOTICE") String type,
+        @RequestParam(defaultValue = "") String keyword,
+        @RequestParam(defaultValue = "0") int page) {
+        model.addAttribute("activeMenu", "board");
+        model.addAttribute("boards", boardService.getAdminList(type, keyword, page));
+        model.addAttribute("type", type);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("currentPage", page);
+        return "admin/board";
+    }
+
+    // ── 새 글 작성 폼 ──
+    @GetMapping("/board/write")
+    public String writeForm(Model model,
+        @RequestParam(defaultValue = "NOTICE") String type) {
+        model.addAttribute("activeMenu", "board");
+        model.addAttribute("board", new Board());
+        model.addAttribute("type", type);
+        return "admin/board-form";
+    }
+
+    // ── 수정 폼 ──
+    @GetMapping("/board/edit/{id}")
+    public String editForm(@PathVariable Long id, Model model) {
+        Board board = boardService.getById(id);
+        model.addAttribute("activeMenu", "board");
+        model.addAttribute("board", board);
+        model.addAttribute("type", board.getBoardType());
+        return "admin/board-form";
+    }
+
+    // ── 저장 (신규 + 수정 공통) ──
+    @PostMapping("/board/save")
+    public String saveBoard(@ModelAttribute Board board,
+        @RequestParam(required = false) MultipartFile attachFile,
+        RedirectAttributes ra) {
+        try {
+            // 파일 첨부가 있을 때만 처리
+            if (attachFile != null && !attachFile.isEmpty()) {
+                Path dirPath = Paths.get(uploadDir, "board");
+                Files.createDirectories(dirPath);
+
+                String uuid = UUID.randomUUID().toString();
+                String ext  = attachFile.getOriginalFilename()
+                    .substring(attachFile.getOriginalFilename().lastIndexOf("."));
+                String savedName = uuid + ext;
+
+                attachFile.transferTo(dirPath.resolve(savedName).toAbsolutePath().toFile());
+                board.setFileName(attachFile.getOriginalFilename());
+                board.setFilePath("/uploads/board/" + savedName);
+                board.setFileSize(attachFile.getSize());
+            }
+
+            boardService.save(board);
+            ra.addFlashAttribute("successMsg", "저장되었습니다.");
+        } catch (Exception e) {
+            ra.addFlashAttribute("errorMsg", "저장 실패: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return "redirect:/admin/board?type=" + board.getBoardType();
+    }
+
+    // ── 삭제 ──
+    @PostMapping("/board/delete/{id}")
+    public String deleteBoard(@PathVariable Long id,
+        @RequestParam(defaultValue = "NOTICE") String type,
+        RedirectAttributes ra) {
+        boardService.delete(id);
+        ra.addFlashAttribute("successMsg", "삭제되었습니다.");
+        return "redirect:/admin/board?type=" + type;
+    }
 }

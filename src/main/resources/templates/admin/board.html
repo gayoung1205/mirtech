@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{admin/admin-layout :: head('게시판 관리')}"></head>
+
+<body>
+<div class="admin-wrap">
+
+  <aside th:replace="~{admin/admin-layout :: sidebar('board')}"></aside>
+
+  <main class="admin-main">
+
+    <h2 class="admin-page-title">게시판 관리</h2>
+    <p class="admin-breadcrumb">HOME &gt; 관리자 &gt; 게시판관리</p>
+
+    <!-- 알림 -->
+    <div th:if="${successMsg}"
+         style="background:#f0fff4;border:1px solid #b7ebc9;border-radius:8px;
+                padding:12px 20px;margin-bottom:16px;color:#1d7a45;font-size:0.88rem;">
+      <i class="bi bi-check-circle-fill me-2"></i>
+      <span th:text="${successMsg}"></span>
+    </div>
+
+    <!-- 탭 (공지사항 / 기술자료실) -->
+    <div class="admin-tab-bar">
+      <a th:href="@{/admin/board(type='NOTICE')}"
+         th:class="${type == 'NOTICE'} ? 'admin-tab-btn active' : 'admin-tab-btn'">
+        공지사항
+      </a>
+      <a th:href="@{/admin/board(type='REFERENCE')}"
+         th:class="${type == 'REFERENCE'} ? 'admin-tab-btn active' : 'admin-tab-btn'">
+        기술자료실
+      </a>
+    </div>
+
+    <div class="admin-card">
+
+      <!-- 검색 + 새 글 작성 버튼 -->
+      <div class="admin-card-header">
+        <form th:action="@{/admin/board}" method="get"
+              class="admin-search-wrap">
+          <input type="hidden" name="type" th:value="${type}">
+          <input type="text" name="keyword" class="admin-search-input"
+                 th:value="${keyword}" placeholder="제목 검색">
+          <button type="submit" class="btn-admin-search">
+            <i class="bi bi-search"></i>
+          </button>
+        </form>
+        <a th:href="@{/admin/board/write(type=${type})}"
+           class="btn-admin-primary">
+          <i class="bi bi-plus-lg"></i> 새 글 작성
+        </a>
+      </div>
+
+      <!-- 목록 테이블 -->
+      <table class="admin-table">
+        <thead>
+        <tr>
+          <th style="width:70px;">No</th>
+          <th>제목</th>
+          <th style="width:90px;">작성자</th>
+          <th style="width:70px;">조회</th>
+          <th style="width:110px;">등록일</th>
+          <th style="width:120px;">관리</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${boards.empty}">
+          <td colspan="6"
+              style="text-align:center;padding:40px;color:#aaa;">
+            등록된 게시글이 없습니다.
+          </td>
+        </tr>
+        <tr th:each="board : ${boards.content}">
+          <td th:text="${board.id}" style="text-align:center;"></td>
+          <td>
+            <a th:href="@{/admin/board/edit/{id}(id=${board.id})}"
+               style="color:#222;text-decoration:none;">
+                <span th:if="${board.category}"
+                      style="color:#1a5fd1;font-size:0.8rem;font-weight:700;"
+                      th:text="${'[' + board.category + '] '}"></span>
+              <span th:text="${board.title}"></span>
+            </a>
+          </td>
+          <td style="text-align:center;" th:text="${board.author}"></td>
+          <td style="text-align:center;" th:text="${board.views}"></td>
+          <td style="text-align:center;"
+              th:text="${#temporals.format(board.createdAt,'yyyy.MM.dd')}"></td>
+          <td style="text-align:center;">
+            <a th:href="@{/admin/board/edit/{id}(id=${board.id})}"
+               class="btn-admin-edit">수정</a>
+            <form th:action="@{/admin/board/delete/{id}(id=${board.id})}"
+                  method="post" style="display:inline;"
+                  onsubmit="return confirm('삭제하시겠습니까?')">
+              <input type="hidden" name="type" th:value="${type}">
+              <button type="submit" class="btn-admin-delete">삭제</button>
+            </form>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <!-- 페이지네이션 -->
+      <div class="admin-pagination" style="padding:16px 0;"
+           th:if="${boards.totalPages > 1}">
+        <a th:if="${currentPage > 0}"
+           th:href="@{/admin/board(type=${type},keyword=${keyword},page=${currentPage-1})}"
+           class="admin-page-btn">◁</a>
+        <a th:each="i : ${#numbers.sequence(0, boards.totalPages - 1)}"
+           th:href="@{/admin/board(type=${type},keyword=${keyword},page=${i})}"
+           th:text="${i + 1}"
+           th:class="${i == currentPage} ? 'admin-page-btn active' : 'admin-page-btn'"></a>
+        <a th:if="${currentPage < boards.totalPages - 1}"
+           th:href="@{/admin/board(type=${type},keyword=${keyword},page=${currentPage+1})}"
+           class="admin-page-btn">▷</a>
+      </div>
+
+    </div>
+  </main>
+</div>
+</body>
+</html>
