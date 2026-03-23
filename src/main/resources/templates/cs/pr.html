@@ -31,23 +31,19 @@
 
       <h3 class="sub-content-title">홍보자료</h3>
 
-      <!-- 카드 그리드 -->
       <div class="cs-pr-grid fade-up">
 
-        <!-- 데이터 없을 때 -->
         <div th:if="${#lists.isEmpty(materials)}"
              style="grid-column:1/-1; text-align:center; padding:60px; color:#999;">
           등록된 자료가 없습니다.
         </div>
 
-        <!-- 카드 -->
         <div th:each="mat : ${materials}" class="cs-pr-card">
           <div class="cs-pr-thumb">
             <img th:if="${mat.thumbnail}"
                  th:src="${mat.thumbnail}" alt="썸네일"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="cs-pr-thumb-placeholder"
-                 th:style="${mat.thumbnail} ? 'display:none' : 'display:flex'">
+                 onerror="this.style.display='none'">
+            <div class="cs-pr-thumb-placeholder" th:unless="${mat.thumbnail}">
               <i class="bi bi-file-earmark-pdf-fill"></i>
               <span>PDF</span>
             </div>
@@ -57,7 +53,7 @@
             <p class="cs-pr-meta">
               PDF
               <span th:if="${mat.fileSize}"
-                    th:text="${T(String).format('%.1f', mat.fileSize / 1048576.0) + 'MB'}"></span>
+                    th:text="${#numbers.formatDecimal(mat.fileSize / 1048576.0, 1, 1) + 'MB'}"></span>
             </p>
             <a th:href="@{/cs/pr/download/{id}(id=${mat.id})}"
                class="cs-pr-btn" download>
@@ -65,8 +61,7 @@
             </a>
           </div>
         </div>
-
-      </div><!-- /cs-pr-grid -->
+      </div>
     </div>
   </div>
 </div>

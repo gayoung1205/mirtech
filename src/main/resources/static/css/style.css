@@ -2747,7 +2747,6 @@ footer .copyright {
   transform: translateY(-1px);
 }
 
-/* 반응형 */
 @media (max-width: 768px) {
   .cs-btn-submit { width: 100%; justify-content: center; }
 }

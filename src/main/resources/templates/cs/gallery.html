@@ -41,7 +41,8 @@
 
         <div th:each="item : ${galleries}"
              class="cs-gallery-item"
-             th:onclick="|openLightbox('${item.imagePath}')|">
+             th:data-src="${item.imagePath}"
+             onclick="openLightbox(this.dataset.src)">
           <img th:src="${item.imagePath}"
                th:alt="${item.title}"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
