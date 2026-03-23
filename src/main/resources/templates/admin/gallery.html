@@ -21,6 +21,13 @@
       <span th:text="${successMsg}"></span>
     </div>
 
+    <div th:if="${errorMsg}"
+         style="background:#fff0f0;border:1px solid #fcc;border-radius:8px;
+            padding:12px 20px;margin-bottom:16px;color:#c0392b;font-size:0.88rem;">
+      <i class="bi bi-exclamation-circle-fill me-2"></i>
+      <span th:text="${errorMsg}"></span>
+    </div>
+
     <!-- 업로드 바 -->
     <div class="admin-upload-bar">
       <span>JPG, PNG, WEBP 지원 &middot; 최대 10MB &middot; 다중 업로드 가능</span>

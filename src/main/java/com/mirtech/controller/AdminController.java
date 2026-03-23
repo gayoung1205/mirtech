@@ -60,37 +60,41 @@ public class AdminController {
 
     @PostMapping("/gallery/upload")
     public String uploadGallery(@RequestParam("files") MultipartFile[] files,
-        @RequestParam(required = false) String title, RedirectAttributes ra) {
-
+        @RequestParam(required = false) String title,
+        RedirectAttributes ra) {
         try {
-            Path dirPath = Paths.get(uploadDir + "/gallery");
+            // 절대경로로 폴더 생성
+            Path dirPath = Paths.get(uploadDir, "gallery");
             Files.createDirectories(dirPath);
 
+            int count = 0;
             for (MultipartFile file : files) {
-                if (file.isEmpty())
-                    continue;
+                if (file.isEmpty()) continue;
 
-                String uuid = UUID.randomUUID().toString();
-                String ext = file.getOriginalFilename()
-                    .substring(file.getOriginalFilename().lastIndexOf("."));
-                String savedName = uuid + ext;
+                String originalName = file.getOriginalFilename();
+                String ext = originalName.substring(originalName.lastIndexOf("."));
+                String savedName = UUID.randomUUID().toString() + ext;
 
-                file.transferTo(dirPath.resolve(savedName).toFile());
+                // 파일 실제 저장
+                Path savePath = dirPath.resolve(savedName);
+                file.transferTo(savePath.toAbsolutePath().toFile()); // ← 절대경로로 저장
 
+                // DB 저장
                 Gallery g = new Gallery();
-                g.setTitle(title != null && !title.isBlank() ? title
-                    : file.getOriginalFilename());
+                g.setTitle(title != null && !title.isBlank() ? title : originalName);
                 g.setImageName(savedName);
                 g.setImagePath("/uploads/gallery/" + savedName);
                 galleryService.save(g);
+                count++;
             }
-            ra.addFlashAttribute("successMsg", "업로드 완료!");
+
+            ra.addFlashAttribute("successMsg", count + "개 이미지가 업로드되었습니다.");
         } catch (Exception e) {
             ra.addFlashAttribute("errorMsg", "업로드 실패: " + e.getMessage());
+            e.printStackTrace(); // 콘솔에서 상세 오류 확인
         }
         return "redirect:/admin/gallery";
     }
-
 
     @PostMapping("/gallery/delete/{id}")
     public String deleteGallery(@PathVariable Long id, RedirectAttributes ra) {
