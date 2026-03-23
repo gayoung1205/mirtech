@@ -47,4 +47,12 @@ public class InquiryService {
         // DB 저장만 (메일 발송은 추후 추가)
         inquiryRepository.save(inquiry);
     }
+
+    public long countAll() {
+        return inquiryRepository.count();
+    }
+
+    public java.util.List<Inquiry> getRecent5(){
+        return inquiryRepository.findTop5ByOrderByCreatedAtDesc();
+    }
 }

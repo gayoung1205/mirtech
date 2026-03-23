@@ -12,4 +12,6 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
 
     Page<Board> findByBoardTypeAndTitleContainingOrderByCreatedAtDesc(String boardType, String title, Pageable pageable);
 
+    long countByBoardType(String boardType);
+
 }

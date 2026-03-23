@@ -30,4 +30,9 @@ public class BoardService {
         board.setViews(board.getViews() + 1);
         return boardRepository.save(board);
     }
+
+    public long countByType(String boardType){
+        return boardRepository.countByBoardType(boardType);
+    }
+
 }

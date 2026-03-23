@@ -17,4 +17,8 @@ public class GalleryService {
         return galleryRepository.findAllByOrderByCreatedAtDesc(PageRequest.of(page, 9));
     }
 
+    public long countAll(){
+        return galleryRepository.count();
+    }
+
 }
