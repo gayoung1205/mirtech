@@ -1,137 +1,224 @@
-/* =============================================
-   MIRTECH 관리자 페이지 공통 스타일
-   admin.css
-   ============================================= */
-
-/* =====================
-   전역 기본값
-===================== */
 * {
   font-family: 'Noto Sans KR', sans-serif;
 }
 
 /* =====================
-   로그인 페이지
+   로그인
 ===================== */
 .admin-login-body {
-  background: #0d2a5e;
+  background: #f0f3f8;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.login-card {
-  background: #fff;
-  border-radius: 12px;
+.admin-login-body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, #c8d5e8 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.login-container {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  max-width: 420px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 460px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
 }
 
-.login-header {
-  background: #1a5fd1;
-  padding: 32px 40px 28px;
-  text-align: center;
-  color: #fff;
+.login-card {
+  width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 44px 36px;
+  box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.04),
+      0 8px 24px rgba(0, 0, 0, 0.08),
+      0 20px 48px rgba(13, 42, 94, 0.06);
+  border: 1px solid rgba(200, 213, 230, 0.5);
 }
 
-.login-header h1 {
-  font-size: 1.4rem;
+.login-card-header {
+  margin-bottom: 28px;
+}
+
+.login-title {
+  font-size: 1.5rem;
   font-weight: 700;
-  margin: 0 0 4px;
-  letter-spacing: 2px;
-}
-
-.login-header p {
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.75);
-  margin: 0;
-}
-
-.login-body {
-  padding: 32px 40px 36px;
-}
-
-.login-body .form-label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #333;
+  color: #0d2a5e;
   margin-bottom: 6px;
+  letter-spacing: -0.5px;
 }
 
-.login-body .form-control {
-  border: 1px solid #d0d9e8;
-  border-radius: 6px;
+.login-desc {
+  font-size: 0.82rem;
+  color: #8a9baf;
+  margin: 0;
+  font-weight: 400;
+}
+
+.alert-box {
+  display: flex;
+  align-items: center;
+  gap: 9px;
   padding: 11px 14px;
-  font-size: 0.9rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  border-radius: 8px;
+  font-size: 0.83rem;
+  margin-bottom: 20px;
+  font-weight: 500;
 }
 
-.login-body .form-control:focus {
-  border-color: #1a5fd1;
-  box-shadow: 0 0 0 3px rgba(26, 95, 209, 0.12);
+.alert-error {
+  background: #fff0f0;
+  border: 1px solid #fad0d0;
+  color: #c0392b;
+}
+
+.alert-success {
+  background: #f0fff6;
+  border: 1px solid #b7e8cc;
+  color: #1d7a45;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.field-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #3a4a60;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.field-label i {
+  color: #1a5fd1;
+  font-size: 0.82rem;
+}
+
+.field-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1.5px solid #dde4ef;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #1a2540;
+  background: #fff;
   outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.field-input::placeholder {
+  color: #b8c5d0;
+  font-weight: 300;
+}
+
+.field-input:focus {
+  border-color: #1a5fd1;
+  box-shadow: 0 0 0 4px rgba(26, 95, 209, 0.1);
+  background: #fafcff;
+}
+
+.field-pw-wrap {
+  position: relative;
+}
+
+.field-pw-wrap .field-input {
+  padding-right: 46px;
+}
+
+.btn-toggle-pw {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #a0b0c4;
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.btn-toggle-pw:hover {
+  color: #1a5fd1;
 }
 
 .btn-login {
   width: 100%;
-  background: #1a5fd1;
+  padding: 13px;
+  background: linear-gradient(135deg, #1a5fd1 0%, #1045b0 100%);
   color: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 12px;
-  font-size: 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
   font-weight: 700;
-  margin-top: 8px;
-  transition: background 0.2s;
   cursor: pointer;
+  margin-top: 6px;
+  transition: all 0.2s;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 14px rgba(26, 95, 209, 0.35);
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .btn-login:hover {
-  background: #1448a8;
+  background: linear-gradient(135deg, #1e6ae8 0%, #1a5fd1 100%);
+  box-shadow: 0 6px 20px rgba(26, 95, 209, 0.45);
+  transform: translateY(-1px);
 }
 
-/* =====================
-   알림 메시지 (로그인)
-===================== */
-.alert-error {
-  background: #fff0f0;
-  border: 1px solid #fcc;
-  border-radius: 6px;
-  color: #c0392b;
-  font-size: 0.85rem;
-  padding: 10px 14px;
-  margin-bottom: 16px;
+.btn-login:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(26, 95, 209, 0.3);
+}
+
+.login-security {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 22px;
+  font-size: 0.74rem;
+  color: #a8b8c8;
+  font-weight: 400;
 }
 
-.alert-success {
-  background: #f0fff4;
-  border: 1px solid #b7ebc9;
-  border-radius: 6px;
-  color: #1d7a45;
-  font-size: 0.85rem;
-  padding: 10px 14px;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.login-security i {
+  font-size: 0.78rem;
+  color: #1a5fd1;
+  opacity: 0.55;
 }
 
-/* =====================
-   관리자 공통 레이아웃
-===================== */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 32px 28px 28px;
+  }
+}
+
 .admin-wrap {
   display: flex;
   min-height: 100vh;
   background: #f0f4f9;
 }
 
-/* ── 사이드바 ── */
 .admin-sidebar {
   width: 200px;
   min-width: 200px;
@@ -223,7 +310,6 @@
   color: #fff;
 }
 
-/* ── 메인 콘텐츠 영역 ── */
 .admin-main {
   margin-left: 200px;
   flex: 1;
@@ -244,7 +330,6 @@
   margin-bottom: 28px;
 }
 
-/* ── 통계 카드 ── */
 .admin-stat-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
