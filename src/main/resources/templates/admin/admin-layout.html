@@ -14,33 +14,39 @@
 </head>
 
 <body>
-<!-- 사이드바 fragment -->
 <aside th:fragment="sidebar(activeMenu)" class="admin-sidebar">
+
   <div class="admin-sidebar-logo">
+    <div class="admin-sidebar-logo-tag">ADMIN</div>
     <span>MIRTECH</span>
-    <small>ADMIN</small>
+    <small>관리자 시스템</small>
   </div>
 
   <nav class="admin-nav">
     <a th:href="@{/admin/dashboard}"
        th:class="${activeMenu == 'dashboard'} ? 'active'">
-      <i class="bi bi-speedometer2"></i> 대시보드
-    </a>
-    <a th:href="@{/admin/gallery}"
-       th:class="${activeMenu == 'gallery'} ? 'active'">
-      <i class="bi bi-images"></i> 갤러리관리
+      <span class="admin-nav-ico"><i class="bi bi-speedometer2"></i></span>
+      대시보드
     </a>
     <a th:href="@{/admin/board}"
        th:class="${activeMenu == 'board'} ? 'active'">
-      <i class="bi bi-clipboard-data"></i> 게시판관리
+      <span class="admin-nav-ico"><i class="bi bi-clipboard-data"></i></span>
+      게시판관리
     </a>
     <a th:href="@{/admin/pr}"
        th:class="${activeMenu == 'pr'} ? 'active'">
-      <i class="bi bi-file-earmark-pdf"></i> 홍보자료
+      <span class="admin-nav-ico"><i class="bi bi-file-earmark-pdf"></i></span>
+      홍보자료
+    </a>
+    <a th:href="@{/admin/gallery}"
+       th:class="${activeMenu == 'gallery'} ? 'active'">
+      <span class="admin-nav-ico"><i class="bi bi-images"></i></span>
+      갤러리관리
     </a>
     <a th:href="@{/admin/inquiry}"
        th:class="${activeMenu == 'inquiry'} ? 'active'">
-      <i class="bi bi-envelope-open"></i> 견적수신함
+      <span class="admin-nav-ico"><i class="bi bi-envelope-open"></i></span>
+      견적수신함
     </a>
   </nav>
 
@@ -49,6 +55,7 @@
       <i class="bi bi-box-arrow-left"></i> 로그아웃
     </a>
   </div>
+
 </aside>
 </body>
 </html>

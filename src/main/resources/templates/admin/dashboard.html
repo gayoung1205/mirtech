@@ -1,43 +1,55 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<!-- ① CSS는 head fragment에서 가져옴 -->
 <head th:replace="~{admin/admin-layout :: head('대시보드')}"></head>
 
 <body>
 <div class="admin-wrap">
 
-  <!-- ② 사이드바 fragment 가져옴 — 'dashboard' 활성 표시 -->
+  <!-- 사이드바 -->
   <aside th:replace="~{admin/admin-layout :: sidebar('dashboard')}"></aside>
 
-  <!-- ③ 메인 콘텐츠 -->
+  <!-- 메인 콘텐츠 -->
   <main class="admin-main">
 
-    <h2 class="admin-page-title">관리자 대시보드</h2>
-    <p class="admin-breadcrumb">HOME &gt; 관리자 로그인 &gt; 대시보드</p>
+    <div class="admin-page-title">관리자 대시보드</div>
+    <div class="admin-breadcrumb">HOME &gt; 관리자 &gt; 대시보드</div>
 
-    <!-- 통계 카드 -->
+    <!-- 견적 통계 카드 -->
     <div class="admin-stat-grid">
-      <div class="admin-stat-card orange">
-        <i class="bi bi-envelope-exclamation admin-stat-icon"></i>
-        <div class="admin-stat-label">미확인 견적문의</div>
-        <div class="admin-stat-number" th:text="${inquiryCount}">0</div>
+
+      <div class="admin-stat-card highlight">
+        <div class="admin-stat-label">
+          <span class="admin-stat-dot"></span> 미확인 견적
+        </div>
+        <div class="admin-stat-number" th:text="${unreadInquiryCount}">0</div>
+        <div class="admin-stat-sub"><b>확인이 필요합니다</b></div>
       </div>
+
       <div class="admin-stat-card">
-        <i class="bi bi-megaphone admin-stat-icon"></i>
-        <div class="admin-stat-label">공지사항</div>
-        <div class="admin-stat-number" th:text="${noticeCount}">0</div>
+        <div class="admin-stat-label">전체 견적</div>
+        <div class="admin-stat-number" th:text="${totalInquiryCount}">0</div>
+        <div class="admin-stat-sub">누적 접수 건수</div>
       </div>
-      <div class="admin-stat-card green">
-        <i class="bi bi-journal-bookmark admin-stat-icon"></i>
-        <div class="admin-stat-label">기술자료실</div>
-        <div class="admin-stat-number" th:text="${referenceCount}">0</div>
+
+      <div class="admin-stat-card">
+        <div class="admin-stat-label">처리 완료</div>
+        <div class="admin-stat-number" th:text="${readInquiryCount}">0</div>
+        <div class="admin-stat-sub">
+          처리율 <b th:text="${totalInquiryCount > 0}
+              ? ${#numbers.formatDecimal(readInquiryCount * 100.0 / totalInquiryCount, 1, 0)} + '%'
+              : '0%'">0%</b>
+        </div>
       </div>
-      <div class="admin-stat-card purple">
-        <i class="bi bi-card-image admin-stat-icon"></i>
-        <div class="admin-stat-label">갤러리 이미지</div>
-        <div class="admin-stat-number" th:text="${galleryCount}">0</div>
+
+      <div class="admin-stat-card">
+        <div class="admin-stat-label">이번 달 접수</div>
+        <div class="admin-stat-number" th:text="${monthlyInquiryCount}">0</div>
+        <div class="admin-stat-sub">
+          전월 대비 <b th:text="${monthlyDiff >= 0} ? '+' + ${monthlyDiff} + '건' : ${monthlyDiff} + '건'">+0건</b>
+        </div>
       </div>
+
     </div>
 
     <!-- 최근 견적문의 테이블 -->
@@ -78,5 +90,7 @@
 
   </main>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

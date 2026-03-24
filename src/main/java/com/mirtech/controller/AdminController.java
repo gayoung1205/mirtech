@@ -47,12 +47,21 @@ public class AdminController {
 
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
-        model.addAttribute("activeMenu", "dashboard");
-        model.addAttribute("inquiryCount", inquiryService.countAll());
-        model.addAttribute("noticeCount", boardService.countByType("NOTICE"));
-        model.addAttribute("referenceCount", boardService.countByType("REFERENCE"));
-        model.addAttribute("galleryCount", galleryService.countAll());
-        model.addAttribute("recentInquiries", inquiryService.getRecent5());
+
+        long totalInquiry   = inquiryService.countAll();
+        long unreadInquiry  = inquiryService.countUnread();
+        long readInquiry    = totalInquiry - unreadInquiry;
+        long monthlyInquiry = inquiryService.countThisMonth();
+        long lastMonthInquiry = inquiryService.countLastMonth();
+        long monthlyDiff    = monthlyInquiry - lastMonthInquiry;
+
+        model.addAttribute("totalInquiryCount",   totalInquiry);
+        model.addAttribute("unreadInquiryCount",  unreadInquiry);
+        model.addAttribute("readInquiryCount",    readInquiry);
+        model.addAttribute("monthlyInquiryCount", monthlyInquiry);
+        model.addAttribute("monthlyDiff",         monthlyDiff);
+        model.addAttribute("recentInquiries",     inquiryService.getRecent5());
+
         return "admin/dashboard";
     }
 

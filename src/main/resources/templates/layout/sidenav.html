@@ -145,16 +145,16 @@
 <nav th:fragment="cs(activeTab)" class="side-nav">
   <div class="side-nav-title">고객센터</div>
   <ul>
+    <li><a th:href="@{/cs/notice}"
+           th:class="${activeTab == 'notice'} ? 'active'">공지사항</a></li>
     <li><a th:href="@{/cs/reference}"
            th:class="${activeTab == 'reference'} ? 'active'">기술자료실</a></li>
     <li><a th:href="@{/cs/pr}"
            th:class="${activeTab == 'pr'} ? 'active'">홍보자료</a></li>
-    <li><a th:href="@{/cs/notice}"
-           th:class="${activeTab == 'notice'} ? 'active'">공지사항</a></li>
-    <li><a th:href="@{/cs/inquiry}"
-           th:class="${activeTab == 'inquiry'} ? 'active'">견적문의</a></li>
     <li><a th:href="@{/cs/gallery}"
            th:class="${activeTab == 'gallery'} ? 'active'">갤러리</a></li>
+    <li><a th:href="@{/cs/inquiry}"
+           th:class="${activeTab == 'inquiry'} ? 'active'">견적문의</a></li>
   </ul>
 </nav>
 

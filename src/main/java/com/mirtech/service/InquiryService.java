@@ -2,6 +2,7 @@ package com.mirtech.service;
 
 import com.mirtech.entity.Inquiry;
 import com.mirtech.repository.InquiryRepository;
+import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -85,5 +86,20 @@ public class InquiryService {
 
     public long countUnread() {
         return inquiryRepository.countByIsRead(false);
+    }
+
+    public long countThisMonth() {
+        LocalDateTime start = LocalDateTime.now()
+            .withDayOfMonth(1).withHour(0).withMinute(0).withSecond(0).withNano(0);
+        LocalDateTime end   = LocalDateTime.now();
+        return inquiryRepository.countByCreatedAtBetween(start, end);
+    }
+
+    public long countLastMonth() {
+        LocalDateTime start = LocalDateTime.now().minusMonths(1)
+            .withDayOfMonth(1).withHour(0).withMinute(0).withSecond(0).withNano(0);
+        LocalDateTime end   = LocalDateTime.now()
+            .withDayOfMonth(1).withHour(0).withMinute(0).withSecond(0).withNano(0);
+        return inquiryRepository.countByCreatedAtBetween(start, end);
     }
 }
