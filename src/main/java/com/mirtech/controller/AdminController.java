@@ -2,10 +2,17 @@ package com.mirtech.controller;
 
 import com.mirtech.entity.Board;
 import com.mirtech.entity.Gallery;
+import com.mirtech.entity.Inquiry;
+import com.mirtech.entity.PrMaterial;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.UUID;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.rendering.PDFRenderer;
+import javax.imageio.ImageIO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ui.Model;
 import com.mirtech.service.BoardService;
@@ -181,4 +188,111 @@ public class AdminController {
         ra.addFlashAttribute("successMsg", "삭제되었습니다.");
         return "redirect:/admin/board?type=" + type;
     }
+
+    @GetMapping("/pr")
+    public String pr(Model model) {
+        model.addAttribute("activeMenu", "pr");
+        model.addAttribute("materials", prMaterialService.getAll());
+        return "admin/pr";
+    }
+
+    @PostMapping("/pr/upload")
+    public String uploadPr(@RequestParam("pdfFile") MultipartFile pdfFile,
+        @RequestParam String title,
+        RedirectAttributes ra) {
+        try {
+            Path dirPath = Paths.get(uploadDir, "pr");
+            Files.createDirectories(dirPath);
+
+            String uuid = UUID.randomUUID().toString();
+            String ext  = pdfFile.getOriginalFilename()
+                .substring(pdfFile.getOriginalFilename().lastIndexOf("."));
+            String savedName = uuid + ext;
+            File savedFile = dirPath.resolve(savedName).toAbsolutePath().toFile();
+
+            pdfFile.transferTo(savedFile);
+
+            String thumbName = uuid + "_thumb.jpg";
+            Path thumbPath = dirPath.resolve(thumbName);
+            try (PDDocument pdf = PDDocument.load(savedFile)) {
+                PDFRenderer renderer = new PDFRenderer(pdf);
+                BufferedImage image = renderer.renderImageWithDPI(0, 150);
+                ImageIO.write(image, "JPEG", thumbPath.toFile());
+            }
+
+            PrMaterial mat = new PrMaterial();
+            mat.setTitle(title);
+            mat.setFileName(pdfFile.getOriginalFilename());
+            mat.setFilePath("/uploads/pr/" + savedName);
+            mat.setFileSize(pdfFile.getSize());
+            mat.setThumbnail("/uploads/pr/" + thumbName);
+            prMaterialService.save(mat);
+
+            ra.addFlashAttribute("successMsg", "홍보자료가 등록되었습니다.");
+        } catch (Exception e) {
+            ra.addFlashAttribute("errorMsg", "업로드 실패: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return "redirect:/admin/pr";
+    }
+
+    @PostMapping("/pr/edit/{id}")
+    public String editPr(@PathVariable Long id, @RequestParam String title, RedirectAttributes ra) {
+        PrMaterial mat = prMaterialService.getById(id);
+        mat.setTitle(title);
+        prMaterialService.save(mat);
+        ra.addFlashAttribute("successMSG", "제목이 수정되었습니다.");
+        return "redirect:/admin/pr";
+    }
+
+    @PostMapping("/pr/delete/{id}")
+    public String deletePr(@PathVariable Long id, RedirectAttributes ra) {
+        prMaterialService.delete(id);
+        ra.addFlashAttribute("successMSG", "삭제되었습니다.");
+        return "redirect:/admin/pr";
+    }
+
+    @GetMapping("/inquiry")
+    public String inquiry(Model model,
+        @RequestParam(defaultValue = "all") String status,
+        @RequestParam(defaultValue = "0") int page) {
+        model.addAttribute("activeMenu", "inquiry");
+        model.addAttribute("inquiries", inquiryService.getAdminList(status, page));
+        model.addAttribute("status", status);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("unreadCount", inquiryService.countUnread());
+        return "admin/inquiry";
+    }
+
+    @GetMapping("/inquiry/{id}")
+    public String inquiryDetail(@PathVariable Long id, Model model) {
+        Inquiry inq = inquiryService.getById(id);
+        model.addAttribute("activeMenu", "inquiry");
+        model.addAttribute("inq", inq);
+        model.addAttribute("unreadCount", inquiryService.countUnread());
+        return "admin/inquiry-detail";
+    }
+
+    @GetMapping("/inquiry/{id}/open")
+    public String openInquiry(@PathVariable Long id) {
+        inquiryService.updateReadStatus(id, true);
+        return "redirect:/admin/inquiry/" + id;
+    }
+
+    @PostMapping("/inquiry/{id}/status")
+    public String updateStatus(@PathVariable Long id,
+        @RequestParam boolean isRead,
+        RedirectAttributes ra) {
+        inquiryService.updateReadStatus(id, isRead);
+        ra.addFlashAttribute("successMsg", isRead ? "확인 처리되었습니다." : "미확인으로 변경되었습니다.");
+        return "redirect:/admin/inquiry/" + id;
+    }
+
+    @PostMapping("/inquiry/{id}/delete")
+    public String deleteInquiry(@PathVariable Long id, RedirectAttributes ra) {
+        inquiryService.delete(id);
+        ra.addFlashAttribute("successMsg", "삭제되었습니다.");
+        return "redirect:/admin/inquiry";
+    }
+
 }

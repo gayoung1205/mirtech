@@ -444,6 +444,7 @@
   font-weight: 700;
   padding: 3px 10px;
   border-radius: 20px;
+  white-space: nowrap;
 }
 
 .badge-done {
@@ -453,6 +454,7 @@
   font-weight: 700;
   padding: 3px 10px;
   border-radius: 20px;
+  white-space: nowrap;
 }
 
 /* 반응형 */
@@ -859,3 +861,217 @@
 }
 
 .btn-admin-cancel:hover { background: #e8ecf0; color: #333; }
+
+/* =====================
+   ADMIN-05 홍보자료
+===================== */
+.admin-pr-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.admin-pr-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-pr-thumb {
+  background: #f0f4fb;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #1a5fd1;
+  overflow: hidden;
+}
+
+.admin-pr-thumb i { font-size: 3rem; }
+
+.admin-pr-thumb span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #888;
+}
+
+.admin-pr-body {
+  padding: 14px 16px;
+  flex: 1;
+}
+
+.admin-pr-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #0d2a5e;
+  margin: 0 0 6px;
+}
+
+.admin-pr-meta {
+  font-size: 0.78rem;
+  color: #aaa;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-pr-footer {
+  padding: 10px 16px;
+  border-top: 1px solid #f0f3f8;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1200px) {
+  .admin-pr-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .admin-pr-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================
+   ADMIN-07 견적수신함
+===================== */
+.admin-status-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.admin-status-tab {
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: 1px solid #dde2ea;
+  background: #fff;
+  color: #666;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.admin-status-tab:hover {
+  border-color: #1a5fd1;
+  color: #1a5fd1;
+}
+
+.admin-status-tab.active {
+  background: #1a5fd1;
+  border-color: #1a5fd1;
+  color: #fff;
+}
+
+.badge-count {
+  background: rgba(255,255,255,0.25);
+  border-radius: 10px;
+  padding: 1px 7px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.admin-status-tab:not(.active) .badge-count {
+  background: #f0f4f9;
+  color: #888;
+}
+
+/* 상세 카드 */
+.admin-inq-detail {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.admin-inq-header {
+  padding: 20px 28px;
+  border-bottom: 1px solid #eef1f6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.admin-inq-header h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0d2a5e;
+  margin: 0;
+}
+
+.admin-inq-body {
+  padding: 28px;
+}
+
+.admin-inq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 32px;
+  margin-bottom: 24px;
+}
+
+.admin-inq-field label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #888;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.admin-inq-field p {
+  font-size: 0.92rem;
+  color: #222;
+  margin: 0;
+  padding: 10px 14px;
+  background: #f8f9fc;
+  border-radius: 6px;
+  border: 1px solid #eef1f6;
+}
+
+.admin-inq-content {
+  margin-top: 8px;
+}
+
+.admin-inq-content label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #888;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.admin-inq-content-box {
+  font-size: 0.92rem;
+  color: #222;
+  padding: 16px 18px;
+  background: #f8f9fc;
+  border-radius: 6px;
+  border: 1px solid #eef1f6;
+  min-height: 140px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+.admin-inq-footer {
+  padding: 16px 28px;
+  border-top: 1px solid #eef1f6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}

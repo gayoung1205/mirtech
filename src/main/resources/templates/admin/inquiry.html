@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{admin/admin-layout :: head('견적수신함')}"></head>
+
+<body>
+<div class="admin-wrap">
+  <aside th:replace="~{admin/admin-layout :: sidebar('inquiry')}"></aside>
+
+  <main class="admin-main">
+    <h2 class="admin-page-title">견적수신함</h2>
+    <p class="admin-breadcrumb">HOME &gt; 관리자 &gt; 견적수신함</p>
+
+    <!-- 알림 -->
+    <div th:if="${successMsg}"
+         style="background:#f0fff4;border:1px solid #b7ebc9;border-radius:8px;
+                padding:12px 20px;margin-bottom:16px;color:#1d7a45;font-size:0.88rem;">
+      <i class="bi bi-check-circle-fill me-2"></i>
+      <span th:text="${successMsg}"></span>
+    </div>
+
+    <!-- 상태 탭 -->
+    <div class="admin-status-tabs">
+      <a th:href="@{/admin/inquiry(status='all')}"
+         th:class="${status == 'all'} ? 'admin-status-tab active' : 'admin-status-tab'">
+        전체
+      </a>
+      <a th:href="@{/admin/inquiry(status='unread')}"
+         th:class="${status == 'unread'} ? 'admin-status-tab active' : 'admin-status-tab'">
+        미확인
+        <span class="badge-count" th:text="${unreadCount}"></span>
+      </a>
+      <a th:href="@{/admin/inquiry(status='read')}"
+         th:class="${status == 'read'} ? 'admin-status-tab active' : 'admin-status-tab'">
+        확인완료
+      </a>
+    </div>
+
+    <!-- 목록 테이블 -->
+    <div class="admin-card">
+      <table class="admin-table">
+        <thead>
+        <tr>
+          <th style="width:60px;">No</th>
+          <th style="width:110px;">이름</th>
+          <th style="width:130px;">사업분야</th>
+          <th style="width:140px;">연락처</th>
+          <th>이메일</th>
+          <th style="width:90px;">접수일</th>
+          <th style="width:80px;">상태</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${inquiries.empty}">
+          <td colspan="7"
+              style="text-align:center;padding:40px;color:#aaa;">
+            접수된 문의가 없습니다.
+          </td>
+        </tr>
+        <tr th:each="inq : ${inquiries.content}"
+            style="cursor:pointer;"
+            th:onclick="|location.href='@{/admin/inquiry/{id}/open(id=${inq.id})}'|">
+          <td style="text-align:center;" th:text="${inq.id}"></td>
+          <td style="font-weight:600;" th:text="${inq.name}"></td>
+          <td th:text="${inq.bizType}"></td>
+          <td th:text="${inq.phone}"></td>
+          <td th:text="${inq.email}"></td>
+          <td style="text-align:center;"
+              th:text="${#temporals.format(inq.createdAt,'MM-dd')}"></td>
+          <td style="text-align:center;">
+            <span th:if="${!inq.read}" class="badge-unread">미확인</span>
+            <span th:if="${inq.read}"  class="badge-done">완료</span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <!-- 페이지네이션 -->
+      <div class="admin-pagination" style="padding:16px 0;"
+           th:if="${inquiries.totalPages > 1}">
+        <a th:if="${currentPage > 0}"
+           th:href="@{/admin/inquiry(status=${status},page=${currentPage-1})}"
+           class="admin-page-btn">◁</a>
+        <a th:each="i : ${#numbers.sequence(0, inquiries.totalPages - 1)}"
+           th:href="@{/admin/inquiry(status=${status},page=${i})}"
+           th:text="${i + 1}"
+           th:class="${i == currentPage} ? 'admin-page-btn active' : 'admin-page-btn'"></a>
+        <a th:if="${currentPage < inquiries.totalPages - 1}"
+           th:href="@{/admin/inquiry(status=${status},page=${currentPage+1})}"
+           class="admin-page-btn">▷</a>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

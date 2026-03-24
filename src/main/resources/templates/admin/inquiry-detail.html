@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{admin/admin-layout :: head('견적 상세')}"></head>
+
+<body>
+<div class="admin-wrap">
+  <aside th:replace="~{admin/admin-layout :: sidebar('inquiry')}"></aside>
+
+  <main class="admin-main">
+    <h2 class="admin-page-title">견적 상세</h2>
+    <p class="admin-breadcrumb">HOME &gt; 관리자 &gt; 견적수신함 &gt; 상세</p>
+
+    <!-- 알림 -->
+    <div th:if="${successMsg}"
+         style="background:#f0fff4;border:1px solid #b7ebc9;border-radius:8px;
+                padding:12px 20px;margin-bottom:16px;color:#1d7a45;font-size:0.88rem;">
+      <i class="bi bi-check-circle-fill me-2"></i>
+      <span th:text="${successMsg}"></span>
+    </div>
+
+    <div class="admin-inq-detail">
+
+      <div class="admin-inq-header">
+        <h5>
+          <i class="bi bi-person-lines-fill me-2"></i>
+          <span th:text="${inq.name}"></span>
+          <span style="font-size:0.82rem;color:#888;font-weight:400;margin-left:8px;"
+                th:text="${inq.bizType}"></span>
+        </h5>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span th:if="${!inq.read}" class="badge-unread">미확인</span>
+          <span th:if="${inq.read}"  class="badge-done">확인완료</span>
+        </div>
+      </div>
+
+      <div class="admin-inq-body">
+        <div class="admin-inq-grid">
+          <div class="admin-inq-field">
+            <label>이름</label>
+            <p th:text="${inq.name}"></p>
+          </div>
+          <div class="admin-inq-field">
+            <label>연락처</label>
+            <p th:text="${inq.phone}"></p>
+          </div>
+          <div class="admin-inq-field">
+            <label>이메일</label>
+            <p th:text="${inq.email}"></p>
+          </div>
+          <div class="admin-inq-field">
+            <label>사업분야</label>
+            <p th:text="${inq.bizType}"></p>
+          </div>
+          <div class="admin-inq-field">
+            <label>접수일시</label>
+            <p th:text="${#temporals.format(inq.createdAt,'yyyy.MM.dd HH:mm')}"></p>
+          </div>
+          <div class="admin-inq-field">
+            <label>상태</label>
+            <p th:text="${inq.read} ? '확인완료' : '미확인'"></p>
+          </div>
+        </div>
+
+        <div class="admin-inq-content">
+          <label>문의 내용</label>
+          <div class="admin-inq-content-box" th:text="${inq.content}"></div>
+        </div>
+      </div>
+
+      <div class="admin-inq-footer">
+        <a th:href="@{/admin/inquiry}" class="btn-admin-cancel"
+           style="padding:9px 20px;">
+          <i class="bi bi-list-ul"></i> 목록으로
+        </a>
+        <div style="display:flex;gap:8px;align-items:center;">
+
+          <form th:action="@{/admin/inquiry/{id}/status(id=${inq.id})}" method="post"
+                style="margin:0;">
+            <input type="hidden" name="isRead" th:value="${!inq.read}">
+            <button type="submit"
+                    style="padding:9px 16px;border:1px solid #c0cfe0;border-radius:6px;
+                     background:#fff;color:#1a5fd1;font-size:0.88rem;
+                     cursor:pointer;white-space:nowrap;height:38px;
+                     transition:all 0.15s;"
+                    th:text="${inq.read} ? '미확인으로 변경' : '확인 처리'">
+            </button>
+          </form>
+
+          <a th:href="${'mailto:' + inq.email + '?subject=[미르테크] 견적문의 답변'}"
+             style="padding:9px 16px;background:#1a5fd1;color:#fff;border-radius:6px;
+              font-size:0.88rem;font-weight:700;text-decoration:none;
+              display:inline-flex;align-items:center;gap:6px;
+              height:38px;white-space:nowrap;transition:background 0.2s;">
+            <i class="bi bi-envelope"></i> 이메일 회신
+          </a>
+
+          <form th:action="@{/admin/inquiry/{id}/delete(id=${inq.id})}"
+                method="post" style="margin:0;"
+                onsubmit="return confirm('삭제하시겠습니까?')">
+            <button type="submit"
+                    style="padding:9px 16px;border:1px solid #e0e0e0;border-radius:6px;
+                     background:#fff;color:#e74c3c;font-size:0.88rem;
+                     cursor:pointer;height:38px;white-space:nowrap;
+                     transition:all 0.15s;">
+              <i class="bi bi-trash"></i> 삭제
+            </button>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+</body>
+</html>

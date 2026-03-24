@@ -7,6 +7,8 @@ import lombok.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 
 //@Service
 //@RequiredArgsConstructor
@@ -54,5 +56,34 @@ public class InquiryService {
 
     public java.util.List<Inquiry> getRecent5(){
         return inquiryRepository.findTop5ByOrderByCreatedAtDesc();
+    }
+
+    public Page<Inquiry> getAdminList(String status, int page) {
+        PageRequest pageable = PageRequest.of(page, 10);
+        if ("unread".equals(status)) {
+            return inquiryRepository.findByIsReadOrderByCreatedAtDesc(false, pageable);
+        } else if ("read".equals(status)) {
+            return inquiryRepository.findByIsReadOrderByCreatedAtDesc(true, pageable);
+        }
+        return inquiryRepository.findAllByOrderByCreatedAtDesc(pageable);
+    }
+
+    public Inquiry getById(Long id) {
+        return inquiryRepository.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("문의를 찾을 수 없습니다."));
+    }
+
+    public void updateReadStatus(Long id, boolean isRead) {
+        Inquiry inq = getById(id);
+        inq.setRead(isRead);
+        inquiryRepository.save(inq);
+    }
+
+    public void delete(Long id) {
+        inquiryRepository.deleteById(id);
+    }
+
+    public long countUnread() {
+        return inquiryRepository.countByIsRead(false);
     }
 }

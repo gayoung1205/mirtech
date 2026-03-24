@@ -3,6 +3,7 @@ package com.mirtech.controller;
 import com.mirtech.entity.Board;
 import com.mirtech.entity.Gallery;
 import com.mirtech.entity.Inquiry;
+import com.mirtech.entity.PrMaterial;
 import com.mirtech.service.BoardService;
 import com.mirtech.service.GalleryService;
 import com.mirtech.service.InquiryService;
@@ -119,8 +120,6 @@ public class CsController {
                 return ResponseEntity.notFound().build();
             }
 
-            // /uploads/board/파일명 → 실제 절대경로로 변환
-            // filePath 예: "/uploads/board/uuid.pdf"
             String relativePath = board.getFilePath()
                 .replaceFirst("^/uploads/", "");
             File file = Paths.get(uploadDir, relativePath)
@@ -130,7 +129,6 @@ public class CsController {
                 return ResponseEntity.notFound().build();
             }
 
-            // 한글 파일명 인코딩
             String encodedName = URLEncoder.encode(board.getFileName(),
                     StandardCharsets.UTF_8)
                 .replace("+", "%20");
@@ -145,6 +143,37 @@ public class CsController {
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
         }
-
     }
+
+    @GetMapping("/pr/download/{id}")
+    public ResponseEntity<InputStreamResource> prDownload(@PathVariable Long id) {
+        try {
+            PrMaterial mat = prMaterialService.getById(id);
+
+            String relativePath = mat.getFilePath()
+                .replaceFirst("^/uploads/", "");
+            File file = Paths.get(uploadDir, relativePath)
+                .toAbsolutePath().toFile();
+
+            if (!file.exists()) return ResponseEntity.notFound().build();
+
+            String ext = mat.getFileName()
+                .substring(mat.getFileName().lastIndexOf("."));
+            String downloadName = mat.getTitle() + ext;
+
+            String encodedName = URLEncoder.encode(downloadName, StandardCharsets.UTF_8)
+                .replace("+", "%20");
+
+            return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION,
+                    "attachment; filename*=UTF-8''" + encodedName)
+                .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                .contentLength(file.length())
+                .body(new InputStreamResource(new FileInputStream(file)));
+
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
 }
