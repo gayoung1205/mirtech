@@ -250,7 +250,7 @@ public class AdminController {
         PrMaterial mat = prMaterialService.getById(id);
         mat.setTitle(title);
         prMaterialService.save(mat);
-        ra.addFlashAttribute("successMSG", "제목이 수정되었습니다.");
+        ra.addFlashAttribute("successMsg", "제목이 수정되었습니다.");
         return "redirect:/admin/pr";
     }
 

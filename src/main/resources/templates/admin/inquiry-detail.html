@@ -78,40 +78,35 @@
       </div>
 
       <div class="admin-inq-footer">
-        <a th:href="@{/admin/inquiry}" class="btn-admin-cancel"
-           style="padding:9px 20px;">
+
+        <!-- 목록으로 -->
+        <a th:href="@{/admin/inquiry}" class="btn-admin-cancel">
           <i class="bi bi-list-ul"></i> 목록으로
         </a>
-        <div style="display:flex;gap:8px;align-items:center;">
 
-          <form th:action="@{/admin/inquiry/{id}/status(id=${inq.id})}" method="post"
-                style="margin:0;">
+        <div style="display:flex; gap:8px; align-items:center;">
+
+          <!-- 상태 변경 -->
+          <form th:action="@{/admin/inquiry/{id}/status(id=${inq.id})}" method="post" style="margin:0;">
             <input type="hidden" name="isRead" th:value="${!inq.read}">
-            <button type="submit"
-                    style="padding:9px 16px;border:1px solid #c0cfe0;border-radius:6px;
-                     background:#fff;color:#1a5fd1;font-size:0.88rem;
-                     cursor:pointer;white-space:nowrap;height:38px;
-                     transition:all 0.15s;"
+            <button type="submit" class="btn-admin-cancel"
                     th:text="${inq.read} ? '미확인으로 변경' : '확인 처리'">
             </button>
           </form>
 
+          <!-- 이메일 회신 -->
           <a th:href="${'mailto:' + inq.email + '?subject=[미르테크] 견적문의 답변'}"
-             style="padding:9px 16px;background:#1a5fd1;color:#fff;border-radius:6px;
-              font-size:0.88rem;font-weight:700;text-decoration:none;
-              display:inline-flex;align-items:center;gap:6px;
-              height:38px;white-space:nowrap;transition:background 0.2s;">
+             class="btn-admin-cancel"
+             style="background:#22201c; color:#fff; border-color:#22201c;">
             <i class="bi bi-envelope"></i> 이메일 회신
           </a>
 
+          <!-- 삭제 -->
           <form th:action="@{/admin/inquiry/{id}/delete(id=${inq.id})}"
                 method="post" style="margin:0;"
                 onsubmit="return confirm('삭제하시겠습니까?')">
-            <button type="submit"
-                    style="padding:9px 16px;border:1px solid #e0e0e0;border-radius:6px;
-                     background:#fff;color:#e74c3c;font-size:0.88rem;
-                     cursor:pointer;height:38px;white-space:nowrap;
-                     transition:all 0.15s;">
+            <button type="submit" class="btn-admin-cancel"
+                    style="color:#e74c3c; border-color:#fecaca;">
               <i class="bi bi-trash"></i> 삭제
             </button>
           </form>

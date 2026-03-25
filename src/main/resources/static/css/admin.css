@@ -1,6 +1,4 @@
-* {
-  font-family: 'Noto Sans KR', sans-serif;
-}
+* { font-family: 'Pretendard', 'Noto Sans KR', -apple-system, sans-serif; }
 
 /* =====================
    로그인
@@ -933,76 +931,200 @@
 /* =====================
    ADMIN-05 홍보자료
 ===================== */
-.admin-pr-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+/* =====================
+   ADMIN-05 홍보자료
+===================== */
+
+/* 업로드 카드 폼 */
+.admin-pr-upload-form {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.admin-pr-card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+.admin-pr-upload-desc {
+  flex: 1;
+  font-size: 12px;
+  color: #94a3b8;
+  line-height: 1.7;
+  margin: 0;
 }
 
-.admin-pr-thumb {
-  background: #f0f4fb;
-  height: 160px;
+.admin-pr-upload-fields {
   display: flex;
   flex-direction: column;
+  gap: 7px;
+  width: 240px;
+  flex-shrink: 0;
+}
+
+.admin-pr-upload-fields input[type="text"],
+.admin-pr-upload-fields input[type="file"] {
+  width: 100%;
+  border: 1px solid #dde2ea;
+  border-radius: 5px;
+  font-size: 12.5px;
+  font-family: 'Noto Sans KR', sans-serif;
+  background: #fafbfc;
+  color: #1a2332;
+}
+
+.admin-pr-upload-fields input[type="text"] {
+  padding: 7px 11px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.admin-pr-upload-fields input[type="text"]:focus {
+  border-color: #c9a84c;
+  box-shadow: 0 0 0 3px rgba(180, 148, 80, 0.1);
+}
+
+.admin-pr-upload-fields input[type="file"] {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.btn-pr-upload {
+  width: 100%;
+  padding: 7px 14px;
+  background: #e8ecf0;
+  color: #475569;
+  border: 1px solid #dde2ea;
+  border-radius: 5px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  color: #1a5fd1;
-  overflow: hidden;
+  gap: 5px;
+  font-family: 'Noto Sans KR', sans-serif;
+  transition: background 0.15s, color 0.15s;
 }
 
-.admin-pr-thumb i { font-size: 3rem; }
+.btn-pr-upload:hover {
+  background: #d8dde6;
+  color: #1a2332;
+}
 
-.admin-pr-thumb span {
-  font-size: 0.78rem;
-  font-weight: 700;
+/* 자료 목록 — 리스트형 */
+.admin-pr-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-pr-row {
+  background: #fff;
+  border: 1px solid #eaecf0;
+  border-radius: 8px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: box-shadow 0.15s;
+}
+
+.admin-pr-row:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+/* PDF 아이콘 */
+.admin-pr-icon {
+  width: 36px;
+  height: 46px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.admin-pr-icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #e8ebf0;
+  border-radius: 4px;
+  clip-path: polygon(0 0, 72% 0, 100% 22%, 100% 100%, 0 100%);
+}
+
+.admin-pr-icon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 22%;
+  background: #c0c8d4;
+  clip-path: polygon(0 0, 100% 100%, 100% 0);
+}
+
+.admin-pr-icon span {
+  position: absolute;
+  bottom: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8px;
+  font-weight: 800;
+  color: #94a3b8;
   letter-spacing: 1px;
-  color: #888;
 }
 
-.admin-pr-body {
-  padding: 14px 16px;
+/* 텍스트 영역 */
+.admin-pr-info {
   flex: 1;
+  min-width: 0;
 }
 
 .admin-pr-title {
-  font-size: 0.92rem;
+  font-size: 13.5px;
   font-weight: 700;
-  color: #0d2a5e;
-  margin: 0 0 6px;
+  color: #1a2332;
+  margin: 0 0 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .admin-pr-meta {
-  font-size: 0.78rem;
-  color: #aaa;
+  font-size: 11px;
+  color: #94a3b8;
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.admin-pr-footer {
-  padding: 10px 16px;
-  border-top: 1px solid #f0f3f8;
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
+/* 파일 크기 배지 */
+.admin-pr-size {
+  flex-shrink: 0;
+  font-size: 11px;
+  color: #94a3b8;
+  background: #f4f6fa;
+  padding: 3px 9px;
+  border-radius: 4px;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
-@media (max-width: 1200px) {
-  .admin-pr-grid { grid-template-columns: repeat(2, 1fr); }
+/* 액션 버튼 */
+.admin-pr-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
 }
+
+/* 기존 btn-admin-edit, btn-admin-delete 재사용 */
+
+@media (max-width: 1200px) {
+  .admin-pr-upload-form { flex-direction: column; align-items: flex-start; }
+  .admin-pr-upload-fields { width: 100%; }
+}
+
 @media (max-width: 768px) {
-  .admin-pr-grid { grid-template-columns: 1fr; }
+  .admin-pr-row { flex-wrap: wrap; }
+  .admin-pr-actions { width: 100%; justify-content: flex-end; }
 }
 
 /* =====================

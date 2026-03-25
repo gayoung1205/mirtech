@@ -1,5 +1,5 @@
 body {
-  font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  font-family: 'Pretendard', 'Noto Sans KR', -apple-system, sans-serif;
   color: #222;
   margin: 0;
   padding: 0;
@@ -216,39 +216,48 @@ body {
   z-index: 0;
 }
 
+/* 견적문의 — 흰색 채움 */
 .btn-primary-mirtech {
-  background-color: #1a5fd1;
-  color: #fff;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 26px;
+  background: #fff;
+  color: #0d2a5e;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
   text-decoration: none;
-  display: inline-block;
-  transition: background 0.2s;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
 }
-
 .btn-primary-mirtech:hover {
-  background-color: #1448a8;
-  color: #fff;
+  background: rgba(255,255,255,0.88);
+  color: #0d2a5e;
 }
 
+/* 회사소개 — 투명 아웃라인 */
 .btn-outline-mirtech {
-  background-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 26px;
+  background: transparent;
   color: #fff;
-  border: 2px solid rgba(255,255,255,0.7);
-  padding: 11px 26px;
-  border-radius: 4px;
+  border: 2px solid rgba(255,255,255,0.6);
+  border-radius: 6px;
+  font-size: 14px;
   font-weight: 600;
-  font-size: 0.95rem;
   text-decoration: none;
-  display: inline-block;
-  transition: all 0.2s;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s, background 0.15s;
 }
-
 .btn-outline-mirtech:hover {
-  background-color: rgba(255,255,255,0.15);
+  border-color: #fff;
+  background: rgba(255,255,255,0.1);
   color: #fff;
 }
 
@@ -353,13 +362,8 @@ body {
 }
 
 .stats-section {
-  background: url('/images/stats-bg.jpg') center/cover no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-attachment: fixed;
+  background: #f4f6f9;
   padding: 80px 0;
-  /*background: #f0f5ff;*/
-  padding: 70px 0;
 }
 
 .stat-item {
@@ -367,16 +371,18 @@ body {
 }
 
 .stat-number {
-  font-size: 3.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 3.8rem;
   font-weight: 900;
-  color: #1a5fd1;
+  font-style: italic;
+  color: #0d2a5e;
   line-height: 1;
 }
 
 .stat-label {
   font-size: 0.9rem;
-  color: #555;
-  margin-top: 6px;
+  color: #888;
+  margin-top: 10px;
 }
 
 .cta-section {
@@ -466,62 +472,152 @@ body {
 }
 
 .btn-cta-submit {
-  background-color: #1a5fd1;
-  color: #fff;
-  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   padding: 13px 40px;
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
   border-radius: 6px;
   font-size: 1rem;
   font-weight: 700;
-  width: 100%;
   margin-top: 10px;
-  transition: background 0.2s;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  font-family: inherit;
 }
-
 .btn-cta-submit:hover {
-  background-color: #1448a8;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #fff;
   color: #fff;
 }
 
-footer {
-  background-color: #f4f6f9;
+footer,
+.snap-section-footer {
+  background: #f4f6f9;
   border-top: 1px solid #dde2ea;
-  padding: 50px 0 30px;
+  padding: 52px 0 0;
   color: #444;
 }
 
-footer .footer-logo {
-  font-size: 1.2rem;
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 48px;
+  align-items: start;
+}
+
+.footer-logo {
+  font-size: 15px;
   font-weight: 800;
   color: #0d2a5e;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-footer .footer-info {
-  font-size: 0.82rem;
+.footer-info {
+  font-size: 12px;
   color: #666;
-  line-height: 1.9;
+  line-height: 2;
 }
 
-footer .footer-menu a {
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-col-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #0d2a5e;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #dde2ea;
+}
+
+.footer-col a,
+.footer-menu a {
   display: block;
-  font-size: 0.85rem;
+  font-size: 13px;
   color: #555;
   text-decoration: none;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  transition: color 0.15s;
 }
 
-footer .footer-menu a:hover {
-  color: #1a5fd1;
+.footer-col a:hover,
+.footer-menu a:hover { color: #0d2a5e; }
+
+.footer-cta-desc {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 14px;
 }
 
-footer .copyright {
-  font-size: 0.78rem;
+.footer-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  background: transparent;
+  color: #0d2a5e;
+  border: 1.5px solid #0d2a5e;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+}
+.footer-cta-btn:hover {
+  background: #0d2a5e;
+  color: #fff;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 36px auto 0;
+  padding: 16px 40px;
+  border-top: 1px solid #dde2ea;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copyright { font-size: 12px; color: #999; }
+
+.footer-legal {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.footer-legal span { font-size: 12px; color: #888; cursor: pointer; transition: color 0.15s; }
+.footer-legal span:hover { color: #0d2a5e; }
+.footer-legal-sep { width: 1px; height: 10px; background: #dde2ea; display: inline-block; }
+
+/* 기존 .copyright 호환 */
+.copyright {
+  font-size: 12px;
   color: #999;
   text-align: center;
   margin-top: 30px;
-  padding-top: 20px;
+  padding: 16px 0;
   border-top: 1px solid #dde2ea;
+}
+
+@media (max-width: 992px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+@media (max-width: 576px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 24px; padding: 0 20px; }
+  .footer-bottom { padding: 16px 20px; flex-direction: column; gap: 8px; }
 }
 
 .page-header {
@@ -2731,22 +2827,20 @@ footer .copyright {
   align-items: center;
   gap: 8px;
   padding: 13px 40px;
-  background: #1a5fd1;
-  color: #fff;
-  border: none;
+  background: transparent;
+  color: #0d2a5e;
+  border: 1.5px solid #0d2a5e;
   border-radius: 6px;
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.15s, transform 0.15s;
+  transition: background 0.15s, color 0.15s;
   font-family: inherit;
 }
-
 .cs-btn-submit:hover {
   background: #0d2a5e;
-  transform: translateY(-1px);
+  color: #fff;
 }
-
 @media (max-width: 768px) {
   .cs-btn-submit { width: 100%; justify-content: center; }
 }
@@ -2791,14 +2885,8 @@ footer .copyright {
   gap: 8px;
 }
 
-.cs-board-title a:hover { color: #1a5fd1; }
-
-.cs-board-tag {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #1a5fd1;
-  white-space: nowrap;
-}
+.cs-board-title a:hover { color: #0d2a5e; }
+.cs-board-tag { color: #0d2a5e; }
 
 /* 페이지네이션 */
 .cs-pagination {
@@ -2824,9 +2912,9 @@ footer .copyright {
 
 .cs-page-btn:hover,
 .cs-page-btn.active {
-  background: #1a5fd1;
+  background: #0d2a5e;
+  border-color: #0d2a5e;
   color: #fff;
-  border-color: #1a5fd1;
 }
 
 /* 검색 */
@@ -2852,22 +2940,27 @@ footer .copyright {
 
 .cs-search-input:focus {
   outline: none;
-  border-color: #1a5fd1;
+  border-color: #0d2a5e;
+  box-shadow: 0 0 0 3px rgba(13, 42, 94, 0.08);
 }
 
+/* 검색 버튼 */
 .cs-search-btn {
   padding: 10px 24px;
-  background: #1a5fd1;
-  color: #fff;
-  border: none;
+  background: transparent;
+  color: #0d2a5e;
+  border: 1.5px solid #0d2a5e;
   border-radius: 6px;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
   font-family: inherit;
+  transition: background 0.15s, color 0.15s;
 }
-
-.cs-search-btn:hover { background: #0d2a5e; }
+.cs-search-btn:hover {
+  background: #0d2a5e;
+  color: #fff;
+}
 
 /* 상세 페이지 */
 .cs-detail-header {
@@ -2931,8 +3024,8 @@ footer .copyright {
 
 .cs-btn-back:hover {
   background: #f4f7fc;
-  color: #1a5fd1;
-  border-color: #1a5fd1;
+  color: #0d2a5e;
+  border-color: #0d2a5e;
 }
 
 /* ══════════════════════════════
