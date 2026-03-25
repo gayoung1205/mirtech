@@ -247,19 +247,6 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-.admin-sidebar-logo-tag {
-  display: inline-block;
-  background: rgba(180, 148, 80, 0.18);
-  border: 1px solid rgba(180, 148, 80, 0.35);
-  color: #c9a84c;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  padding: 2px 8px;
-  border-radius: 3px;
-  margin-bottom: 9px;
-}
-
 .admin-sidebar-logo span {
   display: block;
   font-size: 15px;
@@ -873,6 +860,7 @@
   cursor: pointer;
   transition: all 0.15s;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .btn-admin-edit:hover {
@@ -1155,3 +1143,151 @@
   gap: 8px;
   flex-wrap: wrap;
 }
+
+/* =============================================
+   admin.css — 블루 → 다크/골드 테마 교체
+   아래 내용을 admin.css 전체에서 해당 부분을 찾아 교체하거나,
+   admin.css 맨 아래에 이 파일 내용을 통째로 붙여넣으세요.
+   (Override 방식으로 동작합니다)
+   ============================================= */
+
+/* ──────────────────────────────────────────────
+   CSS 변수 — 테마 컬러 한 곳에서 관리
+────────────────────────────────────────────── */
+:root {
+  --admin-primary:       #2e2c27;   /* 다크 차콜 — 주요 버튼 배경 */
+  --admin-primary-hover: #1a1917;   /* 버튼 hover */
+  --admin-gold:          #c9a84c;   /* 골드 — 포인트 컬러 */
+  --admin-gold-hover:    #a8893a;   /* 골드 hover */
+  --admin-gold-bg:       rgba(180, 148, 80, 0.1);  /* 골드 연한 배경 */
+  --admin-gold-border:   rgba(180, 148, 80, 0.35); /* 골드 테두리 */
+  --admin-focus-shadow:  rgba(180, 148, 80, 0.18); /* 포커스 링 */
+}
+
+/* ──────────────────────────────────────────────
+   로그인 — btn-login
+────────────────────────────────────────────── */
+.btn-login {
+  background: linear-gradient(135deg, #2e2c27 0%, #1a1917 100%);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+}
+.btn-login:hover {
+  background: linear-gradient(135deg, #3d3a33 0%, #2e2c27 100%);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+.btn-login:active {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.22);
+}
+.btn-toggle-pw:hover        { color: var(--admin-gold); }
+.login-security i           { color: var(--admin-gold); }
+.field-input:focus {
+  border-color: var(--admin-gold);
+  box-shadow: 0 0 0 4px var(--admin-focus-shadow);
+}
+
+/* ──────────────────────────────────────────────
+   공통 — 카드 헤더 링크
+────────────────────────────────────────────── */
+.admin-card-header a         { color: var(--admin-gold); }
+.admin-card-header a:hover   { color: var(--admin-gold-hover); }
+
+/* ──────────────────────────────────────────────
+   공통 — 주요 버튼 (btn-admin-primary)
+────────────────────────────────────────────── */
+.btn-admin-primary {
+  background: var(--admin-primary);
+  color: #fff !important;
+  border: none;
+}
+.btn-admin-primary:hover {
+  background: var(--admin-primary-hover);
+  color: #fff !important;
+}
+
+/* ──────────────────────────────────────────────
+   공통 — 편집 버튼 (btn-admin-edit)
+────────────────────────────────────────────── */
+.btn-admin-edit {
+  color: var(--admin-gold);
+  border-color: var(--admin-gold-border);
+}
+.btn-admin-edit:hover {
+  background: var(--admin-gold);
+  color: #fff;
+  border-color: var(--admin-gold);
+}
+
+/* ──────────────────────────────────────────────
+   공통 — 검색 버튼 (btn-admin-search)
+────────────────────────────────────────────── */
+.btn-admin-search:hover {
+  background: var(--admin-primary);
+  color: #fff;
+  border-color: var(--admin-primary);
+}
+.admin-search-input:focus {
+  border-color: var(--admin-gold);
+}
+
+/* ──────────────────────────────────────────────
+   공통 — 페이지네이션
+────────────────────────────────────────────── */
+.admin-page-btn:hover,
+.admin-page-btn.active {
+  background: var(--admin-primary);
+  border-color: var(--admin-primary);
+  color: #fff;
+}
+
+/* ──────────────────────────────────────────────
+   업로드 버튼 (갤러리)
+────────────────────────────────────────────── */
+.btn-admin-upload              { background: var(--admin-primary); }
+.btn-admin-upload:hover        { background: var(--admin-primary-hover); }
+
+/* ──────────────────────────────────────────────
+   모달 — 제출 버튼
+────────────────────────────────────────────── */
+.btn-modal-submit              { background: var(--admin-primary); }
+.btn-modal-submit:hover        { background: var(--admin-primary-hover); }
+.admin-modal .form-control:focus {
+  border-color: var(--admin-gold);
+  box-shadow: 0 0 0 3px var(--admin-focus-shadow);
+}
+
+/* ──────────────────────────────────────────────
+   게시판 탭
+────────────────────────────────────────────── */
+.admin-tab-btn:hover           { color: var(--admin-gold); }
+.admin-tab-btn.active {
+  color: var(--admin-gold);
+  border-bottom-color: var(--admin-gold);
+}
+
+/* ──────────────────────────────────────────────
+   게시판 폼 — 포커스
+────────────────────────────────────────────── */
+.admin-form-card .form-control:focus,
+.admin-form-card .form-select:focus {
+  border-color: var(--admin-gold);
+  box-shadow: 0 0 0 3px var(--admin-focus-shadow);
+}
+
+/* ──────────────────────────────────────────────
+   견적수신함 — 상태 탭
+────────────────────────────────────────────── */
+.admin-status-tab:hover {
+  border-color: var(--admin-gold);
+  color: var(--admin-gold);
+}
+.admin-status-tab.active {
+  background: var(--admin-primary);
+  border-color: var(--admin-primary);
+  color: #fff;
+}
+
+/* ──────────────────────────────────────────────
+   홍보자료 — 썸네일 아이콘 색
+────────────────────────────────────────────── */
+.admin-pr-thumb                { color: var(--admin-gold); }
+.admin-pr-title                { color: #1a1917; }

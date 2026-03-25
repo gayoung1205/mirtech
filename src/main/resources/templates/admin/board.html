@@ -86,15 +86,17 @@
           <td style="text-align:center;" th:text="${board.views}"></td>
           <td style="text-align:center;"
               th:text="${#temporals.format(board.createdAt,'yyyy.MM.dd')}"></td>
-          <td style="text-align:center;">
-            <a th:href="@{/admin/board/edit/{id}(id=${board.id})}"
-               class="btn-admin-edit">수정</a>
-            <form th:action="@{/admin/board/delete/{id}(id=${board.id})}"
-                  method="post" style="display:inline;"
-                  onsubmit="return confirm('삭제하시겠습니까?')">
-              <input type="hidden" name="type" th:value="${type}">
-              <button type="submit" class="btn-admin-delete">삭제</button>
-            </form>
+          <td>
+            <div style="display:flex; align-items:center; justify-content:center; gap:6px;">
+              <a th:href="@{/admin/board/edit/{id}(id=${board.id})}"
+                 class="btn-admin-edit">수정</a>
+              <form th:action="@{/admin/board/delete/{id}(id=${board.id})}"
+                    method="post"
+                    onsubmit="return confirm('삭제하시겠습니까?')">
+                <input type="hidden" name="type" th:value="${type}">
+                <button type="submit" class="btn-admin-delete">삭제</button>
+              </form>
+            </div>
           </td>
         </tr>
         </tbody>

@@ -10,6 +10,13 @@
 
   <main class="admin-main">
 
+    <a th:href="@{/admin/board(type=${type})}"
+       style="display:inline-flex; align-items:center; gap:4px;
+          font-size:0.85rem; color:#94a3b8; text-decoration:none;
+          margin-bottom:10px;">
+      ← 목록으로
+    </a>
+
     <h2 class="admin-page-title"
         th:text="${board.id != null} ? '게시글 수정' : '새 글 작성'">게시글 작성</h2>
     <p class="admin-breadcrumb">

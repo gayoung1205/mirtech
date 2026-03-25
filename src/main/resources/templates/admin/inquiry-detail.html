@@ -8,6 +8,15 @@
   <aside th:replace="~{admin/admin-layout :: sidebar('inquiry')}"></aside>
 
   <main class="admin-main">
+
+    <a th:href="@{/admin/board(type=${type})}"
+       style="display:inline-flex; align-items:center; gap:4px;
+          font-size:0.85rem; color:#94a3b8; text-decoration:none;
+          margin-bottom:10px;">
+      ← 목록으로
+    </a>
+
+
     <h2 class="admin-page-title">견적 상세</h2>
     <p class="admin-breadcrumb">HOME &gt; 관리자 &gt; 견적수신함 &gt; 상세</p>
 

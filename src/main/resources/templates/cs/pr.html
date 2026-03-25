@@ -39,28 +39,38 @@
         </div>
 
         <div th:each="mat : ${materials}" class="cs-pr-card">
-          <div class="cs-pr-thumb">
-            <img th:if="${mat.thumbnail}"
-                 th:src="${mat.thumbnail}" alt="썸네일"
-                 onerror="this.style.display='none'">
-            <div class="cs-pr-thumb-placeholder" th:unless="${mat.thumbnail}">
-              <i class="bi bi-file-earmark-pdf-fill"></i>
-              <span>PDF</span>
+          <div class="cs-pr-info">
+            <div class="cs-pr-row">
+
+              <!-- PDF 아이콘 -->
+              <div class="cs-pr-icon">
+                <span>PDF</span>
+              </div>
+
+              <!-- 텍스트 영역 -->
+              <div class="cs-pr-text">
+                <div class="cs-pr-top">
+                  <span class="cs-pr-tag">PDF</span>
+                  <span class="cs-pr-size"
+                        th:if="${mat.fileSize}"
+                        th:text="${#numbers.formatDecimal(mat.fileSize / 1048576.0, 1, 1) + 'MB'}"></span>
+                </div>
+                <p class="cs-pr-title" th:text="${mat.title}"></p>
+                <p class="cs-pr-meta">
+                  <span th:if="${mat.createdAt}"
+                        th:text="${#temporals.format(mat.createdAt, 'yyyy')} + '년 발행'">발행</span>
+                </p>
+                <a th:href="@{/cs/pr/download/{id}(id=${mat.id})}"
+                   class="cs-pr-btn" download>
+                  다운로드
+                  <span class="cs-pr-btn-arrow">↓</span>
+                </a>
+              </div>
+
             </div>
           </div>
-          <div class="cs-pr-info">
-            <p class="cs-pr-title" th:text="${mat.title}"></p>
-            <p class="cs-pr-meta">
-              PDF
-              <span th:if="${mat.fileSize}"
-                    th:text="${#numbers.formatDecimal(mat.fileSize / 1048576.0, 1, 1) + 'MB'}"></span>
-            </p>
-            <a th:href="@{/cs/pr/download/{id}(id=${mat.id})}"
-               class="cs-pr-btn" download>
-              <i class="bi bi-download"></i> 다운로드
-            </a>
-          </div>
         </div>
+
       </div>
     </div>
   </div>
