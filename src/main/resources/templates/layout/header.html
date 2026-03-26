@@ -18,9 +18,12 @@
 <nav th:fragment="navbar" class="navbar navbar-expand-lg fixed-top navbar-transparent">
   <div class="container">
 
-    <!-- 좌: 로고 -->
     <a class="navbar-brand" th:href="@{/}">
-      <span>(주)미르테크</span>
+      <img src="/images/logo.png"
+           alt="미르테크"
+           class="navbar-logo"
+           onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='inline';">
+      <span class="navbar-logo-text" style="display:none;">(주)미르테크</span>
     </a>
 
     <!-- 모바일 햄버거 -->

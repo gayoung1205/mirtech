@@ -77,6 +77,34 @@ body {
   color: #fff !important;
 }
 
+.navbar-transparent .navbar-logo {
+  filter: brightness(0) invert(1);
+}
+
+.navbar-transparent.scrolled .navbar-logo,
+.navbar-transparent:hover .navbar-logo {
+  filter: none;
+}
+
+.navbar-logo-text {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.navbar-logo {
+  height: 80px;
+  width: auto;
+  margin: -16px 0;
+}
+
+.navbar-logo-fallback {
+  display: none;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
 .navbar-transparent.scrolled .navbar-brand span,
 .navbar-transparent.scrolled .nav-link,
 .navbar-transparent.scrolled .navbar-contact,
@@ -91,12 +119,6 @@ body {
 .navbar-transparent .nav-link:hover,
 .navbar-transparent.scrolled .nav-link:hover {
   color: #1a5fd1 !important;
-}
-
-.navbar-brand span {
-  font-size: 1.3rem;
-  font-weight: 800;
-  letter-spacing: 1px;
 }
 
 .navbar-contact {
@@ -709,37 +731,6 @@ footer,
 /* =====================
    서브 페이지 공통
 ===================== */
-.page-header {
-  background: linear-gradient(90deg, #0d2a5e 0%, #1a5fd1 100%);
-  padding: 36px 0;
-  color: #fff;
-}
-
-.page-header h2 {
-  font-size: 1.6rem;
-  font-weight: 800;
-  margin-bottom: 6px;
-}
-
-.page-header .breadcrumb {
-  margin: 0;
-  background: none;
-  padding: 0;
-}
-
-.page-header .breadcrumb-item {
-  font-size: 0.82rem;
-  color: rgba(255,255,255,0.65);
-}
-
-.page-header .breadcrumb-item.active {
-  color: #fff;
-}
-
-.page-header .breadcrumb-item + .breadcrumb-item::before {
-  color: rgba(255,255,255,0.4);
-}
-
 .sub-container {
   display: flex;
   gap: 0;
