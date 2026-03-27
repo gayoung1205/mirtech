@@ -37,7 +37,6 @@
 .login-card {
   width: 100%;
   background: #fff;
-  border-radius: 16px;
   padding: 40px 44px 36px;
   box-shadow:
       0 2px 4px rgba(0, 0, 0, 0.04),
@@ -70,7 +69,7 @@
   align-items: center;
   gap: 9px;
   padding: 11px 14px;
-  border-radius: 8px;
+  : 8px;
   font-size: 0.83rem;
   margin-bottom: 20px;
   font-weight: 500;
@@ -105,7 +104,7 @@
 }
 
 .field-label i {
-  color: #1a5fd1;
+  color: #888888;
   font-size: 0.82rem;
 }
 
@@ -113,7 +112,7 @@
   width: 100%;
   padding: 12px 15px;
   border: 1.5px solid #dde4ef;
-  border-radius: 8px;
+  : 8px;
   font-size: 0.9rem;
   color: #1a2540;
   background: #fff;
@@ -163,23 +162,19 @@
 .btn-login {
   width: 100%;
   padding: 13px;
-  background: linear-gradient(135deg, #1a5fd1 0%, #1045b0 100%);
   color: #fff;
   border: none;
-  border-radius: 8px;
+  : 8px;
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
   margin-top: 6px;
   transition: all 0.2s;
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 14px rgba(26, 95, 209, 0.35);
   font-family: 'Noto Sans KR', sans-serif;
 }
 
 .btn-login:hover {
-  background: linear-gradient(135deg, #1e6ae8 0%, #1a5fd1 100%);
-  box-shadow: 0 6px 20px rgba(26, 95, 209, 0.45);
   transform: translateY(-1px);
 }
 
@@ -221,14 +216,14 @@
 .admin-wrap {
   display: flex;
   min-height: 100vh;
-  background: #f0f4f9;
+  background: #f7f7f7;  /* #f0f4f9 → #f7f7f7 */
 }
 
 /* ── 사이드바 ── */
 .admin-sidebar {
   width: 240px;
   min-width: 240px;
-  background: #22201c;
+  background: #ffffff;  /* #22201c → #ffffff */
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -236,32 +231,31 @@
   left: 0;
   height: 100vh;
   z-index: 100;
-  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid #e8e8e8;  /* rgba 흰색 → 연회색 */
 }
 
 /* ── 로고 영역 ── */
 .admin-sidebar-logo {
   padding: 26px 20px 22px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid #efefef;  /* rgba 흰색 → 연회색 */
 }
 
 .admin-sidebar-logo span {
   display: block;
   font-size: 15px;
   font-weight: 800;
-  color: #f0ece4;
+  color: #111111;  /* #f0ece4 → 검정 */
   letter-spacing: 2.5px;
 }
 
 .admin-sidebar-logo small {
   display: block;
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.28);
+  color: #bbbbbb;  /* rgba 흰색 → 회색 */
   letter-spacing: 1px;
   margin-top: 3px;
 }
 
-/* ── 네비게이션 ── */
 .admin-nav {
   flex: 1;
   padding: 16px 12px;
@@ -273,33 +267,33 @@
   align-items: center;
   gap: 10px;
   padding: 11px 12px;
-  color: rgba(255, 255, 255, 0.42);
+  color: #aaaaaa;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-  border-radius: 7px;
+  : 0;
   border-left: 2px solid transparent;
   margin-bottom: 5px;
   transition: background 0.15s, color 0.15s;
 }
 
 .admin-nav a:hover {
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.82);
+  background: #f5f5f5;
+  color: #333333;
 }
 
 .admin-nav a.active {
-  background: rgba(180, 148, 80, 0.12);
-  color: #d4aa5a;
+  background: #f5f5f5;
+  color: #111111;
   font-weight: 700;
-  border-left-color: #c9a84c;
+  border-left-color: #111111;
 }
 
 .admin-nav-ico {
   width: 28px;
   height: 28px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.05);
+  : 0;
+  background: #f0f0f0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -309,17 +303,17 @@
 }
 
 .admin-nav a.active .admin-nav-ico {
-  background: rgba(180, 148, 80, 0.18);
-  color: #d4aa5a;
+  background: #e8e8e8;
+  color: #111111;
 }
 
 .admin-nav a:hover .admin-nav-ico {
-  background: rgba(255, 255, 255, 0.09);
+  background: #eeeeee;
 }
 
 .admin-sidebar-logout {
   padding: 14px 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 1px solid #efefef;
 }
 
 .admin-sidebar-logout a {
@@ -328,16 +322,16 @@
   justify-content: center;
   gap: 8px;
   padding: 9px;
-  color: rgba(255, 255, 255, 0.28);
+  color: #cccccc;
   text-decoration: none;
   font-size: 13.5px;
-  border-radius: 7px;
+  : 0;
   transition: background 0.15s, color 0.15s;
 }
 
 .admin-sidebar-logout a:hover {
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.65);
+  background: #f5f5f5;
+  color: #888888;
 }
 
 .admin-main {
@@ -361,20 +355,22 @@
 
 .admin-stat-card {
   background: #fff;
-  border-radius: 12px;
+  : 0;
   padding: 24px 26px;
-  border: 1px solid #e8ecf3;
+  border: 1px solid #e8e8e8;
+  border-top: 2px solid #222222;
 }
 
 .admin-stat-card.highlight {
-  background: #22201c;
-  border-color: #22201c;
+  background: #f0f0f0;
+  border-color: #e8e8e8;
+  border-top: 2px solid #555555;
 }
 
 .admin-stat-label {
   font-size: 11px;
   font-weight: 700;
-  color: #94a3b8;
+  color: #aaaaaa;
   letter-spacing: 0.5px;
   margin-bottom: 12px;
   display: flex;
@@ -383,14 +379,14 @@
 }
 
 .admin-stat-card.highlight .admin-stat-label {
-  color: rgba(255, 255, 255, 0.38);
+  color: #888888;
 }
 
 .admin-stat-dot {
   display: inline-block;
   width: 7px;
   height: 7px;
-  border-radius: 50%;
+  : 50%;
   background: #ef4444;
   flex-shrink: 0;
   animation: stat-blink 1.4s ease-in-out infinite;
@@ -404,34 +400,33 @@
 .admin-stat-number {
   font-size: 36px;
   font-weight: 800;
-  color: #0f172a;
+  color: #111111;
   line-height: 1;
 }
 
 .admin-stat-card.highlight .admin-stat-number {
-  color: #d4aa5a;
+  color: #111111;
 }
 
 .admin-stat-sub {
   font-size: 12px;
-  color: #94a3b8;
+  color: #aaaaaa;
   margin-top: 10px;
 }
 
 .admin-stat-card.highlight .admin-stat-sub {
-  color: rgba(255, 255, 255, 0.28);
+  color: #aaaaaa;
 }
 
 .admin-stat-sub b {
-  color: #475569;
+  color: #555555;
   font-weight: 600;
 }
 
 .admin-stat-card.highlight .admin-stat-sub b {
-  color: rgba(255, 255, 255, 0.55);
+  color: #555555;
 }
 
-/* 기존 코드와 충돌 방지 — 아이콘 숨김 */
 .admin-stat-icon { display: none; }
 
 @media (max-width: 1200px) {
@@ -441,7 +436,6 @@
 @media (max-width: 768px) {
   .admin-stat-grid { grid-template-columns: 1fr; }
 }
-
 .admin-page-title {
   font-size: 1.3rem;
   font-weight: 800;
@@ -457,7 +451,7 @@
 
 .admin-card {
   background: #fff;
-  border-radius: 10px;
+  : 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   overflow: hidden;
 }
@@ -489,6 +483,7 @@
   width: 100%;
   border-collapse: collapse;
   font-size: 0.88rem;
+  table-layout: fixed;
 }
 
 .admin-table th {
@@ -514,22 +509,22 @@
 
 /* 상태 뱃지 */
 .badge-unread {
-  background: #ffeaea;
-  color: #c0392b;
+  background: #f0f0f0;
+  color: #888888;
   font-size: 0.72rem;
   font-weight: 700;
   padding: 3px 10px;
-  border-radius: 20px;
+  : 0;
   white-space: nowrap;
 }
 
 .badge-done {
-  background: #eafaf1;
-  color: #1d7a45;
+  background: #f0f0f0;
+  color: #aaaaaa;
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 500;
   padding: 3px 10px;
-  border-radius: 20px;
+  : 0;
   white-space: nowrap;
 }
 
@@ -541,7 +536,7 @@
   align-items: center;
   justify-content: space-between;
   background: #fff;
-  border-radius: 10px;
+  : 10px;
   padding: 16px 24px;
   margin-bottom: 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -553,7 +548,7 @@
   background: #1a5fd1;
   color: #fff;
   border: none;
-  border-radius: 6px;
+  : 6px;
   padding: 9px 20px;
   font-size: 0.88rem;
   font-weight: 700;
@@ -575,7 +570,7 @@
 
 .admin-gallery-card {
   background: #fff;
-  border-radius: 10px;
+  : 10px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   position: relative;
@@ -626,7 +621,7 @@
 .btn-admin-delete {
   background: none;
   border: 1px solid #e0e0e0;
-  border-radius: 4px;
+  : 4px;
   color: #e74c3c;
   font-size: 0.75rem;
   padding: 3px 10px;
@@ -656,7 +651,7 @@
 
 .admin-modal {
   background: #fff;
-  border-radius: 12px;
+  : 12px;
   width: 100%;
   max-width: 480px;
   padding: 28px 32px;
@@ -679,7 +674,7 @@
 
 .admin-modal .form-control {
   border: 1px solid #dde2ea;
-  border-radius: 6px;
+  : 6px;
   padding: 9px 12px;
   font-size: 0.88rem;
 }
@@ -700,7 +695,7 @@
 .btn-modal-cancel {
   background: #f4f6f9;
   border: none;
-  border-radius: 6px;
+  : 6px;
   padding: 9px 20px;
   font-size: 0.88rem;
   cursor: pointer;
@@ -708,9 +703,8 @@
 }
 
 .btn-modal-submit {
-  background: #1a5fd1;
   border: none;
-  border-radius: 6px;
+  : 6px;
   padding: 9px 20px;
   font-size: 0.88rem;
   font-weight: 700;
@@ -718,8 +712,6 @@
   cursor: pointer;
   transition: background 0.2s;
 }
-
-.btn-modal-submit:hover { background: #1448a8; }
 
 /* 페이지네이션 (admin 공통) */
 .admin-pagination {
@@ -731,7 +723,7 @@
 
 .admin-page-btn {
   padding: 7px 13px;
-  border-radius: 6px;
+  : 6px;
   border: 1px solid #dde2ea;
   background: #fff;
   color: #555;
@@ -775,13 +767,6 @@
   transition: all 0.15s;
 }
 
-.admin-tab-btn:hover { color: #1a5fd1; }
-
-.admin-tab-btn.active {
-  color: #1a5fd1;
-  border-bottom-color: #1a5fd1;
-}
-
 .admin-toolbar {
   display: flex;
   align-items: center;
@@ -798,7 +783,7 @@
 .admin-search-input {
   padding: 8px 14px;
   border: 1px solid #dde2ea;
-  border-radius: 6px;
+  : 6px;
   font-size: 0.88rem;
   width: 220px;
   font-family: inherit;
@@ -812,7 +797,7 @@
 .btn-admin-search {
   background: #f0f4f9;
   border: 1px solid #dde2ea;
-  border-radius: 6px;
+  : 6px;
   padding: 8px 16px;
   font-size: 0.85rem;
   cursor: pointer;
@@ -827,10 +812,9 @@
 }
 
 .btn-admin-primary {
-  background: #1a5fd1;
   color: #fff !important;
   border: none;
-  border-radius: 6px;
+  : 6px;
   padding: 9px 18px;
   font-size: 0.88rem;
   font-weight: 700;
@@ -843,7 +827,6 @@
 }
 
 .btn-admin-primary:hover {
-  background: #1448a8;
   color: #fff !important;
 }
 
@@ -851,7 +834,7 @@
 .btn-admin-edit {
   background: none;
   border: 1px solid #c0cfe0;
-  border-radius: 4px;
+  : 4px;
   color: #1a5fd1;
   font-size: 0.78rem;
   padding: 3px 10px;
@@ -870,7 +853,7 @@
 /* 게시판 폼 */
 .admin-form-card {
   background: #fff;
-  border-radius: 10px;
+  : 10px;
   padding: 28px 32px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
@@ -885,7 +868,7 @@
 .admin-form-card .form-control,
 .admin-form-card .form-select {
   border: 1px solid #dde2ea;
-  border-radius: 6px;
+  : 6px;
   padding: 9px 12px;
   font-size: 0.9rem;
   font-family: inherit;
@@ -893,8 +876,6 @@
 
 .admin-form-card .form-control:focus,
 .admin-form-card .form-select:focus {
-  border-color: #1a5fd1;
-  box-shadow: 0 0 0 3px rgba(26,95,209,0.1);
   outline: none;
 }
 
@@ -915,7 +896,7 @@
 .btn-admin-cancel {
   background: #f4f6f9;
   border: 1px solid #dde2ea;
-  border-radius: 6px;
+  : 6px;
   padding: 9px 20px;
   font-size: 0.88rem;
   cursor: pointer;
@@ -928,9 +909,6 @@
 
 .btn-admin-cancel:hover { background: #e8ecf0; color: #333; }
 
-/* =====================
-   ADMIN-05 홍보자료
-===================== */
 /* =====================
    ADMIN-05 홍보자료
 ===================== */
@@ -964,7 +942,7 @@
 .admin-pr-upload-fields input[type="file"] {
   width: 100%;
   border: 1px solid #dde2ea;
-  border-radius: 5px;
+  : 5px;
   font-size: 12.5px;
   font-family: 'Noto Sans KR', sans-serif;
   background: #fafbfc;
@@ -978,8 +956,8 @@
 }
 
 .admin-pr-upload-fields input[type="text"]:focus {
-  border-color: #c9a84c;
-  box-shadow: 0 0 0 3px rgba(180, 148, 80, 0.1);
+  border-color: #555555;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
 }
 
 .admin-pr-upload-fields input[type="file"] {
@@ -993,7 +971,7 @@
   background: #e8ecf0;
   color: #475569;
   border: 1px solid #dde2ea;
-  border-radius: 5px;
+  : 5px;
   font-size: 12.5px;
   font-weight: 700;
   cursor: pointer;
@@ -1020,7 +998,7 @@
 .admin-pr-row {
   background: #fff;
   border: 1px solid #eaecf0;
-  border-radius: 8px;
+  : 8px;
   padding: 14px 18px;
   display: flex;
   align-items: center;
@@ -1045,7 +1023,7 @@
   position: absolute;
   inset: 0;
   background: #e8ebf0;
-  border-radius: 4px;
+  : 4px;
   clip-path: polygon(0 0, 72% 0, 100% 22%, 100% 100%, 0 100%);
 }
 
@@ -1103,7 +1081,7 @@
   color: #94a3b8;
   background: #f4f6fa;
   padding: 3px 9px;
-  border-radius: 4px;
+  : 4px;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -1139,7 +1117,7 @@
 
 .admin-status-tab {
   padding: 8px 20px;
-  border-radius: 20px;
+  : 20px;
   border: 1px solid #dde2ea;
   background: #fff;
   color: #666;
@@ -1152,20 +1130,13 @@
   gap: 6px;
 }
 
-.admin-status-tab:hover {
-  border-color: #1a5fd1;
-  color: #1a5fd1;
-}
-
 .admin-status-tab.active {
-  background: #1a5fd1;
-  border-color: #1a5fd1;
   color: #fff;
 }
 
 .badge-count {
   background: rgba(255,255,255,0.25);
-  border-radius: 10px;
+  : 10px;
   padding: 1px 7px;
   font-size: 0.75rem;
   font-weight: 700;
@@ -1179,7 +1150,7 @@
 /* 상세 카드 */
 .admin-inq-detail {
   background: #fff;
-  border-radius: 10px;
+  : 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   overflow: hidden;
 }
@@ -1227,7 +1198,7 @@
   margin: 0;
   padding: 10px 14px;
   background: #f8f9fc;
-  border-radius: 6px;
+  : 6px;
   border: 1px solid #eef1f6;
 }
 
@@ -1249,7 +1220,7 @@
   color: #222;
   padding: 16px 18px;
   background: #f8f9fc;
-  border-radius: 6px;
+  : 6px;
   border: 1px solid #eef1f6;
   min-height: 140px;
   line-height: 1.8;
@@ -1266,36 +1237,26 @@
   flex-wrap: wrap;
 }
 
-/* =============================================
-   admin.css — 블루 → 다크/골드 테마 교체
-   아래 내용을 admin.css 전체에서 해당 부분을 찾아 교체하거나,
-   admin.css 맨 아래에 이 파일 내용을 통째로 붙여넣으세요.
-   (Override 방식으로 동작합니다)
-   ============================================= */
-
-/* ──────────────────────────────────────────────
-   CSS 변수 — 테마 컬러 한 곳에서 관리
-────────────────────────────────────────────── */
 :root {
-  --admin-primary:       #2e2c27;   /* 다크 차콜 — 주요 버튼 배경 */
-  --admin-primary-hover: #1a1917;   /* 버튼 hover */
-  --admin-gold:          #c9a84c;   /* 골드 — 포인트 컬러 */
-  --admin-gold-hover:    #a8893a;   /* 골드 hover */
-  --admin-gold-bg:       rgba(180, 148, 80, 0.1);  /* 골드 연한 배경 */
-  --admin-gold-border:   rgba(180, 148, 80, 0.35); /* 골드 테두리 */
-  --admin-focus-shadow:  rgba(180, 148, 80, 0.18); /* 포커스 링 */
+  --admin-primary:       #222222;
+  --admin-primary-hover: #111111;
+  --admin-gold:          #555555;
+  --admin-gold-hover:    #333333;
+  --admin-gold-bg:       rgba(0, 0, 0, 0.04);
+  --admin-gold-border:   rgba(0, 0, 0, 0.12);
+  --admin-focus-shadow:  rgba(0, 0, 0, 0.08);
 }
 
 /* ──────────────────────────────────────────────
    로그인 — btn-login
 ────────────────────────────────────────────── */
 .btn-login {
-  background: linear-gradient(135deg, #2e2c27 0%, #1a1917 100%);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+  background: #222222;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 .btn-login:hover {
-  background: linear-gradient(135deg, #3d3a33 0%, #2e2c27 100%);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  background: #333333;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 .btn-login:active {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.22);
@@ -1330,25 +1291,17 @@
    공통 — 편집 버튼 (btn-admin-edit)
 ────────────────────────────────────────────── */
 .btn-admin-edit {
-  color: var(--admin-gold);
   border-color: var(--admin-gold-border);
 }
 .btn-admin-edit:hover {
-  background: var(--admin-gold);
   color: #fff;
-  border-color: var(--admin-gold);
 }
 
 /* ──────────────────────────────────────────────
    공통 — 검색 버튼 (btn-admin-search)
 ────────────────────────────────────────────── */
 .btn-admin-search:hover {
-  background: var(--admin-primary);
   color: #fff;
-  border-color: var(--admin-primary);
-}
-.admin-search-input:focus {
-  border-color: var(--admin-gold);
 }
 
 /* ──────────────────────────────────────────────
@@ -1356,16 +1309,8 @@
 ────────────────────────────────────────────── */
 .admin-page-btn:hover,
 .admin-page-btn.active {
-  background: var(--admin-primary);
-  border-color: var(--admin-primary);
   color: #fff;
 }
-
-/* ──────────────────────────────────────────────
-   업로드 버튼 (갤러리)
-────────────────────────────────────────────── */
-.btn-admin-upload              { background: var(--admin-primary); }
-.btn-admin-upload:hover        { background: var(--admin-primary-hover); }
 
 /* ──────────────────────────────────────────────
    모달 — 제출 버튼
@@ -1408,8 +1353,4 @@
   color: #fff;
 }
 
-/* ──────────────────────────────────────────────
-   홍보자료 — 썸네일 아이콘 색
-────────────────────────────────────────────── */
 .admin-pr-thumb                { color: var(--admin-gold); }
-.admin-pr-title                { color: #1a1917; }

@@ -9,8 +9,13 @@
 
 <section class="hero-section snap-section">
 
-  <!-- 배경 영상 -->
-  <video class="hero-video"
+  <!-- 슬라이드 배경 3장 -->
+  <div class="hero-slide hero-slide-1 active"></div>
+  <div class="hero-slide hero-slide-2"></div>
+  <div class="hero-slide hero-slide-3"></div>
+
+  <!-- 배경 영상 (슬라이드 1에서만 보임) -->
+  <video class="hero-video hero-video-slide"
          autoplay muted loop playsinline
          poster="/images/hero-poster.png">
     <source src="/videos/hero-bg.mp4" type="video/mp4">
@@ -23,14 +28,21 @@
   <div class="hero-content">
     <div class="container">
       <div class="col-lg-7">
-        <p class="badge-label">산업 현장의 핵심 파트너</p>
-        <h1>레이저 클래딩부터<br>생산자동화까지</h1>
-        <p>첨단 표면처리 기술로 설비 수명을 극대화합니다.<br>
+        <p class="badge-label" id="hero-badge">산업 현장의 핵심 파트너</p>
+        <h1 id="hero-title">레이저 클래딩부터<br>생산자동화까지</h1>
+        <p id="hero-desc">첨단 표면처리 기술로 설비 수명을 극대화합니다.<br>
           POSCO, 현대제철 등 국내외 주요 산업현장에 납품 중입니다.</p>
         <a th:href="@{/cs/inquiry}" class="btn-primary-mirtech me-3">견적문의 →</a>
         <a th:href="@{/about/greeting}" class="btn-outline-mirtech">회사소개</a>
       </div>
     </div>
+  </div>
+
+  <!-- 하단 dots -->
+  <div class="hero-dots">
+    <div class="hero-dot active" onclick="goSlide(0)"></div>
+    <div class="hero-dot" onclick="goSlide(1)"></div>
+    <div class="hero-dot" onclick="goSlide(2)"></div>
   </div>
 
 </section>
@@ -216,6 +228,99 @@
   </div>
 </section>
 
+<!-- ========================
+  납품실적 스크롤 카드 섹션
+  (stats-section 바로 위에 추가)
+======================== -->
+<section class="track-section snap-section">
+  <div class="track-inner">
+
+    <!-- 좌측: 타이틀 고정 영역 -->
+    <div class="track-title-col">
+      <p class="track-label">TRACK RECORD</p>
+      <h2 class="track-heading">주요<br>납품실적</h2>
+      <p class="track-sub">국내외 산업 현장에<br>검증된 미르테크의 기술력</p>
+      <a th:href="@{/prod/laser}" class="track-more-btn">전체 보기 →</a>
+    </div>
+
+    <!-- 우측: 수평 스크롤 카드 -->
+    <div class="track-scroll-area">
+      <div class="track-cards">
+
+        <!-- 기존 임의 데이터 → 실제 납품 데이터로 교체 -->
+
+        <a th:href="@{/biz/laser}" class="track-card">
+          <div class="track-card-img tc-bg1">
+            <span class="track-card-num">01</span>
+          </div>
+          <div class="track-card-body">
+            <div class="track-card-company">POSCO 열연</div>
+            <div class="track-card-product">Roll 클래딩 12set<br>표면 경화 처리</div>
+            <span class="track-card-tag">레이저 클래딩</span>
+          </div>
+        </a>
+
+        <a th:href="@{/biz/laser}" class="track-card">
+          <div class="track-card-img tc-bg2">
+            <span class="track-card-num">02</span>
+          </div>
+          <div class="track-card-body">
+            <div class="track-card-company">현대제철</div>
+            <div class="track-card-product">Segment Roll 20EA<br>레이저 육성 보수</div>
+            <span class="track-card-tag">레이저 클래딩</span>
+          </div>
+        </a>
+
+        <a th:href="@{/biz/laser}" class="track-card">
+          <div class="track-card-img tc-bg3">
+            <span class="track-card-num">03</span>
+          </div>
+          <div class="track-card-body">
+            <div class="track-card-company">한국남동발전</div>
+            <div class="track-card-product">보일러 튜브 50EA<br>내열 클래딩</div>
+            <span class="track-card-tag">레이저 클래딩</span>
+          </div>
+        </a>
+
+        <a th:href="@{/biz/magnesium}" class="track-card">
+          <div class="track-card-img tc-bg4">
+            <span class="track-card-num">04</span>
+          </div>
+          <div class="track-card-body">
+            <div class="track-card-company">POSCO</div>
+            <div class="track-card-product">마그네슘 설비 국산화<br>용해로·보온로·이송펌프</div>
+            <span class="track-card-tag">마그네슘</span>
+          </div>
+        </a>
+
+        <a th:href="@{/biz/aluminum}" class="track-card">
+          <div class="track-card-img tc-bg1">
+            <span class="track-card-num">05</span>
+          </div>
+          <div class="track-card-body">
+            <div class="track-card-company">삼천포·당진·울산 화력</div>
+            <div class="track-card-product">해수 냉각수 배관·구조물<br>알루미늄 용융도금</div>
+            <span class="track-card-tag">알루미늄 용융도금</span>
+          </div>
+        </a>
+
+        <a th:href="@{/biz/laser}" class="track-card">
+          <div class="track-card-img tc-bg2">
+            <span class="track-card-num">06</span>
+          </div>
+          <div class="track-card-body">
+            <div class="track-card-company">GS칼텍스</div>
+            <div class="track-card-product">펌프 임펠러 6EA<br>내마모 코팅</div>
+            <span class="track-card-tag">레이저 클래딩</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <section class="stats-section snap-section d-flex align-items-center">
   <div class="container">
     <div class="row text-center">
@@ -337,17 +442,25 @@
 
   const slides = document.querySelectorAll('.hero-slide');
   const dots = document.querySelectorAll('.hero-dot');
+  const heroVideo = document.querySelector('.hero-video-slide');
   let current = 0;
   let timer;
 
   const heroTexts = [
     {
+      badge: '산업 현장의 핵심 파트너',
       title: '레이저 클래딩부터<br>생산자동화까지',
       desc: '첨단 표면처리 기술로 설비 수명을 극대화합니다.<br>POSCO, 현대제철 등 국내외 주요 산업현장에 납품 중입니다.'
     },
     {
+      badge: '신뢰와 기술력',
       title: '신뢰와 기술력으로<br>함께하는 미르테크',
       desc: '2014년 설립 이래 끊임없는 연구개발과 혁신으로<br>산업 현장의 문제를 해결하고 있습니다.'
+    },
+    {
+      badge: '검증된 표면처리 기술',
+      title: '설비 수명,<br>3배 연장의 기술',
+      desc: '레이저 클래딩으로 교체 주기를 획기적으로 늘려<br>유지보수 비용을 최대 34% 절감합니다.'
     }
   ];
 
@@ -357,6 +470,13 @@
     current = index;
     slides[current].classList.add('active');
     dots[current].classList.add('active');
+
+    /* 슬라이드 1(index=0)일 때만 영상 표시 */
+    if (heroVideo) {
+      heroVideo.style.opacity = current === 0 ? '1' : '0';
+    }
+
+    document.getElementById('hero-badge').textContent = heroTexts[current].badge;
     document.getElementById('hero-title').innerHTML = heroTexts[current].title;
     document.getElementById('hero-desc').innerHTML = heroTexts[current].desc;
     clearInterval(timer);
