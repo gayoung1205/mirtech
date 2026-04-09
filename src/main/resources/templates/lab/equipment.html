@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/header :: head('기술연구소 - 연구장비 현황')}"></head>
+<body class="sub-page-body">
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<div class="page-header"
+     style="background-image: url('/images/lab/lab-bg.png');
+            background-size: cover; background-repeat: no-repeat; background-position: center;">
+  <div class="container">
+    <h2>기술연구소</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/}" style="color:rgba(255,255,255,0.65);text-decoration:none;">HOME</a></li>
+        <li class="breadcrumb-item">기술연구소</li>
+        <li class="breadcrumb-item active">연구장비 현황</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sub-container">
+    <nav th:replace="~{layout/sidenav :: lab('equipment')}"></nav>
+    <div class="sub-content">
+
+      <!-- 장비 목록 테이블 -->
+      <div class="lab-section fade-up">
+        <p class="lab-section-label">EQUIPMENT</p>
+        <h4 class="lab-section-title">연구장비 현황</h4>
+        <div class="prod-table-wrap">
+          <table class="prod-table">
+            <thead>
+            <tr>
+              <th>No</th>
+              <th>장비명</th>
+              <th>규격 / 사양</th>
+              <th>수량</th>
+              <th>용도</th>
+              <th>비고</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>1</td>
+              <td>레이저 클래딩 시스템</td>
+              <td>6kW Fiber</td>
+              <td>2대</td>
+              <td>표면 코팅</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>SEM 전자현미경</td>
+              <td>분석용</td>
+              <td>1대</td>
+              <td>소재 분석</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>경도시험기</td>
+              <td>비커스 / 로크웰</td>
+              <td>2대</td>
+              <td>경도 측정</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>만능시험기</td>
+              <td>50kN</td>
+              <td>1대</td>
+              <td>인장 시험</td>
+              <td></td>
+            </tr>
+            <!-- TODO: 장비 데이터 추가 -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 장비 사진 -->
+      <div class="lab-section fade-up">
+        <p class="lab-section-label">GALLERY</p>
+        <h4 class="lab-section-title">장비 사진</h4>
+        <div class="lab-gallery-grid">
+          <div class="lab-gallery-item">
+            <div class="lab-gallery-img">
+              <img src="/images/lab/equip1.jpg" alt="레이저 클래딩 시스템"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="lab-img-placeholder"><i class="bi bi-image"></i></div>
+            </div>
+            <p class="lab-gallery-lbl">레이저 클래딩 시스템</p>
+          </div>
+          <div class="lab-gallery-item">
+            <div class="lab-gallery-img">
+              <img src="/images/lab/equip2.jpg" alt="SEM 전자현미경"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="lab-img-placeholder"><i class="bi bi-image"></i></div>
+            </div>
+            <p class="lab-gallery-lbl">SEM 전자현미경</p>
+          </div>
+          <div class="lab-gallery-item">
+            <div class="lab-gallery-img">
+              <img src="/images/lab/equip3.jpg" alt="경도시험기"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="lab-img-placeholder"><i class="bi bi-image"></i></div>
+            </div>
+            <p class="lab-gallery-lbl">경도시험기</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div th:replace="~{layout/footer :: footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

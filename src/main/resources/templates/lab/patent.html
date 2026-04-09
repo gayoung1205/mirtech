@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/header :: head('기술연구소 - 특허현황')}"></head>
+<body class="sub-page-body">
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<div class="page-header"
+     style="background-image: url('/images/lab/lab-bg.png');
+            background-size: cover; background-repeat: no-repeat; background-position: center;">
+  <div class="container">
+    <h2>기술연구소</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/}" style="color:rgba(255,255,255,0.65);text-decoration:none;">HOME</a></li>
+        <li class="breadcrumb-item">기술연구소</li>
+        <li class="breadcrumb-item active">특허현황</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sub-container">
+    <nav th:replace="~{layout/sidenav :: lab('patent')}"></nav>
+    <div class="sub-content">
+
+      <div class="lab-section fade-up">
+        <p class="lab-section-label">PATENT</p>
+        <h4 class="lab-section-title">특허현황</h4>
+        <div class="lab-patent-grid">
+
+          <div class="lab-patent-card">
+            <div class="lab-patent-img">
+              <img src="/images/lab/patent1.jpg" alt="레이저 클래딩 공법"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="lab-img-placeholder"><i class="bi bi-file-earmark-text"></i></div>
+            </div>
+            <div class="lab-patent-info">
+              <span class="lab-badge lab-badge--done">등록</span>
+              <p class="lab-patent-name">레이저 클래딩 공법</p>
+              <p class="lab-patent-num"><!-- 특허번호 --></p>
+            </div>
+          </div>
+
+          <div class="lab-patent-card">
+            <div class="lab-patent-img">
+              <img src="/images/lab/patent2.jpg" alt="Mg 용융 이송장치"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="lab-img-placeholder"><i class="bi bi-file-earmark-text"></i></div>
+            </div>
+            <div class="lab-patent-info">
+              <span class="lab-badge lab-badge--done">등록</span>
+              <p class="lab-patent-name">Mg 용융 이송장치</p>
+              <p class="lab-patent-num"><!-- 특허번호 --></p>
+            </div>
+          </div>
+
+          <div class="lab-patent-card">
+            <div class="lab-patent-img">
+              <img src="/images/lab/patent3.jpg" alt="PTA 자동 용접"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="lab-img-placeholder"><i class="bi bi-file-earmark-text"></i></div>
+            </div>
+            <div class="lab-patent-info">
+              <span class="lab-badge lab-badge--done">등록</span>
+              <p class="lab-patent-name">PTA 자동 용접</p>
+              <p class="lab-patent-num"><!-- 특허번호 --></p>
+            </div>
+          </div>
+
+          <div class="lab-patent-card">
+            <div class="lab-patent-img">
+              <img src="/images/lab/patent4.jpg" alt="표면 경화 방법"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="lab-img-placeholder"><i class="bi bi-file-earmark-text"></i></div>
+            </div>
+            <div class="lab-patent-info">
+              <span class="lab-badge lab-badge--done">등록</span>
+              <p class="lab-patent-name">표면 경화 방법</p>
+              <p class="lab-patent-num"><!-- 특허번호 --></p>
+            </div>
+          </div>
+
+          <div class="lab-patent-card">
+            <div class="lab-patent-img">
+              <div class="lab-img-placeholder" style="display:flex;"><i class="bi bi-file-earmark-text"></i></div>
+            </div>
+            <div class="lab-patent-info">
+              <span class="lab-badge lab-badge--ongoing">진행중</span>
+              <p class="lab-patent-name"><!-- 특허명 --></p>
+              <p class="lab-patent-num">출원 준비중</p>
+            </div>
+          </div>
+
+          <div class="lab-patent-card">
+            <div class="lab-patent-img">
+              <div class="lab-img-placeholder" style="display:flex;"><i class="bi bi-file-earmark-text"></i></div>
+            </div>
+            <div class="lab-patent-info">
+              <span class="lab-badge lab-badge--ongoing">진행중</span>
+              <p class="lab-patent-name"><!-- 특허명 --></p>
+              <p class="lab-patent-num">출원 준비중</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div th:replace="~{layout/footer :: footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

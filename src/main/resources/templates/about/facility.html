@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('회사소개 - 주요설비현황')}"></head>
+
+<body class="sub-page-body">
+
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<div class="page-header"
+     style="background-image: url('/images/about/facility-bg.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;">
+  <div class="container">
+    <h2>회사소개</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" style="color:rgba(255,255,255,0.65); text-decoration:none;">HOME</a>
+        </li>
+        <li class="breadcrumb-item">회사소개</li>
+        <li class="breadcrumb-item active">주요설비현황</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sub-container">
+
+    <nav th:replace="~{layout/sidenav :: about('facility')}"></nav>
+
+    <div class="sub-content">
+
+      <!-- 설비 카드 그리드 -->
+      <div class="facility-section fade-up">
+        <p class="facility-section-label">EQUIPMENT</p>
+        <h4 class="facility-section-title">주요설비 현황</h4>
+
+        <div class="facility-grid">
+
+          <div class="facility-card">
+            <div class="facility-card-img">
+              <img src="/images/about/facility/equip1.jpg" alt="레이저 클래딩 시스템"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="facility-img-placeholder"><i class="bi bi-image"></i></div>
+              <div class="facility-card-num">01</div>
+            </div>
+            <div class="facility-card-body">
+              <h5 class="facility-card-name">레이저 클래딩 시스템</h5>
+              <div class="facility-card-specs">
+                <div class="facility-spec-row">
+                  <span class="facility-spec-key">규격/사양</span>
+                  <span class="facility-spec-val"><!-- TODO --></span>
+                </div>
+                <div class="facility-spec-row">
+                  <span class="facility-spec-key">수량</span>
+                  <span class="facility-spec-val"><!-- TODO --></span>
+                </div>
+                <div class="facility-spec-row">
+                  <span class="facility-spec-key">용도</span>
+                  <span class="facility-spec-val">표면 경화 코팅</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="facility-card">
+            <div class="facility-card-img">
+              <img src="/images/about/facility/equip2.jpg" alt="로봇 용접 시스템"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="facility-img-placeholder"><i class="bi bi-image"></i></div>
+              <div class="facility-card-num">02</div>
+            </div>
+            <div class="facility-card-body">
+              <h5 class="facility-card-name">로봇 용접 시스템</h5>
+              <div class="facility-card-specs">
+                <div class="facility-spec-row">
+                  <span class="facility-spec-key">규격/사양</span>
+                  <span class="facility-spec-val"><!-- TODO --></span>
+                </div>
+                <div class="facility-spec-row">
+                  <span class="facility-spec-key">수량</span>
+                  <span class="facility-spec-val"><!-- TODO --></span>
+                </div>
+                <div class="facility-spec-row">
+                  <span class="facility-spec-key">용도</span>
+                  <span class="facility-spec-val">자동 용접</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="facility-card">
+            <div class="facility-card-img">
+              <img src="/images/about/facility/equip3.jpg" alt="CNC 가공센터"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="facility-img-placeholder"><i class="bi bi-image"></i></div>
+              <div class="facility-card-num">03</div>
+            </div>
+            <div class="facility-card-body">
+              <h5 class="facility-card-name">CNC 가공센터</h5>
+              <div class="facility-card-specs">
+                <div class="facility-spec-row">
+                  <span class="facility-spec-key">규격/사양</span>
+                  <span class="facility-spec-val"><!-- TODO --></span>
+                </div>
+                <div class="facility-spec-row">
+                  <span class="facility-spec-key">수량</span>
+                  <span class="facility-spec-val"><!-- TODO --></span>
+                </div>
+                <div class="facility-spec-row">
+                  <span class="facility-spec-key">용도</span>
+                  <span class="facility-spec-val">정밀 가공</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="facility-card">
+            <div class="facility-card-img">
+              <img src="/images/about/facility/equip4.jpg" alt="3D 스캐너"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="facility-img-placeholder"><i class="bi bi-image"></i></div>
+              <div class="facility-card-num">04</div>
+            </div>
+            <div class="facility-card-body">
+              <h5 class="facility-card-name">3D 스캐너</h5>
+              <div class="facility-card-specs">
+                <div class="facility-spec-row">
+                  <span class="facility-spec-key">규격/사양</span>
+                  <span class="facility-spec-val"><!-- TODO --></span>
+                </div>
+                <div class="facility-spec-row">
+                  <span class="facility-spec-key">수량</span>
+                  <span class="facility-spec-val"><!-- TODO --></span>
+                </div>
+                <div class="facility-spec-row">
+                  <span class="facility-spec-key">용도</span>
+                  <span class="facility-spec-val">역설계·검사</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TODO: 설비 카드 추가 -->
+
+        </div>
+      </div>
+
+    </div><!-- /sub-content -->
+  </div><!-- /sub-container -->
+</div><!-- /container -->
+
+<div th:replace="~{layout/footer :: footer}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

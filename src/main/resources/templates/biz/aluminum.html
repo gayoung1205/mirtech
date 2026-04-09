@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('사업분야 - 알미늄 용융도금')}"></head>
+
+<body class="sub-page-body">
+
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<div class="page-header"
+     style="background-image: url('/images/biz/aluminum/aluminum-bg.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;">
+  <div class="container">
+    <h2>사업분야</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" style="color:rgba(255,255,255,0.65); text-decoration:none;">HOME</a>
+        </li>
+        <li class="breadcrumb-item">사업분야</li>
+        <li class="breadcrumb-item active">알미늄 용융도금</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sub-container">
+
+    <nav th:replace="~{layout/sidenav :: biz('aluminum')}"></nav>
+
+    <div class="sub-content">
+
+      <!-- 섹션 1: 기술 소개 -->
+      <div class="biz-intro fade-up">
+        <div class="biz-intro-img">
+          <img src="/images/biz/aluminum.jpg" alt="알미늄 용융도금"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="biz-intro-img-placeholder">
+            <i class="bi bi-image"></i>
+          </div>
+        </div>
+        <div class="biz-intro-text">
+          <p class="biz-intro-en">Hot-dip Aluminum Coating</p>
+          <h3 class="biz-intro-title">알미늄 용융도금</h3>
+          <p class="biz-intro-desc">
+            <!-- TODO: 기술 소개 내용 입력 -->
+          </p>
+          <div class="biz-badges">
+            <!-- TODO: 키워드 배지 입력 -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 섹션 2: 기술 발전 배경 -->
+      <div class="biz-section fade-up">
+        <p class="biz-section-label">BACKGROUND</p>
+        <h4 class="biz-section-title">기술 발전 배경</h4>
+        <p class="biz-bg-desc">
+          <!-- TODO: 기술 발전 배경 내용 입력 -->
+        </p>
+        <div class="biz-prev-tech-grid">
+          <div class="biz-prev-tech-card">
+            <div class="biz-prev-tech-img"></div>
+            <p class="biz-prev-tech-name"><!-- 기술명 --></p>
+            <p class="biz-prev-tech-en"><!-- 영문명 --></p>
+          </div>
+          <div class="biz-prev-tech-card">
+            <div class="biz-prev-tech-img"></div>
+            <p class="biz-prev-tech-name"><!-- 기술명 --></p>
+            <p class="biz-prev-tech-en"><!-- 영문명 --></p>
+          </div>
+          <div class="biz-prev-tech-card">
+            <div class="biz-prev-tech-img"></div>
+            <p class="biz-prev-tech-name"><!-- 기술명 --></p>
+            <p class="biz-prev-tech-en"><!-- 영문명 --></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 섹션 3: 기술 비교 -->
+      <div class="biz-section fade-up">
+        <p class="biz-section-label">COMPARISON</p>
+        <h4 class="biz-section-title">기술 비교</h4>
+        <div class="biz-compare-table-wrap">
+          <table class="biz-compare-table">
+            <thead>
+            <tr>
+              <th>항목</th>
+              <th><!-- 비교항목1 --></th>
+              <th><!-- 비교항목2 --></th>
+              <th><!-- 비교항목3 --></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="biz-compare-highlight">
+              <td><strong>알미늄 용융도금</strong></td>
+              <td><!-- --></td>
+              <td><!-- --></td>
+              <td><!-- --></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 섹션 4: 기술 필요성 -->
+      <div class="biz-section fade-up">
+        <p class="biz-section-label">FEATURES</p>
+        <h4 class="biz-section-title">기술 필요성</h4>
+        <div class="biz-feature-grid">
+          <div class="biz-feature-card">
+            <div class="biz-feature-icon"><i class="bi bi-patch-check"></i></div>
+            <h5 class="biz-feature-name"><!-- 특징 제목 --></h5>
+            <p class="biz-feature-desc"><!-- 특징 설명 --></p>
+          </div>
+          <div class="biz-feature-card">
+            <div class="biz-feature-icon"><i class="bi bi-patch-check"></i></div>
+            <h5 class="biz-feature-name"><!-- 특징 제목 --></h5>
+            <p class="biz-feature-desc"><!-- 특징 설명 --></p>
+          </div>
+          <div class="biz-feature-card">
+            <div class="biz-feature-icon"><i class="bi bi-patch-check"></i></div>
+            <h5 class="biz-feature-name"><!-- 특징 제목 --></h5>
+            <p class="biz-feature-desc"><!-- 특징 설명 --></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 섹션 5: 설비 현황 -->
+      <div class="biz-section fade-up">
+        <p class="biz-section-label">EQUIPMENT</p>
+        <h4 class="biz-section-title">설비 현황</h4>
+        <div class="biz-equip-wrap">
+          <div class="biz-equip-imgs">
+            <div class="biz-equip-img-main">
+              <img src="/images/biz/aluminum/equip-main.jpg" alt="알미늄 용융도금 설비"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="biz-intro-img-placeholder"><i class="bi bi-image"></i></div>
+            </div>
+            <div class="biz-equip-img-sub-row">
+              <div class="biz-equip-img-sub">
+                <img src="/images/biz/aluminum/equip-sub1.jpg" alt="설비 상세"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="biz-intro-img-placeholder"><i class="bi bi-image"></i></div>
+              </div>
+              <div class="biz-equip-img-sub">
+                <img src="/images/biz/aluminum/equip-sub2.jpg" alt="설비 상세"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="biz-intro-img-placeholder"><i class="bi bi-image"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="biz-equip-spec">
+            <h5 class="biz-equip-spec-title">장비 사양</h5>
+            <ul class="biz-equip-spec-list">
+              <!-- TODO: 장비 사양 항목 입력 -->
+              <li>
+                <span class="biz-spec-key"><!-- 사양명 --></span>
+                <span class="biz-spec-val"><!-- 사양값 --></span>
+              </li>
+              <li>
+                <span class="biz-spec-key"><!-- 사양명 --></span>
+                <span class="biz-spec-val"><!-- 사양값 --></span>
+              </li>
+              <li>
+                <span class="biz-spec-key"><!-- 사양명 --></span>
+                <span class="biz-spec-val"><!-- 사양값 --></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 섹션 6: 적용 분야 -->
+      <div class="biz-section fade-up">
+        <p class="biz-section-label">APPLICATION</p>
+        <h4 class="biz-section-title">적용 분야</h4>
+        <div class="biz-app-grid">
+          <!-- TODO: 적용 분야 아이템 입력 -->
+          <div class="biz-app-item">
+            <i class="bi bi-building"></i>
+            <span><!-- 분야명 --></span>
+          </div>
+          <div class="biz-app-item">
+            <i class="bi bi-gear"></i>
+            <span><!-- 분야명 --></span>
+          </div>
+          <div class="biz-app-item">
+            <i class="bi bi-tools"></i>
+            <span><!-- 분야명 --></span>
+          </div>
+          <div class="biz-app-item">
+            <i class="bi bi-cpu"></i>
+            <span><!-- 분야명 --></span>
+          </div>
+          <div class="biz-app-item">
+            <i class="bi bi-lightning"></i>
+            <span><!-- 분야명 --></span>
+          </div>
+          <div class="biz-app-item">
+            <i class="bi bi-droplet"></i>
+            <span><!-- 분야명 --></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer th:replace="~{layout/footer :: footer}"></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

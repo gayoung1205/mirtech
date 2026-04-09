@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: head('생산주요제품 - PTA')}"></head>
+
+<body class="sub-page-body">
+
+<nav th:replace="~{layout/header :: navbar}"></nav>
+
+<div class="page-header"
+     style="background-image: url('/images/prod/pta/pta-bg.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;">
+  <div class="container">
+    <h2>생산주요제품</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" style="color:rgba(255,255,255,0.65); text-decoration:none;">HOME</a>
+        </li>
+        <li class="breadcrumb-item">생산주요제품</li>
+        <li class="breadcrumb-item active">PTA</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sub-container">
+
+    <nav th:replace="~{layout/sidenav :: prod('pta')}"></nav>
+
+    <div class="sub-content">
+
+      <!-- 섹션 1: 납품 성과 요약 -->
+      <div class="prod-section fade-up">
+        <p class="prod-section-label">SUMMARY</p>
+        <h4 class="prod-section-title">납품 성과 요약</h4>
+        <div class="prod-stat-row">
+          <div class="prod-stat-card">
+            <div class="prod-stat-num"><!-- TODO --><span class="prod-stat-unit">+</span></div>
+            <div class="prod-stat-lbl">총 납품 건수</div>
+          </div>
+          <div class="prod-stat-card">
+            <div class="prod-stat-num"><!-- TODO --><span class="prod-stat-unit">+</span></div>
+            <div class="prod-stat-lbl">주요 고객사</div>
+          </div>
+          <div class="prod-stat-card">
+            <div class="prod-stat-num"><!-- TODO --><span class="prod-stat-unit">배</span></div>
+            <div class="prod-stat-lbl">최대 수명 향상</div>
+          </div>
+          <div class="prod-stat-card">
+            <div class="prod-stat-num"><!-- TODO --><span class="prod-stat-unit">+</span></div>
+            <div class="prod-stat-lbl">보유 특허</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 섹션 2: 납품 실적 카드 -->
+      <div class="prod-section fade-up">
+        <p class="prod-section-label">DELIVERY RECORD</p>
+        <h4 class="prod-section-title">납품 실적</h4>
+        <div class="prod-delivery-grid">
+          <!-- TODO: 납품 실적 카드 추가 -->
+          <div class="prod-delivery-card">
+            <span class="prod-client-badge"><!-- 고객사명 --></span>
+            <p class="prod-delivery-title"><!-- 제품명 --></p>
+            <p class="prod-delivery-sub"><!-- 적용 소재 · 수량 --></p>
+            <p class="prod-delivery-result"><i class="bi bi-arrow-up-short"></i><!-- 성과 --></p>
+          </div>
+          <div class="prod-delivery-card">
+            <span class="prod-client-badge"><!-- 고객사명 --></span>
+            <p class="prod-delivery-title"><!-- 제품명 --></p>
+            <p class="prod-delivery-sub"><!-- 적용 소재 · 수량 --></p>
+            <p class="prod-delivery-result"><i class="bi bi-arrow-up-short"></i><!-- 성과 --></p>
+          </div>
+          <div class="prod-delivery-card">
+            <span class="prod-client-badge"><!-- 고객사명 --></span>
+            <p class="prod-delivery-title"><!-- 제품명 --></p>
+            <p class="prod-delivery-sub"><!-- 적용 소재 · 수량 --></p>
+            <p class="prod-delivery-result"><i class="bi bi-arrow-up-short"></i><!-- 성과 --></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 섹션 3: 개선 전/후 비교 (수평 바) -->
+      <div class="prod-section fade-up">
+        <p class="prod-section-label">IMPROVEMENT</p>
+        <h4 class="prod-section-title">개선 전 / 후 비교</h4>
+
+        <div class="prod-bar-header">
+          <div></div>
+          <div class="prod-bar-col-hdr prod-bar-col-hdr--before">BEFORE &mdash; 기존 방식</div>
+          <div class="prod-bar-col-hdr prod-bar-col-hdr--after">AFTER &mdash; PTA 적용</div>
+        </div>
+
+        <div class="prod-bar-list">
+          <!-- TODO: 비교 항목 추가 -->
+          <div class="prod-bar-row">
+            <div class="prod-bar-key"><!-- 항목명 --></div>
+            <div class="prod-bar-wrap prod-bar-before">
+              <div class="prod-bar-fill" style="width:0%"><!-- 수치 --></div>
+            </div>
+            <div class="prod-bar-wrap prod-bar-after">
+              <div class="prod-bar-fill" style="width:0%"><!-- 수치 --></div>
+            </div>
+          </div>
+          <div class="prod-bar-row">
+            <div class="prod-bar-key"><!-- 항목명 --></div>
+            <div class="prod-bar-wrap prod-bar-before">
+              <div class="prod-bar-fill" style="width:0%"><!-- 수치 --></div>
+            </div>
+            <div class="prod-bar-wrap prod-bar-after">
+              <div class="prod-bar-fill" style="width:0%"><!-- 수치 --></div>
+            </div>
+          </div>
+          <div class="prod-bar-row">
+            <div class="prod-bar-key"><!-- 항목명 --></div>
+            <div class="prod-bar-wrap prod-bar-before">
+              <div class="prod-bar-fill" style="width:0%"><!-- 수치 --></div>
+            </div>
+            <div class="prod-bar-wrap prod-bar-after">
+              <div class="prod-bar-fill" style="width:0%"><!-- 수치 --></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="prod-bar-result">
+          <span class="prod-bar-result-num"><!-- TODO: 핵심 성과 수치 --></span>
+          <span class="prod-bar-result-lbl"><!-- 성과 요약 문구 --></span>
+        </div>
+      </div>
+
+      <!-- 섹션 4: 적용 개소별 상세 -->
+      <div class="prod-section fade-up">
+        <p class="prod-section-label">APPLICATION DETAIL</p>
+        <h4 class="prod-section-title">적용 개소별 상세</h4>
+        <div class="prod-table-wrap">
+          <table class="prod-table">
+            <thead>
+            <tr>
+              <th>적용 개소</th>
+              <th>제품명</th>
+              <th>적용 소재</th>
+              <th>적용 전 수명</th>
+              <th>적용 후 수명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- TODO: 적용 개소 데이터 입력 -->
+            <tr>
+              <td><!-- --></td>
+              <td><!-- --></td>
+              <td><!-- --></td>
+              <td><!-- --></td>
+              <td><!-- --></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 섹션 5: 현장 사진 갤러리 -->
+      <div class="prod-section fade-up">
+        <p class="prod-section-label">GALLERY</p>
+        <h4 class="prod-section-title">현장 사진 갤러리</h4>
+        <div class="prod-gallery-grid">
+          <div class="prod-gallery-item">
+            <div class="prod-gallery-img">
+              <img src="/images/prod/pta/gallery1.jpg" alt="PTA"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="prod-gallery-placeholder"><i class="bi bi-image"></i></div>
+            </div>
+            <p class="prod-gallery-lbl"><!-- 사진 설명 --></p>
+          </div>
+          <div class="prod-gallery-item">
+            <div class="prod-gallery-img">
+              <img src="/images/prod/pta/gallery2.jpg" alt="PTA"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="prod-gallery-placeholder"><i class="bi bi-image"></i></div>
+            </div>
+            <p class="prod-gallery-lbl"><!-- 사진 설명 --></p>
+          </div>
+          <div class="prod-gallery-item">
+            <div class="prod-gallery-img">
+              <img src="/images/prod/pta/gallery3.jpg" alt="PTA"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="prod-gallery-placeholder"><i class="bi bi-image"></i></div>
+            </div>
+            <p class="prod-gallery-lbl"><!-- 사진 설명 --></p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /sub-content -->
+  </div><!-- /sub-container -->
+</div><!-- /container -->
+
+<div th:replace="~{layout/footer :: footer}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.prod-bar-fill').forEach(bar => {
+          const target = bar.style.width;
+          bar.style.width = '0';
+          requestAnimationFrame(() => {
+            bar.style.transition = 'width 0.8s cubic-bezier(0.22,1,0.36,1)';
+            bar.style.width = target;
+          });
+        });
+        barObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.prod-bar-list').forEach(el => barObserver.observe(el));
+</script>
+</body>
+</html>

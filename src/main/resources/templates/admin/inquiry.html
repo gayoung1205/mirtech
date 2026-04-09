@@ -44,7 +44,7 @@
           <th style="width: 60px;">No</th>
           <th style="width: 100px;">이름</th>
           <th style="width: 130px;">사업분야</th>
-          <th style="width: 140px; white-space: nowrap;">연락처</th>
+          <th style="width: 140px;">연락처</th>
           <th>이메일</th>
           <th style="width: 80px;">접수일</th>
           <th style="width: 80px;">상태</th>
@@ -58,12 +58,12 @@
           </td>
         </tr>
         <tr th:each="inq : ${inquiries.content}"
-            style="cursor:pointer;"
+            style="cursor:pointer; white-space: nowrap;"
             th:onclick="|location.href='@{/admin/inquiry/{id}/open(id=${inq.id})}'|">
           <td style="text-align:center;" th:text="${inq.id}"></td>
           <td style="font-weight:600;" th:text="${inq.name}"></td>
           <td th:text="${inq.bizType}"></td>
-          <td style="white-space: nowrap;" th:text="${inq.phone}"></td>
+          <td th:text="${inq.phone}"></td>
           <td th:text="${inq.email}"></td>
           <td style="text-align:center;"
               th:text="${#temporals.format(inq.createdAt,'MM-dd')}"></td>
