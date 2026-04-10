@@ -56,8 +56,8 @@
               등록된 게시글이 없습니다.
             </td>
           </tr>
-          <tr th:each="board : ${boards}">
-            <td th:text="${board.id}"></td>
+          <tr th:each="board, boardStat : ${boards.content}">
+            <td th:text="${boards.totalElements - (currentPage * 10) - boardStat.index}"></td>
             <td class="cs-board-title">
               <a th:href="@{/cs/notice/{id}(id=${board.id})}">
                   <span th:if="${board.category}"

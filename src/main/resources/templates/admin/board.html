@@ -71,8 +71,8 @@
             등록된 게시글이 없습니다.
           </td>
         </tr>
-        <tr th:each="board : ${boards.content}">
-          <td th:text="${board.id}" style="text-align:center;"></td>
+        <tr th:each="board, boardStat : ${boards.content}">
+          <td th:text="${boards.totalElements - (currentPage * 10) - boardStat.index}" style="text-align:center;"></td>
           <td>
             <a th:href="@{/admin/board/edit/{id}(id=${board.id})}"
                style="color:#222;text-decoration:none;">
