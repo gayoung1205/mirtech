@@ -429,6 +429,205 @@ body {
   text-align: center;
 }
 
+/* 공정 순서 섹션 */
+.biz-process-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.biz-process-sub-title {
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: #0d2a5e;
+  margin: 0 0 14px;
+}
+.biz-equip-diagram {
+  width: 100%;
+  background: #f9fafb;
+  border: 1px solid #e4e8ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.biz-equip-diagram img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* C형 좌우 교차 */
+.biz-steps-c {
+  display: flex;
+  flex-direction: column;
+}
+.biz-step-c {
+  display: grid;
+  grid-template-columns: 1fr 32px 1fr;
+  align-items: stretch;
+  min-height: 60px;
+}
+.biz-step-c-left {
+  padding: 10px 16px 10px 0;
+  text-align: right;
+}
+.biz-step-c-right {
+  padding: 10px 0 10px 16px;
+  text-align: left;
+}
+.biz-step-c-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.biz-step-c-num {
+  width: 28px;
+  height: 28px;
+  min-height: 28px;
+  border-radius: 50%;
+  background: #0d2a5e;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.biz-step-c-line {
+  flex: 1;
+  width: 1px;
+  background: #e4e8ef;
+  min-height: 12px;
+}
+.biz-step-c-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 3px;
+  line-height: 1.5;
+}
+.biz-step-c-desc {
+  font-size: 0.78rem;
+  color: #888;
+  margin: 0;
+  line-height: 1.6;
+}
+@media (max-width: 768px) {
+  .biz-process-wrap { grid-template-columns: 1fr; }
+}
+
+.biz-compare-table .highlight-col {
+  background: #eef3fb;
+  color: #0d2a5e;
+  font-weight: 700;
+}
+
+.biz-equip-diagram {
+  width: 100%;
+  overflow: hidden;
+  background: #f4f7fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.biz-equip-diagram img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.biz-steps-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.biz-step-h {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 90px;
+  background: #f4f7fc;
+  padding: 14px 8px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #333;
+  line-height: 1.5;
+}
+.biz-step-arrow {
+  color: #1a5fd1;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* 알루미늄 단면구조 레이아웃 */
+.biz-layer-wrap {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-top: 24px;
+}
+.biz-layer-img {
+  flex: 1;
+  min-width: 0;
+}
+.biz-layer-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.biz-layer-img-caption {
+  font-size: 0.75rem;
+  color: #999;
+  text-align: center;
+  margin-top: 8px;
+}
+.biz-layer-list {
+  width: 280px;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.biz-layer-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e4e8ef;
+}
+.biz-layer-item:last-child {
+  border-bottom: none;
+}
+.biz-layer-num {
+  min-width: 36px;
+  padding: 4px 8px;
+  background: #0d2a5e;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-align: center;
+  flex-shrink: 0;
+}
+.biz-layer-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0d2a5e;
+  margin: 0 0 4px;
+}
+.biz-layer-desc {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+@media (max-width: 768px) {
+  .biz-layer-wrap { flex-direction: column; }
+  .biz-layer-list { width: 100%; min-width: unset; }
+}
+
 .stats-section {
   background: #f4f6f9;
   padding: 80px 0;
