@@ -562,20 +562,24 @@ body {
   flex-shrink: 0;
 }
 
-/* 알루미늄 단면구조 레이아웃 */
 .biz-layer-wrap {
   display: flex;
   gap: 40px;
-  align-items: center;
+  align-items: stretch;
   margin-top: 24px;
 }
+
 .biz-layer-img {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
+
 .biz-layer-img img {
   width: 100%;
-  height: auto;
+  flex: 1;
+  object-fit: cover;
   display: block;
 }
 .biz-layer-img-caption {
@@ -602,13 +606,17 @@ body {
   border-bottom: none;
 }
 .biz-layer-num {
-  min-width: 36px;
-  padding: 4px 8px;
-  background: #0d2a5e;
-  color: #fff;
-  font-size: 0.72rem;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  background: #e8f0fe;
+  color: #1a5fd1;
+  font-size: 0.78rem;
   font-weight: 700;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 .biz-layer-name {
