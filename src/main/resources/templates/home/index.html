@@ -14,11 +14,27 @@
   <div class="hero-slide hero-slide-2"></div>
   <div class="hero-slide hero-slide-3"></div>
 
-  <!-- 배경 영상 (슬라이드 1에서만 보임) -->
-  <video class="hero-video hero-video-slide"
+  <!-- 슬라이드 1 영상 (기존) -->
+  <video class="hero-video hero-video-slide hero-video-1"
          autoplay muted loop playsinline
-         poster="/images/hero-poster.png">
-    <source src="/videos/hero-bg.mp4" type="video/mp4">
+         poster="/images/hero/hero-bg1.png">
+    <source src="/videos/hero-bg1.mp4" type="video/mp4">
+  </video>
+
+  <!-- 슬라이드 2 영상 (추가) -->
+  <video class="hero-video hero-video-slide hero-video-2"
+         muted loop playsinline
+         style="opacity:0;"
+         poster="/images/hero/hero-bg1.png">
+    <source src="/videos/hero-bg2.mp4" type="video/mp4">
+  </video>
+
+  <!-- 슬라이드 3 영상 (추가) -->
+  <video class="hero-video hero-video-slide hero-video-3"
+         muted loop playsinline
+         style="opacity:0;"
+         poster="/images/hero/hero-bg2.png">
+    <source src="/videos/hero-bg3.mp4" type="video/mp4">
   </video>
 
   <!-- 어두운 오버레이 -->
@@ -471,9 +487,15 @@
     slides[current].classList.add('active');
     dots[current].classList.add('active');
 
-    /* 슬라이드 1(index=0)일 때만 영상 표시 */
-    if (heroVideo) {
-      heroVideo.style.opacity = current === 0 ? '1' : '0';
+    document.querySelectorAll('.hero-video-slide').forEach(v => {
+      v.style.opacity = '0';
+      v.pause();
+    });
+
+    const activeVideo = document.querySelector(`.hero-video-${current + 1}`);
+    if (activeVideo) {
+      activeVideo.style.opacity = '1';
+      activeVideo.play();
     }
 
     document.getElementById('hero-badge').textContent = heroTexts[current].badge;
