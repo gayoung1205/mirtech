@@ -747,7 +747,7 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: url('/images/cta-bg3.png') center/cover no-repeat;
+  background: url('/images/cta-bg.png') center/cover no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-attachment: fixed;
