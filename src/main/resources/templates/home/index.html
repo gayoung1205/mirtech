@@ -245,100 +245,119 @@
 </section>
 
 <!-- ========================
-  납품실적 스크롤 카드 섹션
-  (stats-section 바로 위에 추가)
+  납품실적 3열 그리드 섹션
+  (stats-section 바로 위)
 ======================== -->
 <section class="track-section snap-section">
-  <div class="track-inner">
+  <div class="track-container">
 
-    <!-- 좌측: 타이틀 고정 영역 -->
-    <div class="track-title-col">
+    <!-- 상단 헤더: 라벨 + 타이틀 -->
+    <div class="track-header">
       <p class="track-label">TRACK RECORD</p>
-      <h2 class="track-heading">주요<br>납품실적</h2>
-      <p class="track-sub">국내외 산업 현장에<br>검증된 미르테크의 기술력</p>
-      <a th:href="@{/prod/laser}" class="track-more-btn">전체 보기 →</a>
+      <h2 class="track-heading">주요 납품실적</h2>
+      <p class="track-sub">국내외 산업 현장에 검증된 미르테크의 기술력</p>
     </div>
 
-    <!-- 우측: 수평 스크롤 카드 -->
-    <div class="track-scroll-area">
-      <div class="track-cards">
+    <p class="track-scroll-hint">
+      <i class="bi bi-arrow-left"></i> 좌우로 넘겨보세요 <i class="bi bi-arrow-right"></i>
+    </p>
 
-        <!-- 기존 임의 데이터 → 실제 납품 데이터로 교체 -->
+    <!-- 3열 × 2행 그리드 카드 -->
+    <div class="track-grid">
 
-        <a th:href="@{/biz/laser}" class="track-card">
-          <div class="track-card-img tc-bg1">
-            <span class="track-card-num">01</span>
-          </div>
-          <div class="track-card-body">
-            <div class="track-card-company">POSCO 열연</div>
-            <div class="track-card-product">Roll 클래딩 12set<br>표면 경화 처리</div>
-            <span class="track-card-tag">레이저 클래딩</span>
-          </div>
-        </a>
+      <a th:href="@{/biz/laser}" class="track-card">
+        <div class="track-card-img">
+          <img src="/images/prod/laser/gallery3.png" alt="POSCO 열연 FM Side Guide Liner"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="track-card-placeholder"><i class="bi bi-image"></i></div>
+        </div>
+        <div class="track-card-body">
+          <p class="track-card-client">POSCO 열연 · 레이저 클래딩</p>
+          <p class="track-card-title">FM Side Guide Liner</p>
+          <p class="track-card-sub">WC+Ni 레이저 클래딩 · 12set</p>
+        </div>
+      </a>
 
-        <a th:href="@{/biz/laser}" class="track-card">
-          <div class="track-card-img tc-bg2">
-            <span class="track-card-num">02</span>
-          </div>
-          <div class="track-card-body">
-            <div class="track-card-company">현대제철</div>
-            <div class="track-card-product">Segment Roll 20EA<br>레이저 육성 보수</div>
-            <span class="track-card-tag">레이저 클래딩</span>
-          </div>
-        </a>
+      <a th:href="@{/biz/laser}" class="track-card">
+        <div class="track-card-img">
+          <img src="/images/track/track-02.jpg" alt="현대제철 Segment Roll"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="track-card-placeholder"><i class="bi bi-image"></i></div>
+        </div>
+        <div class="track-card-body">
+          <p class="track-card-client">현대제철 · 레이저 클래딩</p>
+          <p class="track-card-title">Segment Roll</p>
+          <p class="track-card-sub">레이저 육성 보수 · 20EA</p>
+        </div>
+      </a>
 
-        <a th:href="@{/biz/laser}" class="track-card">
-          <div class="track-card-img tc-bg3">
-            <span class="track-card-num">03</span>
-          </div>
-          <div class="track-card-body">
-            <div class="track-card-company">한국남동발전</div>
-            <div class="track-card-product">보일러 튜브 50EA<br>내열 클래딩</div>
-            <span class="track-card-tag">레이저 클래딩</span>
-          </div>
-        </a>
+      <a th:href="@{/biz/laser}" class="track-card">
+        <div class="track-card-img">
+          <img src="/images/track/track-03.jpg" alt="한국남동발전 보일러 튜브"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="track-card-placeholder"><i class="bi bi-image"></i></div>
+        </div>
+        <div class="track-card-body">
+          <p class="track-card-client">한국남동발전 · 레이저 클래딩</p>
+          <p class="track-card-title">보일러 튜브</p>
+          <p class="track-card-sub">Stellite21 내열 클래딩 · 50EA</p>
+        </div>
+      </a>
 
-        <a th:href="@{/biz/magnesium}" class="track-card">
-          <div class="track-card-img tc-bg4">
-            <span class="track-card-num">04</span>
-          </div>
-          <div class="track-card-body">
-            <div class="track-card-company">POSCO</div>
-            <div class="track-card-product">마그네슘 설비 국산화<br>용해로·보온로·이송펌프</div>
-            <span class="track-card-tag">마그네슘</span>
-          </div>
-        </a>
+      <a th:href="@{/biz/magnesium}" class="track-card">
+        <div class="track-card-img">
+          <img src="/images/track/track-04.jpg" alt="POSCO 마그네슘 설비 국산화"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="track-card-placeholder"><i class="bi bi-image"></i></div>
+        </div>
+        <div class="track-card-body">
+          <p class="track-card-client">POSCO 광양 · 마그네슘</p>
+          <p class="track-card-title">마그네슘 설비 국산화</p>
+          <p class="track-card-sub">용해로 · 보온로 · 이송펌프</p>
+        </div>
+      </a>
 
-        <a th:href="@{/biz/aluminum}" class="track-card">
-          <div class="track-card-img tc-bg1">
-            <span class="track-card-num">05</span>
-          </div>
-          <div class="track-card-body">
-            <div class="track-card-company">삼천포·당진·울산 화력</div>
-            <div class="track-card-product">해수 냉각수 배관·구조물<br>알루미늄 용융도금</div>
-            <span class="track-card-tag">알루미늄 용융도금</span>
-          </div>
-        </a>
+      <a th:href="@{/biz/aluminum}" class="track-card">
+        <div class="track-card-img">
+          <img src="/images/prod/aluminum/gallery3.jpg" alt="삼천포 화력 해수 냉각수 배관"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="track-card-placeholder"><i class="bi bi-image"></i></div>
+        </div>
+        <div class="track-card-body">
+          <p class="track-card-client">제철소 · 알루미늄 용융도금</p>
+          <p class="track-card-title">POSCO 냉각수·해수 배관</p>
+          <p class="track-card-sub">알루미늄 용융도금 공정 적용</p>
+        </div>
+      </a>
 
-        <a th:href="@{/biz/laser}" class="track-card">
-          <div class="track-card-img tc-bg2">
-            <span class="track-card-num">06</span>
-          </div>
-          <div class="track-card-body">
-            <div class="track-card-company">GS칼텍스</div>
-            <div class="track-card-product">펌프 임펠러 6EA<br>내마모 코팅</div>
-            <span class="track-card-tag">레이저 클래딩</span>
-          </div>
-        </a>
+      <a th:href="@{/biz/laser}" class="track-card">
+        <div class="track-card-img">
+          <img src="/images/track/track-06.jpg" alt="GS칼텍스 펌프 임펠러"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="track-card-placeholder"><i class="bi bi-image"></i></div>
+        </div>
+        <div class="track-card-body">
+          <p class="track-card-client">GS칼텍스 · 레이저 클래딩</p>
+          <p class="track-card-title">펌프 임펠러</p>
+          <p class="track-card-sub">Inconel 625 내마모 코팅 · 6EA</p>
+        </div>
+      </a>
 
-      </div>
     </div>
-
   </div>
 </section>
 
 <section class="stats-section snap-section d-flex align-items-center">
-  <div class="container">
+  <!-- 어두운 오버레이 -->
+  <div class="stats-overlay"></div>
+
+  <!-- 콘텐츠 -->
+  <div class="stats-content container">
+    <div class="stats-header text-center">
+      <p class="stats-label">PERFORMANCE</p>
+      <h2 class="stats-title">핵심 기술 성과</h2>
+    </div>
+
     <div class="row text-center">
       <div class="col-6 col-md-3 stat-item">
         <div class="stat-number" data-target="500">0</div>
