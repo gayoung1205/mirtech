@@ -3970,6 +3970,32 @@ footer,
   }
 }
 
+/* ──────────────────────────────────
+   스크롤 힌트 기본 (데스크톱 포함 숨김)
+────────────────────────────────── */
+.track-scroll-hint {
+  display: none;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #999;
+  margin: -12px 0 20px;
+  letter-spacing: 1px;
+}
+
+.track-scroll-hint i {
+  margin: 0 4px;
+  color: #1a5fd1;
+  font-size: 0.85rem;
+}
+
+/* 태블릿: 2열 유지 */
+@media (max-width: 992px) {
+  .track-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 모바일: 가로 스와이프 캐러셀 + 힌트 노출 */
 @media (max-width: 768px) {
 
   .track-section {
@@ -3981,24 +4007,7 @@ footer,
   }
 
   .track-scroll-hint {
-    display: none;
-    text-align: center;
-    font-size: 0.75rem;
-    color: #999;
-    margin-top: -12px;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-  }
-
-  .track-scroll-hint i {
-    margin: 0 4px;
-    color: #1a5fd1;
-  }
-
-  @media (max-width: 768px) {
-    .track-scroll-hint {
-      display: block;
-    }
+    display: block;   /* 모바일에서만 노출 */
   }
 
   .track-header {
@@ -4012,10 +4021,10 @@ footer,
   .track-grid {
     display: grid;
     grid-template-columns: none;
-    grid-template-rows: repeat(2, auto);    /* 2행 고정 */
-    grid-auto-flow: column;                 /* 세로 채운 뒤 가로로 이동 */
-    grid-auto-columns: calc(100% - 48px);   /* 각 열 = 화면 너비 - 좌우 여백 */
-    gap: 20px 16px;                         /* 세로 20 / 가로 16 */
+    grid-template-rows: repeat(2, auto);
+    grid-auto-flow: column;
+    grid-auto-columns: calc(100% - 48px);
+    gap: 20px 16px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
